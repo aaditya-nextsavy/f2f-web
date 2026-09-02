@@ -1,0 +1,150 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+import Image from "next/image";
+import { Splide, SplideSlide } from "@splidejs/react-splide";
+import "@splidejs/react-splide/css";
+import SectionTitle from "@/components/common/SectionTitle/SectionTitle";
+import type { IndustryCardData, SectionTitleData } from "@/types/home";
+
+const AUTOPLAY_PX_PER_SEC = 30;
+const EASE_TAU_MS = 350;
+
+interface IndustriesProps {
+    title: SectionTitleData;
+    data: IndustryCardData[];
+}
+
+const Industries = ({ title, data }: IndustriesProps) => {
+    const splideRef = useRef<Splide>(null);
+    const targetSpeedRef = useRef(AUTOPLAY_PX_PER_SEC);
+    const currentSpeedRef = useRef(AUTOPLAY_PX_PER_SEC);
+    const draggingRef = useRef(false);
+
+    useEffect(() => {
+        const splide = splideRef.current?.splide;
+        if (!splide) return;
+
+        const { Move } = splide.Components;
+        let rafId: number;
+        let lastTime = performance.now();
+
+        const onDrag = () => {
+            draggingRef.current = true;
+        };
+        const onDragged = () => {
+            draggingRef.current = false;
+        };
+        splide.on("drag", onDrag);
+        splide.on("dragged", onDragged);
+
+        const tick = (now: number) => {
+            const dt = Math.min(now - lastTime, 100);
+            lastTime = now;
+
+            const ease = 1 - Math.exp(-dt / EASE_TAU_MS);
+            currentSpeedRef.current += (targetSpeedRef.current - currentSpeedRef.current) * ease;
+
+            if (!draggingRef.current && currentSpeedRef.current > 0.01) {
+                Move.translate(Move.getPosition() - (currentSpeedRef.current * dt) / 1000);
+            }
+
+            rafId = requestAnimationFrame(tick);
+        };
+
+        rafId = requestAnimationFrame(tick);
+
+        return () => {
+            cancelAnimationFrame(rafId);
+            splide.off("drag");
+            splide.off("dragged");
+        };
+    }, []);
+
+    const handleMouseEnter = () => {
+        targetSpeedRef.current = 0;
+    };
+
+    const handleMouseLeave = () => {
+        targetSpeedRef.current = AUTOPLAY_PX_PER_SEC;
+    };
+
+    return (
+        <section className="industries mt-[42px]">
+            <div className="container mx-auto">
+                <SectionTitle
+                    label={title.label}
+                    title={title.title}
+                    description={title.description}
+                    className="xl:max-w-[60%] text-balance"
+                />
+            </div>
+
+            <div
+                className="mt-10 overflow-hidden lg:mt-[88px]"
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+            >
+                <Splide
+                    ref={splideRef}
+                    aria-label="Industries"
+                    options={{
+                        type: "loop",
+                        drag: true,
+                        arrows: false,
+                        pagination: false,
+                        fixedWidth: "19.6%",
+                        gap: "0",
+                        breakpoints: {
+                            1440: { fixedWidth: "38.33%", gap: "0" },
+                            1024: { fixedWidth: "31.25%", gap: "0" },
+                            640: { fixedWidth: "83.3%", gap: "0" },
+                        },
+                    }}
+                >
+                    {data.map((card) => (
+                        <SplideSlide key={card.id}>
+                            <article className="group relative aspect-square overflow-hidden border-r border-t border-b border-(--color-primary) bg-(--cards-bg) transition-colors duration-300 ease-in-out hover:bg-(--color-iceblue)">
+                                <span className="absolute left-5 top-5 z-10 text-[14px] font-bold leading-[32px] text-(--color-primary)">
+                                    {String(card.id).padStart(2, "0")}
+                                </span>
+
+                                <div className="absolute inset-0 z-10 mb-20 lg:mb-10 flex items-center justify-center">
+                                    <div className="relative size-14 md:size-18">
+                                        <Image
+                                            src={card.image}
+                                            alt=""
+                                            fill
+                                            className="object-contain"
+                                        />
+                                    </div>
+
+                                    <div className="absolute inset-0 opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100">
+                                        <Image
+                                            src="/images/common/industries-card-line-bg.svg"
+                                            alt=""
+                                            fill
+                                            className="object-contain"
+                                        />
+                                    </div>
+                                </div>
+
+                                <div className="absolute bottom-0 left-0 z-10 w-full p-[18px] xl:p-8 pt-0 text-white md:p-3 md:pt-7">
+                                    <h3 className="text-xl font-semibold leading-[20px] text-(--color-primary) md:text-[20px]">
+                                        {card.title}
+                                    </h3>
+
+                                    <p className="mt-2 max-w-[340px] text-[16px] leading-relaxed text-(--color-primary)">
+                                        {card.descp}
+                                    </p>
+                                </div>
+                            </article>
+                        </SplideSlide>
+                    ))}
+                </Splide>
+            </div>
+        </section>
+    );
+};
+
+export default Industries;
