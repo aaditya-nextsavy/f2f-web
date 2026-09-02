@@ -3,6 +3,7 @@ export type NavLink = {
   href: string;
   iconSrc?: string;
   alt?: string;
+  newPage?: boolean;
 };
 
 export const coreServices: NavLink[] = [
@@ -49,8 +50,8 @@ export const footerLinkGroups: { title: string; links: NavLink[] }[] = [
   {
     title: "Company",
     links: [
-      { label: "Privacy policy", href: "/privacy-policy" },
-      { label: "Terms & Condition", href: "/terms-and-conditions" },
+      { label: "Privacy policy", href: "/privacy-policy", newPage: true },
+      { label: "Terms & Condition", href: "/terms-and-conditions", newPage: true },
     ],
   },
 ];
@@ -63,11 +64,11 @@ export const contactInfo = {
   mapsHref: "#",
 };
 
-export const socialLinks: { label: string; href: string }[] = [
-  { label: "Facebook", href: "#" },
-  { label: "Twitter", href: "#" },
-  { label: "LinkedIn", href: "#" },
-  { label: "Instagram", href: "#" },
+export const socialLinks: NavLink[] = [
+  { label: "Facebook", href: "#", newPage: true },
+  { label: "Twitter", href: "#", newPage: true },
+  { label: "LinkedIn", href: "#", newPage: true },
+  { label: "Instagram", href: "#", newPage: true },
 ];
 
 export const serviceOptions: string[] = [...coreServices, ...additionalServices].map(

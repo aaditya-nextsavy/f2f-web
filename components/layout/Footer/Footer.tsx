@@ -199,7 +199,8 @@ export function Footer() {
                           <Link
                             key={link.label}
                             href={link.href}
-                            className="text-(length:--text-small) transition-colors"
+                            target={link.newPage ? "_blank" : undefined}
+                            className="text-(length:--text-small) transition-colors hover:underline"
                           >
                             {link.label}
                           </Link>
@@ -226,7 +227,9 @@ export function Footer() {
               }}
             />
             <p className="text-[10px] lg:text-(length:--text-xs)">©{year} FAIRWINDS SHIPPING PVT LTD. ALL RIGHTS RESERVED.</p>
-            <p className="text-[16px] lg:text-(length:--text-xs)">Crafted by Nextsavy Technologies</p>
+            <Link href="https://www.nextsavy.com/" target="_blank" className="text-[16px] lg:text-(length:--text-xs)">
+              Crafted by Nextsavy Technologies
+            </Link>
           </div>
         </div>
       </div>

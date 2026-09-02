@@ -218,7 +218,7 @@ export const aboutPageData: AboutPageData = {
             },
         ],
         image: {
-            src: "/images/about/howwework.png",
+            src: "/images/about/howwework.svg",
             alt: "Illustration of Fairwinds' shipping process from booking to delivery",
         },
     },

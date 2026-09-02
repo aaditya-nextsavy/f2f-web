@@ -318,7 +318,7 @@ const StatisticsVisual = () => {
             />
 
             {/* Earth graphic - top half visible, resting on the bottom edge */}
-            <div className="pointer-events-none absolute bottom-0 left-1/2 z-[2] aspect-square w-[320px] -translate-x-1/2 translate-y-1/2 sm:w-[460px] lg:w-[940px]">
+            <div className="pointer-events-none absolute bottom-[-40px] left-1/2 z-[2] aspect-square w-[320px] -translate-x-1/2 translate-y-1/2 sm:w-[460px] lg:w-[940px]">
                 <div ref={earthImgRef} className="absolute inset-0 z-[1]">
                     <Image
                         src="/images/about/stats/stats-just-earth.svg"
