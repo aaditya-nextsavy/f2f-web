@@ -19,7 +19,7 @@ export const blogsPageData: BlogsPageData = {
             "Our team can help you find the right shipping solution for your business.",
         action: {
             label: "Contact Us",
-            href: "/contact-us",
+            href: "/contact",
             variant: "yellow",
         },
     },

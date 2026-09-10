@@ -268,7 +268,7 @@ export default function GlobalHub({ data }: GlobalHubProps) {
                     alt=""
                     fill
                     aria-hidden="true"
-                    className="object-contain"
+                    className="object-contain "
                 />
             </div>
         </section>

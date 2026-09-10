@@ -13,19 +13,19 @@ export default function ServicesList({ data }: ServicesListProps) {
                 <div className="flex flex-col lg:flex-row  gap-6 lg:items-stretch lg:gap-[80px] xl:gap-[120px]">
                     <div className="flex flex-col justify-between lg:w-1/2 lg:max-w-[612px] relative">
 
-                        <div className="sticky top-[120px]">
+                        <div className="sticky top-[150px]">
                             <SectionTitle
                                 label={data.sectiontitle.label}
                                 title={data.sectiontitle.title}
 
                             />
 
-                            <div className="hidden lg:block relative mt-8 aspect-[608/649] w-full overflow-hidden rounded-[24px] bg-(--light-indigo-bg) lg:mt-10   ">
+                            <div className="hidden lg:block relative mt-8 aspect-[608/550] sm:aspect-[758/350] 2xl:aspect-[608/550] h-[45   vh] 2xl:h-[55vh] w-auto overflow-hidden rounded-[24px] bg-(--light-indigo-bg) lg:mt-10   ">
                                 <Image
                                     src={data.image}
                                     alt="Services"
                                     fill
-                                    className="object-contain"
+                                    className="object-cover"
                                     sizes="(max-width: 1023px) 100vw, 50vw"
                                 />
                             </div>

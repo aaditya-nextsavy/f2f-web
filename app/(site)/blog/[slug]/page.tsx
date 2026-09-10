@@ -83,7 +83,7 @@ export default async function Page({ params }: PageProps<"/blog/[slug]">) {
                     title="Need Help Choosing The Right Shipping Solution?"
                     description="Our team can guide you through FCL, LCL, and every mode in between so your cargo moves with clarity and confidence."
                     actions={[
-                        { label: "Contact Us", href: "/contact-us", variant: "yellow" },
+                        { label: "Contact Us", href: "/contact", variant: "yellow" },
 
                     ]}
                 />

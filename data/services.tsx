@@ -19,7 +19,7 @@ export const servicesPageData: ServicesPageData = {
             },
             action: {
                 label: "Contact Us",
-                href: "/contact-us",
+                href: "/contact",
                 variant: "yellow",
             },
         },
@@ -199,7 +199,7 @@ export const servicesPageData: ServicesPageData = {
             actions: [
                 {
                     label: "Contact Us",
-                    href: "/contact-us",
+                    href: "/contact",
                     variant: "yellow",
                 },
                 {
@@ -290,7 +290,7 @@ export const servicesPageData: ServicesPageData = {
             },
             action: {
                 label: "Contact Us",
-                href: "/contact-us",
+                href: "/contact",
                 variant: "yellow",
             },
         },
@@ -513,7 +513,7 @@ export const servicesPageData: ServicesPageData = {
             actions: [
                 {
                     label: "Contact Us",
-                    href: "/contact-us",
+                    href: "/contact",
                     variant: "yellow",
                 },
                 {
@@ -605,7 +605,7 @@ export const servicesPageData: ServicesPageData = {
             },
             action: {
                 label: "Contact Us",
-                href: "/contact-us",
+                href: "/contact",
                 variant: "yellow",
             },
         },
@@ -631,7 +631,7 @@ export const servicesPageData: ServicesPageData = {
                     ],
                     action: {
                         label: "Contact Us",
-                        href: "/contact-us",
+                        href: "/contact",
                         variant: "yellow",
                     },
                 },
@@ -654,7 +654,7 @@ export const servicesPageData: ServicesPageData = {
                     ],
                     action: {
                         label: "Contact Us",
-                        href: "/contact-us",
+                        href: "/contact",
                         variant: "yellow",
                     },
                 },
@@ -677,7 +677,7 @@ export const servicesPageData: ServicesPageData = {
                     ],
                     action: {
                         label: "Contact Us",
-                        href: "/contact-us",
+                        href: "/contact",
                         variant: "yellow",
                     },
                 },
@@ -700,7 +700,7 @@ export const servicesPageData: ServicesPageData = {
                     ],
                     action: {
                         label: "Contact Us",
-                        href: "/contact-us",
+                        href: "/contact",
                         variant: "yellow",
                     },
                 },
@@ -723,7 +723,7 @@ export const servicesPageData: ServicesPageData = {
                     ],
                     action: {
                         label: "Contact Us",
-                        href: "/contact-us",
+                        href: "/contact",
                         variant: "yellow",
                     },
                 },
@@ -746,7 +746,7 @@ export const servicesPageData: ServicesPageData = {
                     ],
                     action: {
                         label: "Contact Us",
-                        href: "/contact-us",
+                        href: "/contact",
                         variant: "yellow",
                     },
                 },
@@ -769,7 +769,7 @@ export const servicesPageData: ServicesPageData = {
                     ],
                     action: {
                         label: "Contact Us",
-                        href: "/contact-us",
+                        href: "/contact",
                         variant: "yellow",
                     },
                 },
@@ -876,7 +876,7 @@ export const servicesPageData: ServicesPageData = {
             actions: [
                 {
                     label: "Contact Us",
-                    href: "/contact-us",
+                    href: "/contact",
                     variant: "yellow",
                 },
                 {

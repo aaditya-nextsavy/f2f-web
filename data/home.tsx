@@ -16,7 +16,7 @@ export const homePageData: HomePageData = {
         actions: [
             {
                 label: "Contact Us",
-                href: "/contact-us",
+                href: "/contact",
                 variant: "yellow",
             },
             {
@@ -276,7 +276,7 @@ export const homePageData: HomePageData = {
         actions: [
             {
                 label: "Contact Us",
-                href: "/contact-us",
+                href: "/contact",
                 variant: "yellow",
             },
             {
