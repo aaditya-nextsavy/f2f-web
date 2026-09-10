@@ -412,3 +412,85 @@ img {
     gap: 1rem;
   }
 }
+
+
+@keyframes stats-twinkle-aa{
+
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+
+  40% {
+    opacity: 0.72;
+  }
+
+  50% {
+    opacity: 0.58;
+  }
+
+  60% {
+    opacity: 0.78;
+  }
+}
+
+
+@keyframes stars-twinkle-a {
+
+  0%,
+  100% {
+    opacity: 0.12;
+  }
+
+  45% {
+    opacity: 0.28;
+  }
+
+  55% {
+    opacity: 0.18;
+  }
+
+  65% {
+    opacity: 0.3;
+  }
+}
+
+@keyframes stars-twinkle-b {
+
+  0%,
+  100% {
+    opacity: 0.08;
+  }
+
+  30% {
+    opacity: 0.2;
+  }
+
+  50% {
+    opacity: 0.12;
+  }
+
+  70% {
+    opacity: 0.3;
+  }
+}
+
+@keyframes stars-twinkle-c {
+
+  0%,
+  100% {
+    opacity: 0.15;
+  }
+
+  25% {
+    opacity: 0.3;
+  }
+
+  40% {
+    opacity: 0.1;
+  }
+
+  75% {
+    opacity: 0.24;
+  }
+}

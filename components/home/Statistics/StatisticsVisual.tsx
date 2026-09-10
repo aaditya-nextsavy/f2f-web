@@ -214,7 +214,19 @@ const StatisticsVisual = () => {
         const allMarkers = [...startMarkers, ...endMarkers];
 
         let cancelled = false;
+        let hasStarted = false;
+        let enterTimer: ReturnType<typeof setTimeout> | null = null;
         const section = routesRoot.closest("section");
+
+        // Guard against a refresh landing mid-page (scroll restoration):
+        // ScrollTrigger's initial refresh would otherwise see the section
+        // already past "top 70%" and fire onEnter immediately, animating
+        // before the user ever settles there. Only commit to the reveal
+        // once the section has stayed in view for 500ms; if the browser
+        // then jumps back to the top before that, onLeaveBack cancels the
+        // pending start so it fires normally once the user actually
+        // scrolls down to it.
+        const ENTER_DWELL_MS = 500;
 
         const ctx = gsap.context(() => {
             if (prefersReducedMotion) {
@@ -288,12 +300,24 @@ const StatisticsVisual = () => {
             ScrollTrigger.create({
                 trigger: section ?? routesRoot,
                 start: "top 70%",
-                once: true,
                 onEnter: () => {
-                    if (earthLoadedRef.current) {
-                        startLinesTimeline();
-                    } else {
-                        onEarthReadyRef.current = startLinesTimeline;
+                    if (hasStarted) return;
+
+                    enterTimer = setTimeout(() => {
+                        enterTimer = null;
+                        hasStarted = true;
+
+                        if (earthLoadedRef.current) {
+                            startLinesTimeline();
+                        } else {
+                            onEarthReadyRef.current = startLinesTimeline;
+                        }
+                    }, ENTER_DWELL_MS);
+                },
+                onLeaveBack: () => {
+                    if (enterTimer) {
+                        clearTimeout(enterTimer);
+                        enterTimer = null;
                     }
                 },
             });
@@ -301,6 +325,7 @@ const StatisticsVisual = () => {
 
         return () => {
             cancelled = true;
+            if (enterTimer) clearTimeout(enterTimer);
             ctx.revert();
         };
     }, []);
@@ -317,14 +342,34 @@ const StatisticsVisual = () => {
                     src="/images/about/stats/stats-big-stars.svg"
                     alt=""
                     fill
-                    className="object-cover translate-y-1/2 opacity-70 [animation:stats-twinkle-a_5s_ease-in-out_infinite]"
+                    className="stats-twinkle-aa object-cover translate-y-1/2 opacity-70 [animation:stats-twinkle-a_5s_ease-in-out_infinite]"
                 />
                 <Image
                     src="/images/about/stats/stats-mini-stars.svg"
                     alt=""
                     fill
-                    className="object-cover translate-y-1/2 opacity-20 [animation-delay:-2.4s] [animation:stats-twinkle-b_6.5s_ease-in-out_infinite]"
+                    className="object-cover translate-y-1/2 opacity-20
+        [animation:stars-twinkle-a_4s_ease-in-out_infinite]"
                 />
+
+                <Image
+                    src="/images/about/stats/stats-mini-stars.svg"
+                    alt=""
+                    fill
+                    className="object-cover translate-y-1/2 translate-x-[100px] scale-[0.8] opacity-20
+        [animation:stars-twinkle-b_5.5s_ease-in-out_infinite]
+        [animation-delay:-2s]"
+                />
+
+                <Image
+                    src="/images/about/stats/stats-mini-stars.svg"
+                    alt=""
+                    fill
+                    className="object-cover translate-y-1/2 translate-x-[-100px] scale-[0.8] opacity-20
+        [animation:stars-twinkle-c_6.5s_ease-in-out_infinite]
+        [animation-delay:-4s]"
+                />
+
             </div>
 
             {/* Glowing accent stars - inlined so mix-blend-mode reacts to the

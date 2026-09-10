@@ -62,7 +62,7 @@ export const homePageData: HomePageData = {
                 variant: "dark",
                 link: {
                     label: "Learn more",
-                    href: "#",
+                    href: "/fcl-sea-freight",
                 },
             },
             {
@@ -74,7 +74,7 @@ export const homePageData: HomePageData = {
                 variant: "light",
                 link: {
                     label: "Learn more",
-                    href: "#",
+                    href: "/lcl-sea-freight",
                 },
             },
         ],
@@ -96,7 +96,7 @@ export const homePageData: HomePageData = {
                 image: "/images/common/fcl-service.png",
                 link: {
                     label: "Learn more",
-                    href: "#",
+                    href: "/other-services#customs-clearance",
                 },
             },
             {
@@ -107,7 +107,7 @@ export const homePageData: HomePageData = {
                 image: "/images/common/project-cargo.png",
                 link: {
                     label: "Learn more",
-                    href: "#",
+                    href: "/other-services#project-cargo",
                 },
             },
             {
@@ -118,7 +118,7 @@ export const homePageData: HomePageData = {
                 image: "/images/common/break-bulk.png",
                 link: {
                     label: "Learn more",
-                    href: "#",
+                    href: "/other-services#break-bulk",
                 },
             },
             {
@@ -129,7 +129,7 @@ export const homePageData: HomePageData = {
                 image: "/images/common/air-freight.png",
                 link: {
                     label: "Learn more",
-                    href: "#",
+                    href: "/other-services#air-freight",
                 },
             },
             {
@@ -140,7 +140,7 @@ export const homePageData: HomePageData = {
                 image: "/images/common/road-rail.png",
                 link: {
                     label: "Learn more",
-                    href: "#",
+                    href: "/other-services#transportation",
                 },
             },
             {
@@ -151,7 +151,7 @@ export const homePageData: HomePageData = {
                 image: "/images/common/warehousing.png",
                 link: {
                     label: "Learn more",
-                    href: "#",
+                    href: "/other-services#warehousing-distribution",
                 },
             },
             {
@@ -162,7 +162,7 @@ export const homePageData: HomePageData = {
                 image: "/images/common/multimodal.png",
                 link: {
                     label: "Learn more",
-                    href: "#",
+                    href: "/other-services#multimodal-transport-operator",
                 },
             },
         ],

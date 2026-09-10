@@ -55,6 +55,7 @@ export default function Page() {
             <Industries
                 title={homePageData.industries.sectionTitle}
                 data={homePageData.industries.cards}
+                tightBottom={false}
             />
 
             {faqs && (

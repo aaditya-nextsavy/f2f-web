@@ -61,14 +61,14 @@ export const contactInfo = {
   phoneHref: "tel:+917940097107",
   email: "info@fairwindsshipping.com",
   emailHref: "mailto:info@fairwindsshipping.com",
-  mapsHref: "#",
+  mapsHref: "https://maps.app.goo.gl/uKsgh579Wd9s4N1a8",
 };
 
 export const socialLinks: NavLink[] = [
-  { label: "Facebook", href: "#", newPage: true },
+  { label: "Facebook", href: "https://facebook.com", newPage: true },
   { label: "Twitter", href: "#", newPage: true },
   { label: "LinkedIn", href: "#", newPage: true },
-  { label: "Instagram", href: "#", newPage: true },
+  { label: "Instagram", href: "https://instagram.com", newPage: true },
 ];
 
 export const serviceOptions: string[] = [...coreServices, ...additionalServices].map(

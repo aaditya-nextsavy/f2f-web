@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { FiPlus } from "react-icons/fi";
 import { ContactForm } from "./ContactForm";
@@ -20,13 +21,15 @@ import {
 const contactRows = [
   { icon: PhoneIcon, label: "Call Us", value: contactInfo.phone, href: contactInfo.phoneHref },
   { icon: MailIcon, label: "Email Us", value: contactInfo.email, href: contactInfo.emailHref },
-  { icon: MapPinIcon, label: "Visit Us", value: "Go to Maps", href: contactInfo.mapsHref },
+  { icon: MapPinIcon, label: "Visit Us", value: "Go to Maps", href: contactInfo.mapsHref, newTab: true },
 ];
 
 const socialIcons = [FacebookIcon, XIcon, LinkedInIcon, InstagramIcon];
 
 export function Footer() {
   const year = new Date().getFullYear();
+  const pathname = usePathname();
+  const isContactPage = pathname === "/contact";
   const [openIndex, setOpenIndex] = useState(-1);
   const [hoveredLink, setHoveredLink] = useState<string | null>(null);
 
@@ -256,51 +259,55 @@ export function Footer() {
         </svg>
       </div>
 
-      <div className="container mx-auto">
-        <div className="relative z-[1] grid gap-8 py-16 text-(--color-white) lg:grid-cols-2 lg:gap-16 lg:py-21 lg:border-b border-white/20">
-          <div className="flex flex-col justify-between">
-            <div>
-              <h2 className="text-[38px] lg:text-[56px] leading-[1.1] lg:leading-[60px] font-medium">Get In Touch</h2>
-              <p className="mt-4 max-w-[100%] lg:max-w-[688px] text-[16px] lg:text-[18px] text-balance leading-[28px] tracking-[-0.3px]">
-                Have a shipment to move or need a quotation? Reach out with your requirements and our
-                team will provide structured support, clear communication, and dependable shipping
-                solutions.
-              </p>
-            </div>
+      {!isContactPage && (
+        <div className="container mx-auto footer-top-wrapper">
+          <div className="relative z-[1] grid gap-8 py-16 text-(--color-white) lg:grid-cols-2 lg:gap-16 lg:py-21 lg:border-b border-white/20">
+            <div className="flex flex-col justify-between">
+              <div>
+                <h2 className="text-[38px] lg:text-[56px] leading-[1.1] lg:leading-[60px] font-medium">Get In Touch</h2>
+                <p className="mt-4 max-w-[100%] lg:max-w-[688px] text-[16px] lg:text-[18px] text-balance leading-[28px] tracking-[-0.3px]">
+                  Have a shipment to move or need a quotation? Reach out with your requirements and our
+                  team will provide structured support, clear communication, and dependable shipping
+                  solutions.
+                </p>
+              </div>
 
 
-            <div className="mt-10 flex flex-col divide-y divide-white/40 ">
-              {contactRows.map(({ icon: Icon, label, value, href }) => (
-                <Link
-                  key={label}
-                  href={href}
-                  className="group flex items-center gap-4 py-6 transition-colors hover:bg-white/10 max-w-[100%]"
-                >
-                  <span className="flex h-[46px] w-[46px] shrink-0 items-center justify-center rounded-(--radius-full) bg-white text-(--color-primary)">
-                    <Icon className="h-[25px]" />
-                  </span>
-
-                  <span className="flex flex-1 flex-col">
-                    <span className="text-[14px] leading-4">{label}</span>
-                    <span className="text-[16px] lg:text-[20px] font-normal leading-[30px]">
-                      {value}
+              <div className="mt-10 flex flex-col divide-y divide-white/40 ">
+                {contactRows.map(({ icon: Icon, label, value, href, newTab }) => (
+                  <Link
+                    key={label}
+                    href={href}
+                    target={newTab ? "_blank" : undefined}
+                    rel={newTab ? "noopener noreferrer" : undefined}
+                    className="group flex items-center gap-7 py-6 transition-colors  max-w-[100%]"
+                  >
+                    <span className="flex h-[46px] w-[46px] shrink-0 items-center justify-center rounded-(--radius-full) bg-white text-(--color-primary)">
+                      <Icon className="h-[25px]" />
                     </span>
-                  </span>
 
-                  <ChevronRightIcon className="h-4 w-4 opacity-70 transition-transform group-hover:translate-x-0.5" />
-                </Link>
-              ))}
+                    <span className="flex flex-1 flex-col">
+                      <span className="text-[14px] leading-4">{label}</span>
+                      <span className="text-[16px] lg:text-[20px] font-normal leading-[30px] hover:underline underline-offset-4">
+                        {value}
+                      </span>
+                    </span>
+
+                    <ChevronRightIcon className="h-4 w-4 opacity-70 transition-transform group-hover:translate-x-0.5" />
+                  </Link>
+                ))}
+              </div>
             </div>
-          </div>
-          <div className="relative z-[1]">
-            <ContactForm />
-          </div>
+            <div className="relative z-[1]">
+              <ContactForm />
+            </div>
 
+          </div>
         </div>
-      </div>
+      )}
 
 
-      <div className="text-white relative z-[1] ">
+      <div className={`text-white relative z-[1] ${isContactPage ? "pt-8 lg:pt-12" : ""}`}>
 
         <div className="container">
           <div
@@ -357,6 +364,8 @@ export function Footer() {
                     <Link
                       key={social.label}
                       href={social.href}
+                      target={social.newPage ? "_blank" : undefined}
+                      rel={social.newPage ? "noopener noreferrer" : undefined}
                       aria-label={social.label}
                       className="transition-all duration-300 hover:translate-y-[-5px] flex h-12 w-12 items-center justify-center rounded-(--radius-full) border border-white text-white  hover:bg-white hover:text-(--color-primary)"
                     >
@@ -448,7 +457,7 @@ export function Footer() {
               }}
             />
             <p className="text-[10px] lg:text-(length:--text-xs)">©{year} FAIRWINDS SHIPPING PVT LTD. ALL RIGHTS RESERVED.</p>
-            <Link href="https://www.nextsavy.com/" target="_blank" className="text-[16px] lg:text-(length:--text-xs)">
+            <Link href="https://www.nextsavy.com/" target="_blank" className="text-[12px] lg:text-[14px]">
               Crafted by Nextsavy Technologies
             </Link>
           </div>

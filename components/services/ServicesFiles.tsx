@@ -277,8 +277,8 @@ export default function ServicesFiles({
                             }
                             aria-pressed={isActive}
                             className={`relative cursor-pointer px-8 py-3 text-[10px] font-semibold uppercase tracking-wide transition-opacity lg:text-[11px] ${isActive
-                                ? "opacity-100"
-                                : "opacity-70 hover:opacity-90"
+                                ? "opacity-100 font-bold!"
+                                : "opacity-70 hover:opacity-90 font-medium!"
                                 }`}
                         >
                             <svg
@@ -321,9 +321,9 @@ export default function ServicesFiles({
                         <div
                             key={card.id}
                             id={card.id}
-                            className={`scroll-mt-[100px] 2xl:scroll-mt-[170px] ${isActive
-                                    ? "relative opacity-100 transition-opacity duration-500 ease-in-out"
-                                    : "relative opacity-100 transition-opacity duration-500 ease-in-out sm:pointer-events-none sm:absolute sm:inset-0 sm:opacity-0"
+                            className={`scroll-mt-[110px] 2xl:scroll-mt-[200px] ${isActive
+                                ? "relative opacity-100 transition-opacity duration-500 ease-in-out "
+                                : "relative opacity-100 transition-opacity duration-500 ease-in-out sm:pointer-events-none sm:absolute sm:inset-0 sm:opacity-0"
                                 }`}
                         >
                             <ServiceFileCardView

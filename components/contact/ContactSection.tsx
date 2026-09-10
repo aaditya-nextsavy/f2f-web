@@ -6,7 +6,7 @@ import { PhoneIcon, MailIcon, MapPinIcon, ChevronRightIcon } from "@/components/
 const contactRows = [
     { icon: PhoneIcon, label: "Call Us", value: contactInfo.phone, href: contactInfo.phoneHref },
     { icon: MailIcon, label: "Email Us", value: contactInfo.email, href: contactInfo.emailHref },
-    { icon: MapPinIcon, label: "Visit Us", value: "Go to Maps", href: contactInfo.mapsHref },
+    { icon: MapPinIcon, label: "Visit Us", value: "Go to Maps", href: contactInfo.mapsHref, newTab: true },
 ];
 
 interface ContactSectionProps {
@@ -33,10 +33,12 @@ export default function ContactSection({ heading, description }: ContactSectionP
                         </div>
 
                         <div className="mt-4 sm:mt-8 flex flex-col lg:mt-10">
-                            {contactRows.map(({ icon: Icon, label, value, href }) => (
+                            {contactRows.map(({ icon: Icon, label, value, href, newTab }) => (
                                 <Link
                                     key={label}
                                     href={href}
+                                    target={newTab ? "_blank" : undefined}
+                                    rel={newTab ? "noopener noreferrer" : undefined}
                                     className="group flex items-center gap-3 border-b border-dashed border-(--form-placeholder) py-7 "
                                 >
                                     <span className="flex h-[46px] w-[46px] shrink-0 items-center justify-center rounded-(--radius-full) border border-(--color-primary) text-(--color-primary)">
@@ -46,7 +48,7 @@ export default function ContactSection({ heading, description }: ContactSectionP
                                         <span className="text-[14px] leading-4 text-(--color-primary) capitalize">
                                             {label}
                                         </span>
-                                        <span className="text-[20px] font-medium leading-[30px] tracking-[-0.3px] text-(--color-primary)">
+                                        <span className="text-[20px] font-medium leading-[30px] tracking-[-0.3px] text-(--color-primary) hover:underline underline-offset-3">
                                             {value}
                                         </span>
                                     </span>

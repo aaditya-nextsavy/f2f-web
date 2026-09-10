@@ -13,9 +13,10 @@ const EASE_TAU_MS = 350;
 interface IndustriesProps {
     title: SectionTitleData;
     data: IndustryCardData[];
+    tightBottom?: boolean;
 }
 
-const Industries = ({ title, data }: IndustriesProps) => {
+const Industries = ({ title, data, tightBottom = true }: IndustriesProps) => {
     const splideRef = useRef<Splide>(null);
     const targetSpeedRef = useRef(AUTOPLAY_PX_PER_SEC);
     const currentSpeedRef = useRef(AUTOPLAY_PX_PER_SEC);
@@ -70,7 +71,7 @@ const Industries = ({ title, data }: IndustriesProps) => {
     };
 
     return (
-        <section className="industries mt-[42px] mb-[62px] lg:mb-0">
+        <section className={`industries mt-[42px] ${tightBottom ? "mb-[62px] lg:mb-0" : ""}`}>
             <div className="container mx-auto">
                 <SectionTitle
                     label={title.label}

@@ -19,6 +19,24 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
 
         if (prefersReducedMotion) return;
 
+        // The browser's own scroll restoration (on refresh, and on
+        // back/forward navigation) races with Lenis: it silently moves the
+        // native scrollTop behind Lenis's back, at whatever moment the
+        // browser feels the page is "tall enough" to restore to - which,
+        // on a page with async/lazy content, can happen well after Lenis
+        // has already initialized (or forced its own scroll position via
+        // the effect below). Lenis's virtual scroll position never learns
+        // about that native jump, so the next wheel tick computes its
+        // target from the stale internal position and snaps the page back
+        // - which reads as scrolling being "blocked" past whatever height
+        // the browser had restored to. Taking restoration over ourselves
+        // (we already force scroll-to-top/hash on every navigation below)
+        // removes the race entirely.
+        const previousScrollRestoration = window.history.scrollRestoration;
+        if ("scrollRestoration" in window.history) {
+            window.history.scrollRestoration = "manual";
+        }
+
         const lenis = new Lenis({
             autoRaf: false,
             anchors: true,
@@ -37,6 +55,9 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
             gsap.ticker.remove(update);
             lenis.destroy();
             lenisRef.current = null;
+            if ("scrollRestoration" in window.history) {
+                window.history.scrollRestoration = previousScrollRestoration;
+            }
         };
     }, []);
 

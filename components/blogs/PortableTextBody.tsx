@@ -34,7 +34,7 @@ const PortableTextBody = ({ value }: PortableTextBodyProps) => {
                     <>
                         {showDivider && (
                             <div
-                                className="mt-[68px] mb-[68px] h-px w-full opacity-30"
+                                className="mt-[32px] mb-[32px] lg:mt-[68px] lg:mb-[68px] h-px w-full opacity-30"
                                 style={{
                                     backgroundImage:
                                         "repeating-linear-gradient(to right, #11227A 0 5px, transparent 5px 10px)",
@@ -86,7 +86,7 @@ const PortableTextBody = ({ value }: PortableTextBodyProps) => {
             normal: ({ children, value: block }) => (
                 <p
                     id={block._key === introKey ? INTRODUCTION_ANCHOR_ID : undefined}
-                    className={`scroll-mt-28 mt-5 ${paragraphClass}`}
+                    className={`scroll-mt-28 mt-5 mb-4 sm:mb-0 ${paragraphClass}`}
                 >
                     {children}
                 </p>
