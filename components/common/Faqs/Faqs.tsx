@@ -46,14 +46,14 @@ export default function Faqs({ title, data = [] }: FaqsProps) {
                                     aria-expanded={isOpen}
                                     className="flex w-full cursor-pointer items-center justify-between gap-6 py-8 text-left"
                                 >
-                                    <span className="text-[20px] font-medium leading-[30px] capitalize text-(--color-primary) md:text-[24px] md:leading-[34px]">
+                                    <span className="text-[20px] md:text-[22px] font-medium leading-[30px] capitalize text-(--color-primary) 2xl:text-[24px] 2xl:leading-[34px]">
                                         {faq.title}
                                     </span>
 
                                     <span
                                         className={`flex size-5 shrink-0 items-center justify-center text-(--color-primary) transition-transform duration-500 ease-in-out ${isOpen
-                                                ? "rotate-45"
-                                                : "rotate-0"
+                                            ? "rotate-45"
+                                            : "rotate-0"
                                             }`}
                                     >
                                         <FiPlus className="size-5" />
@@ -62,13 +62,13 @@ export default function Faqs({ title, data = [] }: FaqsProps) {
 
                                 <div
                                     className={`grid transition-[grid-template-rows] duration-500 ease-in-out ${isOpen
-                                            ? "grid-rows-[1fr]"
-                                            : "grid-rows-[0fr]"
+                                        ? "grid-rows-[1fr]"
+                                        : "grid-rows-[0fr]"
                                         }`}
                                 >
                                     <div className="overflow-hidden">
                                         <div className="pb-8">
-                                            <p className="max-w-[1200px] text-[18px] font-normal leading-[28px] tracking-[-0.3px] text-(--color-primary)">
+                                            <p className="max-w-[1200px] text-[16px] 2xl:text-[18px] font-normal leading-[24px] 2xl:leading-[28px] tracking-[-0.3px] text-(--color-primary)">
                                                 {faq.descp}
                                             </p>
                                         </div>

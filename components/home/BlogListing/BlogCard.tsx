@@ -81,7 +81,7 @@ const BlogCard = ({ post, featured = false }: BlogCardProps) => {
             <Button
                 href={post.href}
                 variant="yellow"
-                className="mt-4 self-start px-[34px] py-[10px] text-[16px] font-normal! leading-[24px]"
+                className="mt-4 self-start px-[34px] py-[10px] text-[16px] font-normal! leading-[24px] w-[100%]! sm:w-max!"
             >
                 Read Full Blog
             </Button>

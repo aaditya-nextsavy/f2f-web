@@ -9,9 +9,14 @@ type MissionVisionProps = {
 export default function MissionVision({ data }: MissionVisionProps) {
     return (
         <section className="py-16 sm:py-20 lg:pt-[80px] lg:pb-[104px] bg-(--light-indigo-bg) relative overflow-hidden">
-            <div className="pointer-events-none absolute inset-x-0 ">
-                <svg width="1920" height="719" viewBox="0 0 1920 719" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g opacity="0.05">
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-[719px] w-full overflow-hidden">
+                <svg
+                    className="mt-[30px] h-full w-[300%] lg:w-full "
+                    viewBox="0 0 1920 719"
+                    preserveAspectRatio="none"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                ><g opacity="0.05">
                         <path d="M2052 225V421.029H1155.05C989.706 421.029 962.147 409.498 874.881 497.134C773.836 596.302 799.097 593.995 675.087 593.995H-229V402.579H636.047C1086.16 402.579 964.444 227.306 1180.31 225H2052Z" fill="#11227A" />
                         <path d="M2012 0V196.029H1155.05C989.706 196.029 962.147 184.498 874.881 272.134C773.836 371.302 799.097 368.995 675.087 368.995H-229V177.579H636.047C1086.16 177.579 964.444 2.30622 1180.31 0H2012Z" fill="#11227A" />
                     </g>
@@ -30,12 +35,17 @@ export default function MissionVision({ data }: MissionVisionProps) {
                                 titleClassName="text-[28px] lg:text-[56px]! mt-0!"
                             />
 
-                            <div className="px-6 lg:mb-[60px]">
-                                <p className="mt-[30px] lg:mt-[60px] max-w-[455px] text-[16px] leading-[24px] text-(--color-primary)/75 [&_strong]:font-semibold [&_strong]:text-(--color-primary) lg:text-[16px]">
+                            <div className="lg:px-6 lg:mb-[60px]">
+
+                                <h3 className="mt-[30px] lg:mt-[60px]  text-[24px] leading-8 font-medium text-(--color-primary)  lg:text-[28px] lg:leading-[32px]">
+                                    {data.missionTitle}
+                                </h3>
+
+                                <p className="mt-3 lg:mt-5 max-w-[455px] text-[16px] leading-[24px] text-(--color-primary)/75 [&_strong]:font-semibold [&_strong]:text-(--color-primary) lg:text-[16px]">
                                     {data.body}
                                 </p>
 
-                                <h3 className=" text-[18px] font-semibold text-(--color-primary) mt-[30px] lg:mt-[90px] lg:text-[28px] lg:leading-[32px]">
+                                <h3 className=" text-[24px] leading-8 font-medium  text-(--color-primary) mt-[30px] lg:mt-[90px] lg:text-[28px] lg:leading-[32px]">
                                     {data.visionTitle}
                                 </h3>
 

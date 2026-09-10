@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import type {
     ActionButtonData,
     FaqData,
+    PageMetaData,
     PlaceholderData,
     SectionTitleData,
     ServiceCardData,
@@ -97,6 +98,7 @@ export interface ServicesFilesData {
 }
 
 export interface ServicePageData {
+    meta: PageMetaData;
     bannerData: ServiceBannerData;
     aboutService?: AboutServiceData;
     servicesList?: ServicesListData;

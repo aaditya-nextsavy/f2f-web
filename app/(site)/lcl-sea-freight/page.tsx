@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import BannerType2 from "@/components/common/HeroBannerSection/HeroBannerType2/BannerType2";
 import AboutService from "@/components/services/AboutService";
 import ServicesList from "@/components/services/ServicesList";
@@ -9,6 +10,11 @@ import Faqs from "@/components/common/Faqs/Faqs";
 import Industries from "@/components/home/industries/Industries";
 import { servicesPageData } from "@/data/services";
 import { homePageData } from "@/data/home";
+
+export const metadata: Metadata = {
+    title: servicesPageData.lcl.meta.title,
+    description: servicesPageData.lcl.meta.description,
+};
 
 export default function Page() {
     const { bannerData, aboutService, servicesList, globalHub, whyItWorks, otherServicesSection, cta2, faqs } =

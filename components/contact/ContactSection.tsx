@@ -32,7 +32,7 @@ export default function ContactSection({ heading, description }: ContactSectionP
                             </p>
                         </div>
 
-                        <div className="mt-8 flex flex-col lg:mt-10">
+                        <div className="mt-4 sm:mt-8 flex flex-col lg:mt-10">
                             {contactRows.map(({ icon: Icon, label, value, href }) => (
                                 <Link
                                     key={label}

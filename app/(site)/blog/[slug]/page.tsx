@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import BlogHero from "@/components/blogs/BlogHero";
 import PortableTextBody from "@/components/blogs/PortableTextBody";
@@ -22,6 +23,22 @@ import {
 export async function generateStaticParams() {
     const slugs = await client.fetch<string[]>(BLOG_SLUGS_QUERY);
     return slugs.map((slug) => ({ slug }));
+}
+
+export async function generateMetadata({
+    params,
+}: PageProps<"/blog/[slug]">): Promise<Metadata> {
+    const { slug } = await params;
+    const { data: post } = await sanityFetch({ query: BLOG_BY_SLUG_QUERY, params: { slug } });
+
+    if (!post) return {};
+
+    const typedPost = post as SanityPostDetail;
+
+    return {
+        title: `${typedPost.listingTitle} | Fairwinds Shipping Blog`,
+        description: typedPost.listingDescription,
+    };
 }
 
 export default async function Page({ params }: PageProps<"/blog/[slug]">) {
@@ -67,11 +84,11 @@ export default async function Page({ params }: PageProps<"/blog/[slug]">) {
                     description="Our team can guide you through FCL, LCL, and every mode in between so your cargo moves with clarity and confidence."
                     actions={[
                         { label: "Contact Us", href: "/contact-us", variant: "yellow" },
-                        { label: "View All Services", href: "/services", variant: "white-secondary" },
+
                     ]}
                 />
 
-                <section className="container mx-auto pb-[42px] xl:pb-[92px]">
+                <section className="container mx-auto pb-[42px] pt-8 xl:pb-[92px]">
                     <SectionTitle
                         label="Blogs"
                         title="Keep Exploring The World Of Shipping And Logistics"

@@ -25,11 +25,15 @@ const BannerType2 = ({
     const hasDescription = Boolean(description);
 
     return (
-        <section className={`${hasImage ? "pt-[145px] lg:min-h-[500px]" : `pt-[145px] ${!hasDescription ? "h-max" : "min-h-[100px]"} `} relative overflow-hidden bg-(--color-primary) `}>
-            <div
-                className="pointer-events-none absolute w-full h-full l-0 t-0 inset-0 "
-
-            ><svg width="1914" height="762" viewBox="0 0 1914 762" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <section className={`${hasImage ? "pt-[110px] xl:pt-[170px] 2xl:min-h-[500px]" : `pt-[110px] xl:pt-[170px] ${!hasDescription ? "h-max" : "min-h-[100px]"} `} relative overflow-hidden bg-(--color-primary) `}>
+            <div className="pointer-events-none absolute inset-0 h-full w-full">
+                <svg
+                    className="h-full w-full"
+                    viewBox="0 0 1914 762"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    preserveAspectRatio="xMidYMid slice"
+                >
                     <g opacity="0.05">
                         <path fillRule="evenodd" clipRule="evenodd" d="M1873.04 1.58569e-06L1914 0L1914 350.549C1914 376.641 1914.49 371.326 1893.27 392.585C1874.52 410.946 1876.99 416.744 1876.99 451.532L1876.99 762H1835.04L1835.04 456.846C1835.53 411.429 1873.04 437.037 1873.04 342.336V1.58569e-06Z" fill="url(#paint0_linear_199_4632)" />
                         <path fillRule="evenodd" clipRule="evenodd" d="M1771.09 1.58569e-06L1812.05 0L1812.05 350.549C1812.05 376.641 1812.55 371.326 1791.33 392.585C1772.57 410.946 1775.04 416.744 1775.04 451.532L1775.04 762H1733.09L1733.09 456.846C1733.59 411.429 1771.09 437.037 1771.09 342.336L1771.09 1.58569e-06Z" fill="url(#paint1_linear_199_4632)" />
@@ -191,7 +195,7 @@ const BannerType2 = ({
             </div>
 
             <div
-                className={`container relative flex pb-[50px] lg:pb-0 flex-col ${hasImage ? "lg:flex-row lg:items-stretch lg:gap-[90px] " : ""
+                className={`container relative flex pb-[50px] lg:pb-0 flex-col  ${hasImage ? "lg:flex-row lg:items-stretch lg:gap-[40px] 2xl:gap-[90px] " : ""
                     }`}
             >
                 {hasImage && (
@@ -223,7 +227,7 @@ const BannerType2 = ({
                         )}
 
                         <h1
-                            className={`text-[34px] leading-[34px] tracking-[-1px] text-white lg:text-[84px] lg:leading-[88px] lg:tracking-[-2px]  ${label ? "mt-1" : ""
+                            className={`text-[42px] leading-[46px] tracking-[-1px] text-white lg:text-[54px] md:text-[58px] md:leading-[64px] 2xl:leading-[88px] 2xl:tracking-[-2px]  ${label ? "mt-1" : ""
                                 } ${hasImage ? "max-w-[900px]" : "max-w-[100%] "}`}
                         >
                             {title}
@@ -235,11 +239,11 @@ const BannerType2 = ({
                             className={`
             ${hasImage
                                     ? action
-                                        ? "mt-[28px] lg:mt-[92px]"
-                                        : "mt-[28px] lg:mt-[92px]"
+                                        ? "mt-[28px] lg:mt-[42px] 2xl:mt-[92px]"
+                                        : "mt-[28px] lg:mt-[42px] 2xl:mt-[92px]"
                                     : action
-                                        ? "mt-[28px] lg:mt-[92px]"
-                                        : "mt-[28px] lg:mt-[42px] mb-[48px] lg:mb-[0px]"
+                                        ? "mt-[28px] lg:mt-[42px] 2xl:mt-[92px]"
+                                        : "mt-[28px] lg:mt-[42px] mb-[8px] lg:mb-[0px]"
                                 }
             pt-6
             text-[18px]
@@ -250,15 +254,15 @@ const BannerType2 = ({
             border-white/20
         `}
                         >
-                            <p className="lg:max-w-[60%]">
+                            <p className="max-w-[100%] 2xl:max-w-[70%]">
                                 {description}
                             </p>
                         </div>
                     )}
 
                     {action && (
-                        <div className={hasDescription ? "mt-8" : "mt-10"}>
-                            <Button href={action.href} variant={action.variant}>
+                        <div className={` ${hasDescription ? "mt-8" : "mt-10"}`}>
+                            <Button className="w-full lg:w-max" href={action.href} variant={action.variant}>
                                 {action.label}
                                 {action.variant === "yellow" && <FaArrowRight size={15} />}
                             </Button>

@@ -9,8 +9,8 @@ const CTA2 = ({ title, description, actions, image }: CTA2Props) => {
     return (
         <section className="bg-(--color-primary) relative overflow-hidden">
 
-            <div className="hidden lg:block absolute inset-x-0 ms-auto pointer-events-none h-full w-full">
-                <svg className="h-full w-full" viewBox="0 0 1497 658" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <div className=" absolute inset-x-0 ms-auto pointer-events-none h-full w-full">
+                <svg className="h-full w-full" viewBox="0 0 1497 658" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
                     <g opacity="0.05">
                         <path fillRule="evenodd" clipRule="evenodd" d="M1464.96 -0.999999L1497 -1L1497 302.165C1497 324.73 1497.39 320.133 1480.79 338.519C1466.12 354.398 1468.05 359.412 1468.05 389.498L1468.05 658H1435.24L1435.24 394.094C1435.63 354.816 1464.96 376.962 1464.96 295.062V-0.999999Z" fill="url(#paint0_linear_168_3731)" />
                         <path fillRule="evenodd" clipRule="evenodd" d="M1385.23 -0.999999L1417.26 -1L1417.26 302.165C1417.26 324.73 1417.65 320.133 1401.05 338.519C1386.39 354.398 1388.32 359.412 1388.32 389.498L1388.32 658H1355.51L1355.51 394.094C1355.89 354.816 1385.23 376.962 1385.23 295.062L1385.23 -0.999999Z" fill="url(#paint1_linear_168_3731)" />
@@ -172,12 +172,12 @@ const CTA2 = ({ title, description, actions, image }: CTA2Props) => {
             </div>
 
             <div className="container mx-auto relative z-[1]">
-                <div className="flex flex-col items-center gap-10 py-[41px] lg:py-[60px] lg:flex-row lg:justify-between lg:gap-16 lg:py-0">
+                <div className="flex flex-col items-center gap-10 py-[41px] 2xl:py-[60px] lg:flex-row lg:justify-between lg:gap-16 lg:pt-15 lg:pb-0">
                     <div className="lg:max-w-[50%] text-center lg:py-[92px] lg:text-left">
-                        <h3 className="text-[30px] font-bold leading-[1.15] text-white lg:text-[72px] lg:leading-[78px]">
+                        <h3 className="text-[30px] md:text-[48px] md:leading-[54px] font-bold leading-[1.15] text-white 2xl:text-[72px] 2xl:leading-[78px]">
                             {title}
                         </h3>
-                        <p className="mt-5 text-[16px] leading-[26px] text-white/70 lg:text-[18px] lg:leading-[28px]">
+                        <p className="mt-5 text-[16px] leading-[26px] text-white/70 2xl:text-[18px] 2xl:leading-[28px] lg:max-w-[80%]">
                             {description}
                         </p>
                         <div className="mt-8 flex flex-wrap items-center justify-center gap-3 lg:justify-start">
@@ -190,7 +190,7 @@ const CTA2 = ({ title, description, actions, image }: CTA2Props) => {
                         </div>
                     </div>
 
-                    <div className="hidden lg:flex w-full max-w-[60%] items-end justify-center lg:h-[400px] mt-[90px] scale-[1.3]">
+                    <div className="hidden lg:flex w-full max-w-[60%] items-end justify-center lg:h-[400px] mt-[-20px] scale-[1.3]">
                         <div className="container-swing relative h-full w-full">
                             <Image
                                 src="/images/common/container-orange.png"
@@ -203,7 +203,7 @@ const CTA2 = ({ title, description, actions, image }: CTA2Props) => {
                                 src="/images/common/container-blue.png"
                                 alt="container"
                                 fill
-                                className="container-blue ms-[100px] mt-[-65px] object-contain"
+                                className="container-blue ms-[100px] mt-[-65px] object-contain "
                             />
                         </div>
 

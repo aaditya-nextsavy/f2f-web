@@ -33,9 +33,9 @@ export default function CoreValues({ data }: CoreValuesProps) {
                         {data.values.map((value) => (
                             <div
                                 key={value.id}
-                                className="flex flex-col items-start gap-4 border-b border-dashed border-(--form-placeholder) py-6 first:pt-0 last:border-b-0 last:pb-0 lg:gap-5 lg:py-7"
+                                className="flex flex-col items-start gap-3 border-b border-dashed border-(--form-placeholder) py-6 first:pt-0 last:border-b-0 last:pb-0 lg:gap-5 lg:py-7"
                             >
-                                <div className="flex flex-col lg:flex-row justify-start gap-4 items-center">
+                                <div className="flex flex-col lg:flex-row justify-start gap-3 lg:gap-4 items-center">
                                     <div className="relative  mt-1 h-12 w-12 shrink-0 lg:h-12 lg:w-12 mr-auto lg:mr-[unset]">
                                         <Image
                                             src={value.icon}

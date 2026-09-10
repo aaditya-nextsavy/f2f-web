@@ -1,6 +1,11 @@
 import type { ContactPageData } from "@/types/contact";
 
 export const contactPageData: ContactPageData = {
+    meta: {
+        title: "Contact Us | Fairwinds Shipping",
+        description:
+            "Have a shipment to move or need a quotation? Reach out with your requirements and our team will provide structured support and dependable shipping solutions.",
+    },
     banner: {
         label: "Contact Us",
         title: "Get in Touch",

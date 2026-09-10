@@ -41,7 +41,7 @@ const HowItWorks = ({ title, paragraphs, steps }: HowItWorksProps) => {
 
 
                 {/* Desktop layout */}
-                <div className="hidden lg:block relative z-10 mt-10  lg:mt-[92px]  pt-[92px]">
+                <div className="hidden lg:block relative z-10 mt-10  2xl:mt-[92px] pt-[40px] 2xl:pt-[92px]">
 
                     <Image
                         src="/images/home/howitworks/how-it-works-left.svg"
@@ -49,7 +49,7 @@ const HowItWorks = ({ title, paragraphs, steps }: HowItWorksProps) => {
                         width={1000}
                         height={1286}
                         aria-hidden="true"
-                        className="pointer-events-none absolute top-0 w-[55.8%] left-0 hidden lg:block"
+                        className="pointer-events-none absolute top-0 w-[58.5%] 2xl:w-[55.8%] left-0 hidden lg:block object-cover"
                     />
 
                     <div className="container mx-auto">
@@ -59,7 +59,7 @@ const HowItWorks = ({ title, paragraphs, steps }: HowItWorksProps) => {
                                 {paragraphs.map((paragraph, index) => (
                                     <p
                                         key={index}
-                                        className="text-justify text-[18px] font-normal leading-[28px] tracking-[-0.3px] text-(--color-primary)"
+                                        className="text-justify text-[16px] 2xl:text-[18px] font-normal leading-[24px] 2xl:leading-[28px] tracking-[-0.3px] text-(--color-primary)"
                                     >
                                         {paragraph}
                                     </p>
@@ -67,8 +67,8 @@ const HowItWorks = ({ title, paragraphs, steps }: HowItWorksProps) => {
                             </div>
                             <div>
                                 {steps.map((step, index) => (
-                                    <div key={step.id} className="relative flex gap-[64px] pb-14 last:pb-0">
-                                        <div className="flex flex-row items-center gap-4">
+                                    <div key={step.id} className="relative flex gap-[24px] 2xl:gap-[64px] pb-12 2xl:pb-14 last:pb-0">
+                                        <div className="flex flex-row items-start gap-4 mt-1.5">
                                             <span className="text-[24px]  text-(--color-primary)/40">
                                                 {String(step.id).padStart(2, "0")}
                                             </span>
@@ -77,10 +77,10 @@ const HowItWorks = ({ title, paragraphs, steps }: HowItWorksProps) => {
                                             </span>
                                         </div>
                                         <div className="max-w-[560px]">
-                                            <h3 className="text-[34px] font-medium capitalize leading-[42px] tracking-[-1px] text-(--color-primary)">
+                                            <h3 className="text-[26px] 2xl:text-[34px] font-medium capitalize leading-[42px] tracking-[-1px] text-(--color-primary)">
                                                 {step.title}
                                             </h3>
-                                            <p className="mt-5 text-[18px] font-normal leading-[28px] tracking-[-0.3px] text-(--color-primary)">
+                                            <p className="mt-5 text-[16px] 2xl:text-[18px] font-normal leading-[24px] 2xl:leading-[32px] tracking-[-0.3px] text-(--color-primary)">
                                                 {step.description}
                                             </p>
                                         </div>

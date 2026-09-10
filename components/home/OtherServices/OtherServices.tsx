@@ -27,11 +27,11 @@ const OtherServices = ({ title, data }: OtherServicesProps) => {
                 />
 
                 {/* Grid layout - tablet and up */}
-                <div className="mt-10 hidden flex-wrap justify-center gap-4 sm:flex lg:mt-[100px] lg:gap-x-6 lg:gap-y-14">
+                <div className="mt-10 sm:mt-20 hidden flex-wrap justify-between 2xl:justify-center gap-4 sm:flex lg:mt-[100px] lg:gap-x-6 sm:gap-y-20 lg:gap-y-14">
                     {data.map((card) => (
                         <div
                             key={card.id}
-                            className="w-[calc(50%-0.5rem)] md:w-[calc(33.333%-0.667rem)] lg:w-[calc(25%-1.125rem)]"
+                            className="w-[calc(50%-0.5rem)] md:w-[calc(32%-0.667rem)] 2xl:w-[calc(25%-1.125rem)]"
                         >
                             <ServiceCard
                                 title={card.title}
@@ -44,7 +44,7 @@ const OtherServices = ({ title, data }: OtherServicesProps) => {
                 </div>
 
                 {/* Slider - mobile only */}
-                <div className="mt-14 sm:hidden">
+                {/* <div className="mt-14 sm:hidden">
                     <Splide
                         ref={splideRef}
                         options={{
@@ -115,6 +115,53 @@ const OtherServices = ({ title, data }: OtherServicesProps) => {
                                 hover:bg-(--color-primary)
                                 hover:text-(--color-white)
                             "
+                        >
+                            <FaChevronRight size={16} />
+                        </button>
+                    </div>
+                </div> */}
+                <div className="other-services mt-14 sm:hidden">
+                    <Splide
+                        ref={splideRef}
+                        options={{
+                            perPage: 1,
+                            gap: "1rem",
+                            padding: { right: "2.5rem" },
+                            pagination: true,
+                            arrows: false,
+                            center: true,
+                            drag: true,
+                            autoHeight: true,
+                        }}
+                        aria-label="Other services"
+                    >
+                        {data.map((card) => (
+                            <SplideSlide key={card.id}>
+                                <ServiceCard
+                                    title={card.title}
+                                    description={card.description}
+                                    image={card.image}
+                                    link={card.link}
+                                />
+                            </SplideSlide>
+                        ))}
+                    </Splide>
+
+                    <div className="mt-6 flex items-center justify-center gap-4">
+                        <button
+                            type="button"
+                            aria-label="Previous slide"
+                            onClick={() => splideRef.current?.splide?.go("<")}
+                            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-(--color-primary) text-(--color-primary) transition-colors duration-300 hover:bg-(--color-primary) hover:text-(--color-white)"
+                        >
+                            <FaChevronLeft size={16} />
+                        </button>
+
+                        <button
+                            type="button"
+                            aria-label="Next slide"
+                            onClick={() => splideRef.current?.splide?.go(">")}
+                            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-(--color-primary) text-(--color-primary) transition-colors duration-300 hover:bg-(--color-primary) hover:text-(--color-white)"
                         >
                             <FaChevronRight size={16} />
                         </button>

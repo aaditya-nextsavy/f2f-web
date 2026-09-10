@@ -24,10 +24,10 @@ const CTA = ({ title, description, actions }: CTAProps) => {
             <div className="container mx-auto" >
 
                 <div className="text-center lg:max-w-[80%] xl:max-w-[70%] mx-auto relative z-[1]">
-                    <h3 className="text-[32px] leading-[34px] tracking-[-0.4px] lg:text-[72px] text-white font-semibold lg:tracking-[-1.6px] lg:leading-[76px]">
+                    <h3 className="text-[32px] leading-[34px] lg:text-[62px] lg:leading-[70px]  tracking-[-0.4px] 2xl:text-[72px] text-white font-semibold 2xl:tracking-[-1.6px] 2xl:leading-[76px]">
                         {title}
                     </h3>
-                    <p className="mx-auto mt-[18px] lg:max-w-[80%] xl:max-w-[70%] text-[18px] leading-[28px] tracking-[-0.3px] text-white">
+                    <p className="mx-auto mt-[18px] lg:max-w-[80%] xl:max-w-[70%] text-[16px] 2xl:text-[18px] leading-[28px] tracking-[-0.3px] text-white">
                         {description}
                     </p>
                     <div className="mt-[24px] lg:mt-[42px] flex flex-col lg:flex-row items-center justify-center gap-3">

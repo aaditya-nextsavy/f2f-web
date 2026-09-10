@@ -2,6 +2,12 @@ import type { HomePageData } from "@/types/home";
 
 export const homePageData: HomePageData = {
 
+    meta: {
+        title: "Fairwinds Shipping Pvt Ltd | Global Freight Forwarding & Logistics",
+        description:
+            "Global freight forwarding and logistics solutions — FCL, LCL, customs clearance, project cargo, and more, managed with clarity and personal oversight.",
+    },
+
     heroBanner: {
         title: "Global reach managed with personal oversight.",
         description:
@@ -14,8 +20,8 @@ export const homePageData: HomePageData = {
                 variant: "yellow",
             },
             {
-                label: "View All Services",
-                href: "/services",
+                label: "View our FCL service",
+                href: "/fcl-sea-freight",
                 variant: "white-secondary",
             },
         ],
@@ -274,8 +280,8 @@ export const homePageData: HomePageData = {
                 variant: "yellow",
             },
             {
-                label: "View All Services",
-                href: "/services",
+                label: "View our FCL service",
+                href: "/fcl-sea-freight",
                 variant: "white-secondary",
             },
         ],
@@ -346,28 +352,43 @@ export const homePageData: HomePageData = {
         faqs: [
             {
                 id: 1,
-                title: "Do You Handle Both International And Domestic Shipments?",
-                descp: "Yes, we manage both international and domestic cargo movement across multiple transport modes, ensuring consistent execution and reliable delivery timelines.",
+                title: "What Services Does Your Company Provide?",
+                descp: "We provide end-to-end logistics and customs clearance solutions, including import and export customs clearance, freight forwarding, documentation, shipment coordination, port handling, delivery order coordination, and related logistics services.",
             },
             {
                 id: 2,
-                title: "How Do You Ensure Timely Delivery?",
-                descp: "We use carefully planned routes, real-time shipment monitoring, and coordinated logistics operations to ensure timely delivery.",
+                title: "Do You Provide Door-to-Door Logistics Services?",
+                descp: "Yes. Depending on the shipment requirements, we can arrange transportation from the supplier's premises to the final destination, including inland transportation, port handling, ocean freight, customs clearance, and delivery.",
             },
             {
                 id: 3,
-                title: "Do You Assist With Customs Clearance?",
-                descp: "Yes, our team provides customs documentation and clearance support to help shipments move smoothly across borders.",
+                title: "Which Origins and Destinations Do You Cover?",
+                descp: "We provide logistics solutions across major international trade lanes and ports. Please contact our team with your origin, destination, cargo details, and preferred shipping schedule so we can provide the most suitable routing and freight option.",
             },
             {
                 id: 4,
-                title: "What Types Of Cargo Do You Handle?",
-                descp: "We handle a wide range of cargo requirements with solutions tailored to the size, destination, urgency, and nature of each shipment.",
+                title: "Do You Handle Both Import and Export Customs Shipments?",
+                descp: "Yes. We handle freight forwarding and customs clearance for both import and export shipments and coordinate the required documentation and processes with customs, shipping lines, ports, and other relevant authorities.",
             },
             {
                 id: 5,
-                title: "How Do You Handle Complex Or Multimodal Shipments?",
-                descp: "We coordinate multiple transportation modes and logistics partners to provide seamless end-to-end shipment management.",
+                title: "Can You Handle Urgent or Time-Sensitive Shipments?",
+                descp: "Yes. We handle urgent and time-sensitive shipments with careful coordination to help meet critical delivery requirements.",
+            },
+            {
+                id: 6,
+                title: "Can You Handle Special or Regulatory Cargo Requirements?",
+                descp: "Yes. Depending on the nature of the cargo, we can assist with the documentation and coordination required for shipments involving specific regulatory, licensing, certification, or handling requirements.",
+            },
+            {
+                id: 7,
+                title: "Why Should I Choose Your CHA and Freight Forwarding Services?",
+                descp: "We combine customs expertise with freight forwarding and shipment coordination, allowing customers to manage multiple logistics requirements through one experienced team. Our focus is on timely documentation, proactive coordination, transparency, and reliable customer service.",
+            },
+            {
+                id: 8,
+                title: "Do You Handle Shipping Documentation and Coordination With Shipping Lines?",
+                descp: "Yes. Our team assists with shipment documentation and coordinates with shipping lines and other stakeholders to help ensure smooth shipment processing and execution.",
             },
         ],
     },

@@ -16,12 +16,12 @@ const HeroAbout = ({ title, description }: HeroAboutProps) => {
 
             <div className="container mx-auto">
                 <div className="flex flex-col justify-center">
-                    <div className="flex flex-col pb-4 gap-6 lg:gap-0" >
-                        <h2 className="max-w-[100%] lg:max-w-[60%] text-[24px] leading-[30px] tracking-[-1px] md:text-[42px] text-balance  lg:text-[52px] font-bold text-(--color-primary) xl:leading-[78px] lg:tracking-[-1.8px]  xl:text-[64px]">
+                    <div className="flex flex-col pb-4 gap-6 sm:gap-3 2xl:gap-0" >
+                        <h2 className="max-w-[100%] lg:max-w-[60%] text-[24px] leading-[30px] tracking-[-1px] md:text-[34px] text-balance  lg:text-[46px] lg:leading-[52px] font-bold text-(--color-primary) 2xl:leading-[78px] lg:tracking-[-1.8px]  2xl:text-[64px]">
                             {title}
                         </h2>
 
-                        <p className="ms-auto lg:pb-6 max-w-[583px]  text-[16px] leading-[24px] text-(--color-primary) lg:text-[18px] lg:leading-[28px]">
+                        <p className="ms-auto lg:pb-6 max-w-[450px] 2xl:max-w-[583px]  text-[16px] leading-[24px] text-(--color-primary) 2xl:text-[18px] 2xl:leading-[28px]">
                             {description}
                         </p>
                     </div>

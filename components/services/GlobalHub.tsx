@@ -8,7 +8,7 @@ type GlobalHubProps = {
 
 function FlagBadge({ country }: { country: CountryFlagItem }) {
     return (
-        <div className="relative mt-6 shrink-0 first:mt-0 rotate-[-90deg] lg:rotate-0">
+        <div className="relative mt-6 mx-auto shrink-0 first:mt-0 rotate-[-90deg] lg:rotate-0">
             <span className="absolute -top-5 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap rounded-full bg-white text-(--color-primary) px-2.5 py-1 text-[12px] font-extrabold uppercase tracking-wide italic shadow-[0_2px_6px_rgba(0,0,0,0.35)] leading-4 ring-1 ring-white">
                 {country.name}
             </span>
@@ -39,7 +39,7 @@ function FlagColumn({
     return (
         <div className={`h-full w-[80px] shrink-0  lg:w-[110px] ${className}`}>
             <div
-                className={`flex flex-col  gap-6 pt-6 ${direction === "down" ? "marquee-track-down" : "marquee-track-up"
+                className={`flex flex-col  gap-5 pt-6 ${direction === "down" ? "marquee-track-down" : "marquee-track-up"
                     }`}
             >
                 {looped.map((country, index) => (
@@ -228,23 +228,24 @@ export default function GlobalHub({ data }: GlobalHubProps) {
                             title={data.sectiontitle.title}
                             theme="inverted"
                             titleClassName="lg:text-[48px] "
-                            className="text-(--color-iceblue)!"
+                            className="text-(--color-iceblue)! text-center lg:text-left"
+
                         />
 
-                        <p className="mt-6 max-w-[650px] text-[16px] leading-[26px] text-(--color-iceblue) lg:text-[18px] lg:leading-[28px]">
+                        <p className="mt-6 max-w-[650px] text-[16px] leading-[26px] text-(--color-iceblue) lg:text-[18px] lg:leading-[28px]  text-center lg:text-left">
                             {data.description}
                         </p>
 
-                        <div className="mt-10 flex flex-col lg:flex-row lg:ms-[50px] items-center gap-8 lg:gap-12  max-w-[650px]">
+                        <div className="mt-10 flex flex-col lg:flex-row lg:ms-[50px] items-center gap-8 xl:gap-[80px]  max-w-[650px]">
                             {data.stats.map((stat, index) => (
-                                <div key={stat.id} className={`relative w-full lg:w-fit ${index > 0 ? "pl-0 pt-5 lg:pt-0 lg:pl-12 border-t border-white/8 lg:border-none" : ""}`}>
+                                <div key={stat.id} className={`relative w-full lg:w-fit ${index > 0 ? "pl-0 pt-5 lg:pt-0 xl:pl-[80px] border-t border-white/8 lg:border-none" : ""}`}>
                                     {index > 0 && (
                                         <div className="hidden lg:block absolute left-0 top-1/2 h-[100%] w-px -translate-y-1/2 bg-white/8" />
                                     )}
-                                    <div className=" lg:text-center text-[60px] lg:text-[72px] font-extrabold leading-none text-(--color-iceblue) lg:text-[72px] lg:leading-[72px]">
+                                    <div className=" text-center text-[60px] lg:text-[72px] font-extrabold leading-none text-(--color-iceblue) lg:text-[72px] lg:leading-[72px]">
                                         {stat.value}
                                     </div>
-                                    <div className="mt-2 lg:text-center lg:max-w-[170px] text-[14px] text-(--color-iceblue) lg:text-[16px]">
+                                    <div className="mt-2 text-center lg:max-w-[170px] text-[14px] text-(--color-iceblue) lg:text-[16px]">
                                         {stat.label}
                                     </div>
                                 </div>

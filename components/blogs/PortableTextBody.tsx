@@ -9,7 +9,7 @@ const paragraphClass =
 
 function isSectionHeading(block: unknown): block is PortableTextBlock {
     const node = block as PortableTextBlock;
-    return node?._type === "block" && (node.style === "h2" || node.style === "h3");
+    return node?._type === "block" && node.style === "h2";
 }
 
 interface PortableTextBodyProps {
@@ -28,10 +28,11 @@ const PortableTextBody = ({ value }: PortableTextBodyProps) => {
         block: {
             h2: ({ children, value: block }) => {
                 const isFirst = headingKeys[0] === block._key;
+                const showDivider = !isFirst || introKey !== undefined;
 
                 return (
                     <>
-                        {!isFirst && (
+                        {showDivider && (
                             <div
                                 className="mt-[68px] mb-[68px] h-px w-full opacity-30"
                                 style={{
@@ -52,10 +53,35 @@ const PortableTextBody = ({ value }: PortableTextBodyProps) => {
             h3: ({ children, value: block }) => (
                 <h3
                     id={block._key}
-                    className="scroll-mt-32 mt-2 lg:mt-8 text-[20px] font-medium leading-[1.3] text-(--color-primary) lg:text-[26px]"
+                    className="scroll-mt-32 text-[20px] font-medium leading-[1.3] text-(--color-primary) lg:text-[26px]"
                 >
                     {children}
                 </h3>
+            ),
+            h4: ({ children, value: block }) => (
+                <h4
+                    id={block._key}
+                    className="scroll-mt-32 mt-6 flex items-start gap-3 text-[17px] font-medium leading-[1.35] text-(--color-primary) lg:text-[20px]"
+                >
+                    <span className="mt-2.5 h-2 w-2 shrink-0 rounded-full bg-(--color-indigo)" />
+                    {children}
+                </h4>
+            ),
+            h5: ({ children, value: block }) => (
+                <h5
+                    id={block._key}
+                    className="scroll-mt-32 mt-5 text-[16px] font-medium leading-[1.4] text-(--color-primary) lg:text-[18px]"
+                >
+                    {children}
+                </h5>
+            ),
+            h6: ({ children, value: block }) => (
+                <h6
+                    id={block._key}
+                    className="scroll-mt-32 mt-4 text-[14px] font-semibold uppercase tracking-[0.4px] leading-[1.4] text-(--color-primary)/80 lg:text-[15px]"
+                >
+                    {children}
+                </h6>
             ),
             normal: ({ children, value: block }) => (
                 <p
@@ -78,7 +104,7 @@ const PortableTextBody = ({ value }: PortableTextBodyProps) => {
                         alt=""
                         width={22}
                         height={22}
-                        className="mt-0.5 shrink-0"
+                        className="shrink-0 my-auto"
                     />
                     <span className={paragraphClass}>{children}</span>
                 </li>

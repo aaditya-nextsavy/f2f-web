@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import HeroBanner from '@/components/home/HeroSection/HeroBanner'
 import HeroAbout from '@/components/home/HeroAbout/HeroAbout'
 import SeaFrieght from '@/components/home/SeaFreight/SeaFreight'
@@ -15,6 +16,11 @@ import { sanityFetch } from '@/sanity/lib/live'
 import { BLOG_LIST_QUERY } from '@/sanity/lib/queries'
 import { toBlogPostData, type SanityPostListItem } from '@/sanity/lib/mappers'
 
+export const metadata: Metadata = {
+  title: homePageData.meta.title,
+  description: homePageData.meta.description,
+}
+
 export default async function Home() {
   const { data } = await sanityFetch({ query: BLOG_LIST_QUERY })
   const blogPosts = (data as SanityPostListItem[]).slice(0, 4).map(toBlogPostData)
@@ -22,7 +28,7 @@ export default async function Home() {
   return (
     <>
       {/* hero banner  */}
-      <main className='space-y-[40px] xl:space-y-[90px]'>
+      <main className='space-y-[42px] 2xl:space-y-[90px]'>
         <HeroBanner
           title={homePageData.heroBanner.title}
           description={homePageData.heroBanner.description}

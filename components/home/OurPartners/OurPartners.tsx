@@ -17,13 +17,13 @@ export default function OurPartners({ title, data }: OurPartnersProps) {
         const content = (
 
             <>
-                <div className=" h-[55px] lg:h-[120px] flex justify-center">
+                <div className=" h-[55px] lg:h-max flex justify-center">
                     <Image
                         src={partner.image}
                         alt={partner.alt}
                         width={200}
                         height={60}
-                        className="h-auto my-auto opacity-50  lg:max-h-[52px] w-auto lg:max-w-[180px] object-cover"
+                        className="h-auto my-auto opacity-50  lg:max-h-[52px] w-auto lg:max-w-[180px] object-cover my-0"
                     />
                 </div>
             </>
@@ -42,7 +42,7 @@ export default function OurPartners({ title, data }: OurPartnersProps) {
     };
 
     return (
-        <section className=" w-full overflow-hidden">
+        <section className=" w-full overflow-hidden mt-[50px] lg:mt-[0px]">
             <div className="mx-auto flex h-full max-w-[1440px] flex-col items-center justify-center px-5">
                 <h3 className="mb-8 text-center text-[24px] leading-[34px] font-medium text-(--color-primary)">
                     {title}
@@ -78,7 +78,7 @@ export default function OurPartners({ title, data }: OurPartnersProps) {
                     >
                         {data.map((partner) => (
                             <SplideSlide key={partner.id}>
-                                <div className="aspect-[146/34] flex h-[34px] lg:h-[55px] object-contain items-center justify-center">
+                                <div className="aspect-[146/34] flex h-[55px] object-contain items-center justify-center">
                                     {renderPartner(partner)}
                                 </div>
                             </SplideSlide>

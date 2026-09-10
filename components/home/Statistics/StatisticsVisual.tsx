@@ -24,13 +24,7 @@ const SVG_NS = "http://www.w3.org/2000/svg";
  */
 const EARTH_ROUTES_SVG = `
 <svg viewBox="0 0 1037 1069" preserveAspectRatio="xMidYMid meet" fill="none" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<radialGradient id="statistics-endpoint-glow" cx="50%" cy="50%" r="50%">
-<stop offset="0%" stop-color="#F0F2FF"/>
-<stop offset="45%" stop-color="#F0F2FF" stop-opacity="0.55"/>
-<stop offset="100%" stop-color="#F0F2FF" stop-opacity="0"/>
-</radialGradient>
-</defs>
+<defs></defs>
 <g opacity="0.95">
 <path d="M137.375 362.756C137.375 362.756 149.812 -0.172659 366.087 149.715" stroke="white" stroke-width="1.00123" stroke-miterlimit="10" stroke-dasharray="2.18 2.18"/>
 <path d="M391.609 118.416C391.609 118.416 455.121 -12.2127 569.752 1.56256C684.383 15.3378 832.041 178.927 854.924 311.221" stroke="white" stroke-width="1.08958" stroke-miterlimit="10" stroke-dasharray="2.18 2.18"/>
@@ -77,22 +71,22 @@ const GLOW_STARS_SVG = `
 <path d="M1434.08 485.767C1432.38 478.916 1436.55 471.982 1443.41 470.28C1450.26 468.578 1457.19 472.753 1458.89 479.604C1460.59 486.455 1456.42 493.388 1449.57 495.09C1442.72 496.792 1435.78 492.618 1434.08 485.767Z" fill="url(#stats-glow-5)" style="mix-blend-mode:color-dodge"/>
 <defs>
 <radialGradient id="stats-glow-0" cx="0" cy="0" r="1" gradientTransform="matrix(-14.8077 -0.0591995 -0.0390489 14.9544 1543.85 18.4744)" gradientUnits="userSpaceOnUse">
-<stop offset="0.09" stop-color="white"/><stop offset="0.1" stop-color="#EBEBEB"/><stop offset="0.13" stop-color="#BBBBBB"/><stop offset="0.17" stop-color="#8E8E8E"/><stop offset="0.2" stop-color="#686868"/><stop offset="0.23" stop-color="#484848"/><stop offset="0.27" stop-color="#2E2E2E"/><stop offset="0.31" stop-color="#1A1A1A"/><stop offset="0.36" stop-color="#0C0C0C"/><stop offset="0.42" stop-color="#030303"/><stop offset="0.52" stop-color="#010101"/><stop offset="1"/>
+<stop offset="0.09" stopColor="white"/><stop offset="0.1" stopColor="#EBEBEB"/><stop offset="0.13" stopColor="#BBBBBB"/><stop offset="0.17" stopColor="#8E8E8E"/><stop offset="0.2" stopColor="#686868"/><stop offset="0.23" stopColor="#484848"/><stop offset="0.27" stopColor="#2E2E2E"/><stop offset="0.31" stopColor="#1A1A1A"/><stop offset="0.36" stopColor="#0C0C0C"/><stop offset="0.42" stopColor="#030303"/><stop offset="0.52" stopColor="#010101"/><stop offset="1"/>
 </radialGradient>
 <radialGradient id="stats-glow-1" cx="0" cy="0" r="1" gradientTransform="matrix(-14.8077 -0.0591995 -0.0390489 14.9544 1517.38 232.474)" gradientUnits="userSpaceOnUse">
-<stop offset="0.09" stop-color="white"/><stop offset="0.1" stop-color="#EBEBEB"/><stop offset="0.13" stop-color="#BBBBBB"/><stop offset="0.17" stop-color="#8E8E8E"/><stop offset="0.2" stop-color="#686868"/><stop offset="0.23" stop-color="#484848"/><stop offset="0.27" stop-color="#2E2E2E"/><stop offset="0.31" stop-color="#1A1A1A"/><stop offset="0.36" stop-color="#0C0C0C"/><stop offset="0.42" stop-color="#030303"/><stop offset="0.52" stop-color="#010101"/><stop offset="1"/>
+<stop offset="0.09" stopColor="white"/><stop offset="0.1" stopColor="#EBEBEB"/><stop offset="0.13" stopColor="#BBBBBB"/><stop offset="0.17" stopColor="#8E8E8E"/><stop offset="0.2" stopColor="#686868"/><stop offset="0.23" stopColor="#484848"/><stop offset="0.27" stopColor="#2E2E2E"/><stop offset="0.31" stopColor="#1A1A1A"/><stop offset="0.36" stopColor="#0C0C0C"/><stop offset="0.42" stopColor="#030303"/><stop offset="0.52" stopColor="#010101"/><stop offset="1"/>
 </radialGradient>
 <radialGradient id="stats-glow-2" cx="0" cy="0" r="1" gradientTransform="matrix(-14.8077 -0.0591995 -0.0390489 14.9544 162.378 43.4744)" gradientUnits="userSpaceOnUse">
-<stop offset="0.09" stop-color="white"/><stop offset="0.1" stop-color="#EBEBEB"/><stop offset="0.13" stop-color="#BBBBBB"/><stop offset="0.17" stop-color="#8E8E8E"/><stop offset="0.2" stop-color="#686868"/><stop offset="0.23" stop-color="#484848"/><stop offset="0.27" stop-color="#2E2E2E"/><stop offset="0.31" stop-color="#1A1A1A"/><stop offset="0.36" stop-color="#0C0C0C"/><stop offset="0.42" stop-color="#030303"/><stop offset="0.52" stop-color="#010101"/><stop offset="1"/>
+<stop offset="0.09" stopColor="white"/><stop offset="0.1" stopColor="#EBEBEB"/><stop offset="0.13" stopColor="#BBBBBB"/><stop offset="0.17" stopColor="#8E8E8E"/><stop offset="0.2" stopColor="#686868"/><stop offset="0.23" stopColor="#484848"/><stop offset="0.27" stopColor="#2E2E2E"/><stop offset="0.31" stopColor="#1A1A1A"/><stop offset="0.36" stopColor="#0C0C0C"/><stop offset="0.42" stopColor="#030303"/><stop offset="0.52" stopColor="#010101"/><stop offset="1"/>
 </radialGradient>
 <radialGradient id="stats-glow-3" cx="0" cy="0" r="1" gradientTransform="matrix(-18.9213 -0.0756454 -0.0498968 19.1088 23.4825 347.607)" gradientUnits="userSpaceOnUse">
-<stop offset="0.09" stop-color="white"/><stop offset="0.1" stop-color="#EBEBEB"/><stop offset="0.13" stop-color="#BBBBBB"/><stop offset="0.17" stop-color="#8E8E8E"/><stop offset="0.2" stop-color="#686868"/><stop offset="0.23" stop-color="#484848"/><stop offset="0.27" stop-color="#2E2E2E"/><stop offset="0.31" stop-color="#1A1A1A"/><stop offset="0.36" stop-color="#0C0C0C"/><stop offset="0.42" stop-color="#030303"/><stop offset="0.52" stop-color="#010101"/><stop offset="1"/>
+<stop offset="0.09" stopColor="white"/><stop offset="0.1" stopColor="#EBEBEB"/><stop offset="0.13" stopColor="#BBBBBB"/><stop offset="0.17" stopColor="#8E8E8E"/><stop offset="0.2" stopColor="#686868"/><stop offset="0.23" stopColor="#484848"/><stop offset="0.27" stopColor="#2E2E2E"/><stop offset="0.31" stopColor="#1A1A1A"/><stop offset="0.36" stopColor="#0C0C0C"/><stop offset="0.42" stopColor="#030303"/><stop offset="0.52" stopColor="#010101"/><stop offset="1"/>
 </radialGradient>
 <radialGradient id="stats-glow-4" cx="0" cy="0" r="1" gradientTransform="matrix(-14.8077 -0.0591995 -0.0390489 14.9544 1156.38 811.475)" gradientUnits="userSpaceOnUse">
-<stop offset="0.09" stop-color="white"/><stop offset="0.1" stop-color="#EBEBEB"/><stop offset="0.13" stop-color="#BBBBBB"/><stop offset="0.17" stop-color="#8E8E8E"/><stop offset="0.2" stop-color="#686868"/><stop offset="0.23" stop-color="#484848"/><stop offset="0.27" stop-color="#2E2E2E"/><stop offset="0.31" stop-color="#1A1A1A"/><stop offset="0.36" stop-color="#0C0C0C"/><stop offset="0.42" stop-color="#030303"/><stop offset="0.52" stop-color="#010101"/><stop offset="1"/>
+<stop offset="0.09" stopColor="white"/><stop offset="0.1" stopColor="#EBEBEB"/><stop offset="0.13" stopColor="#BBBBBB"/><stop offset="0.17" stopColor="#8E8E8E"/><stop offset="0.2" stopColor="#686868"/><stop offset="0.23" stopColor="#484848"/><stop offset="0.27" stopColor="#2E2E2E"/><stop offset="0.31" stopColor="#1A1A1A"/><stop offset="0.36" stopColor="#0C0C0C"/><stop offset="0.42" stopColor="#030303"/><stop offset="0.52" stopColor="#010101"/><stop offset="1"/>
 </radialGradient>
 <radialGradient id="stats-glow-5" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1446.34 482.632) rotate(-180) scale(11.4555 11.5701)">
-<stop offset="0.09" stop-color="white" stop-opacity="0.4"/><stop offset="0.1" stop-color="#EBEBEB" stop-opacity="0.6"/><stop offset="0.13" stop-color="#BBBBBB" stop-opacity="0.7"/><stop offset="0.17" stop-color="#8E8E8E"/><stop offset="0.2" stop-color="#686868"/><stop offset="0.23" stop-color="#484848"/><stop offset="0.27" stop-color="#2E2E2E"/><stop offset="0.31" stop-color="#1A1A1A"/><stop offset="0.36" stop-color="#0C0C0C"/><stop offset="0.42" stop-color="#030303"/><stop offset="0.52" stop-color="#010101"/><stop offset="1"/>
+<stop offset="0.09" stopColor="white" stopOpacity="0.4"/><stop offset="0.1" stopColor="#EBEBEB" stopOpacity="0.6"/><stop offset="0.13" stopColor="#BBBBBB" stopOpacity="0.7"/><stop offset="0.17" stopColor="#8E8E8E"/><stop offset="0.2" stopColor="#686868"/><stop offset="0.23" stopColor="#484848"/><stop offset="0.27" stopColor="#2E2E2E"/><stop offset="0.31" stopColor="#1A1A1A"/><stop offset="0.36" stopColor="#0C0C0C"/><stop offset="0.42" stopColor="#030303"/><stop offset="0.52" stopColor="#010101"/><stop offset="1"/>
 </radialGradient>
 </defs>
 </svg>
@@ -106,7 +100,14 @@ function createEndpointMarker(x: number, y: number, radius: number) {
     glow.setAttribute("cx", String(x));
     glow.setAttribute("cy", String(y));
     glow.setAttribute("r", String(radius));
-    glow.setAttribute("fill", "url(#statistics-endpoint-glow)");
+    // Plain, opaque-color + fill-opacity instead of a url(#gradient)
+    // reference: the referenced <radialGradient> lives in a separately
+    // dangerouslySetInnerHTML-injected SVG string, and cross-referencing it
+    // from these imperatively created circles was resolving to the SVG
+    // fallback for an unresolvable paint server - i.e. solid black - rather
+    // than the intended light glow.
+    glow.setAttribute("fill", "#F0F2FF");
+    glow.setAttribute("fill-opacity", "0.35");
 
     const core = document.createElementNS(SVG_NS, "circle");
     core.setAttribute("cx", String(x));
@@ -173,7 +174,8 @@ const StatisticsVisual = () => {
         // gets the classic dashoffset "draw" treatment - animating the mask
         // instead of the visible stroke sweeps the reveal boundary along the
         // route while the dashes underneath stay put.
-        const markers: SVGGElement[] = [];
+        const startMarkers: SVGGElement[] = [];
+        const endMarkers: SVGGElement[] = [];
         const maskPaths: SVGPathElement[] = [];
         routes.forEach((path, i) => {
             const length = routeLengths[i];
@@ -186,7 +188,8 @@ const StatisticsVisual = () => {
             const endMarker = createEndpointMarker(end.x, end.y, radius * 1.2);
             endpointsGroup.appendChild(startMarker);
             endpointsGroup.appendChild(endMarker);
-            markers.push(startMarker, endMarker);
+            startMarkers.push(startMarker);
+            endMarkers.push(endMarker);
 
             const maskId = `statistics-route-mask-${i}`;
             const mask = document.createElementNS(SVG_NS, "mask");
@@ -208,6 +211,8 @@ const StatisticsVisual = () => {
             maskPaths.push(maskPath);
         });
 
+        const allMarkers = [...startMarkers, ...endMarkers];
+
         let cancelled = false;
         const section = routesRoot.closest("section");
 
@@ -215,12 +220,12 @@ const StatisticsVisual = () => {
             if (prefersReducedMotion) {
                 gsap.set(routes, { opacity: 1 });
                 gsap.set(maskPaths, { strokeDashoffset: 0 });
-                gsap.set(markers, { scale: 1, opacity: 1 });
+                gsap.set(allMarkers, { scale: 1, opacity: 1 });
                 return;
             }
 
             gsap.set(routes, { opacity: 0 });
-            gsap.set(markers, { scale: 0, opacity: 0, transformOrigin: "center" });
+            gsap.set(allMarkers, { scale: 0, opacity: 0, transformOrigin: "center" });
 
             // Lines + markers only ever start once the earth graphic has
             // actually finished loading (so routes never draw over a
@@ -231,38 +236,53 @@ const StatisticsVisual = () => {
 
                 gsap.set(routes, { opacity: 1 });
 
-                gsap.timeline()
-                    .to(maskPaths, {
-                        strokeDashoffset: 0,
-                        duration: 1.8,
-                        ease: "power2.inOut",
-                        stagger: 0.08,
-                    })
-                    .to(
-                        markers,
-                        {
-                            scale: 1,
-                            opacity: 1,
-                            duration: 0.5,
-                            ease: "back.out(1.8)",
-                            stagger: 0.03,
-                        },
-                        "-=0.6",
+                // Per route: the start dot pops in, then (after a short
+                // lead) the line draws away from it, and the end dot only
+                // pops in once the line actually reaches it - each route
+                // staggered slightly behind the previous one.
+                const LINE_STAGGER = 0.08;
+                const LINE_LEAD = 0.12;
+                const LINE_DURATION = 1.8;
+                const MARKER_DURATION = 0.4;
+
+                const tl = gsap.timeline();
+
+                routes.forEach((_, i) => {
+                    const t = i * LINE_STAGGER;
+
+                    tl.to(
+                        startMarkers[i],
+                        { scale: 1, opacity: 1, duration: MARKER_DURATION, ease: "back.out(1.8)" },
+                        t,
                     )
-                    .to(
-                        markers,
-                        {
-                            opacity: 0.55,
-                            duration: 1.6,
-                            ease: "sine.inOut",
-                            stagger: {
-                                each: 0.06,
-                                repeat: -1,
-                                yoyo: true,
-                            },
+                        .to(
+                            maskPaths[i],
+                            { strokeDashoffset: 0, duration: LINE_DURATION, ease: "power2.inOut" },
+                            t + LINE_LEAD,
+                        )
+                        .to(
+                            endMarkers[i],
+                            { scale: 1, opacity: 1, duration: MARKER_DURATION, ease: "back.out(1.8)" },
+                            t + LINE_LEAD + LINE_DURATION,
+                        );
+                });
+
+                // Once every route has fully drawn in, settle all markers
+                // into a slow ambient pulse.
+                tl.to(
+                    allMarkers,
+                    {
+                        opacity: 0.55,
+                        duration: 1.6,
+                        ease: "sine.inOut",
+                        stagger: {
+                            each: 0.06,
+                            repeat: -1,
+                            yoyo: true,
                         },
-                        "-=0.2",
-                    );
+                    },
+                    ">-0.2",
+                );
             };
 
             ScrollTrigger.create({
@@ -318,7 +338,7 @@ const StatisticsVisual = () => {
             />
 
             {/* Earth graphic - top half visible, resting on the bottom edge */}
-            <div className="pointer-events-none absolute bottom-[-40px] left-1/2 z-[2] aspect-square w-[320px] -translate-x-1/2 translate-y-1/2 sm:w-[460px] lg:w-[940px]">
+            <div className="pointer-events-none absolute bottom-[-40px] left-1/2 z-[2] aspect-square w-[320px] -translate-x-1/2 translate-y-1/2 sm:w-[460px] lg:w-[640px] 2xl:w-[940px]">
                 <div ref={earthImgRef} className="absolute inset-0 z-[1]">
                     <Image
                         src="/images/about/stats/stats-just-earth.svg"

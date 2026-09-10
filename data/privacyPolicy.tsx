@@ -1,6 +1,11 @@
 import type { LegalPageData } from "@/types/legal";
 
 export const privacyPolicyData: LegalPageData = {
+    meta: {
+        title: "Privacy Policy | Fairwinds Shipping",
+        description:
+            "Learn what information Fairwinds Shipping collects, how we use it, and the choices you have when you work with us.",
+    },
     banner: {
         title: "Your Privacy, Our Priority",
         description:

@@ -7,7 +7,13 @@ export interface BlogSidebarCtaData {
     action: ActionButtonData;
 }
 
+export interface PageMetaData {
+    title: string;
+    description: string;
+}
+
 export interface BlogsPageData {
+    meta: PageMetaData;
     banner: {
         label?: string;
         title: ReactNode;

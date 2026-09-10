@@ -1,7 +1,13 @@
+import type { Metadata } from 'next'
 import BannerType2 from '@/components/common/HeroBannerSection/HeroBannerType2/BannerType2'
 import ContactSection from '@/components/contact/ContactSection'
 import MapEmbed from '@/components/contact/MapEmbed'
 import { contactPageData } from '@/data/contact'
+
+export const metadata: Metadata = {
+    title: contactPageData.meta.title,
+    description: contactPageData.meta.description,
+}
 
 export default function Page() {
     return (

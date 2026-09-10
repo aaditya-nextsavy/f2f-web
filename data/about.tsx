@@ -2,6 +2,12 @@ import type { AboutPageData } from "@/types/about";
 
 export const aboutPageData: AboutPageData = {
 
+    meta: {
+        title: "About Us | Fairwinds Shipping",
+        description:
+            "We combine experience, coordination, and care to help cargo move with confidence — meet the team and story behind Fairwinds Shipping.",
+    },
+
     bannerData: {
         label: "About us",
         title: "Every Reliable Delivery Starts with Careful Planning",
@@ -122,6 +128,7 @@ export const aboutPageData: AboutPageData = {
             label: "Mission & Vision",
             title: "Why We Do What We Do",
         },
+        missionTitle: "Our Mission",
         body: (
             <>
                 To deliver shipping solutions with{" "}

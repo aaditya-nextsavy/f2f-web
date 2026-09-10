@@ -1,4 +1,4 @@
-
+import type { Metadata } from 'next'
 import Industries from '@/components/home/industries/Industries'
 import CTA from '@/components/common/ctaType1/CTA'
 import OurPartners from '@/components/home/OurPartners/OurPartners'
@@ -10,6 +10,11 @@ import { aboutPageData } from '@/data/about'
 import CoreValues from '@/components/about/CoreValues'
 import MissionVision from '@/components/about/MissionVision'
 import HowWeWork from '@/components/about/HowWeWork'
+
+export const metadata: Metadata = {
+    title: aboutPageData.meta.title,
+    description: aboutPageData.meta.description,
+}
 
 export default function Page() {
     return (

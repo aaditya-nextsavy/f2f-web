@@ -1,6 +1,11 @@
 import type { LegalPageData } from "@/types/legal";
 
 export const termsAndConditionsData: LegalPageData = {
+    meta: {
+        title: "Terms & Conditions | Fairwinds Shipping",
+        description:
+            "Read the terms that govern Fairwinds Shipping's freight forwarding and logistics services, and your rights and responsibilities as a customer.",
+    },
     banner: {
         title: "Terms That Govern Our Services",
         description:

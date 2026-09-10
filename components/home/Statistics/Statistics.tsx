@@ -12,7 +12,7 @@ const Statistics = ({ title, data }: StatisticsProps) => {
         <section className="relative overflow-hidden bg-(--color-primary)">
             <StatisticsVisual />
 
-            <div className="container relative z-10 mx-auto pb-[190px] pt-[60px] text-center sm:pb-[280px] lg:pb-[500px] lg:pt-[92px]">
+            <div className="container relative z-10 mx-auto pb-[190px] pt-[60px] text-center sm:pb-[280px] lg:pb-[300px] 2xl:pb-[500px] lg:pt-[92px]">
                 <SectionTitle
                     label={title.label}
                     title={title.title}
@@ -31,11 +31,11 @@ const Statistics = ({ title, data }: StatisticsProps) => {
                                 <div className="absolute left-0 top-1/2 hidden h-16 w-[3px] -translate-y-1/2 bg-white/[0.08] sm:block lg:h-20" />
                             )}
 
-                            <div className="text-[40px] leading-none tracking-[-1px] text-(--color-white) sm:text-[48px] lg:text-[72px] lg:leading-[82px]">
+                            <div className="text-[40px] leading-none tracking-[-1px] text-(--color-white) sm:text-[48px] 2xl:text-[72px] 2xl:leading-[82px]">
                                 {stat.value}
                             </div>
 
-                            <div className="mt-3 text-[14px] text-(--color-white)/60 lg:text-[24px] leading-[28px] mb-[10px] lg:mb-0">
+                            <div className="mt-3 text-[14px] text-(--color-white)/60 2xl:text-[24px] leading-[28px] mb-[10px] 2xl:mb-0">
                                 {stat.label}
                             </div>
                         </div>

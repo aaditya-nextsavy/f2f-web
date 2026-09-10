@@ -30,14 +30,16 @@ const ImageCard = ({
                 className="
                     relative
                     h-max-content
-                    xl:max-h-[400px]
+                    max-h-stretch
+                    2xl:max-h-[400px]
                     overflow-visible
                     rounded-[10px]
                     mt-[90px]
                     bg-(--color-primary)
                     lg:bg-[#F3F5FC]
                     pt-[80px]
-                    lg:pt-[180px]
+                    lg:pt-[120px]
+                    2xl:pt-[180px]
                     transition-colors
                     duration-300
                     ease-in-out
@@ -82,8 +84,10 @@ const ImageCard = ({
                         -translate-x-1/2
                         md:w-[65%]
                         lg:w-[60%]
-                        max-w-[455px]
-                        max-h-[228px]
+                        max-w-[305px]
+                        aspect-(455/228)
+                        2xl:max-w-[455px]
+                        2xl:max-h-[228px]
                     "
                 >
                     <Image

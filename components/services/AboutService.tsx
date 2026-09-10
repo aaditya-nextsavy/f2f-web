@@ -15,7 +15,7 @@ export default function AboutService({ data }: AboutServiceProps) {
                         <SectionTitle
                             label={data.sectiontitle.label}
                             title={data.sectiontitle.title}
-                            titleClassName="text-[24px] leading-[30px]  lg:text-[64px]! lg:leading-[78px] mt-3! max-w-[706px]"
+                            titleClassName="text-[24px] leading-[30px]  lg:text-[64px]! lg:leading-[78px] lg:mt-3! max-w-[706px]"
 
 
                         />

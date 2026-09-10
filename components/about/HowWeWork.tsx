@@ -58,13 +58,13 @@ const HowWeWork = ({ data }: HowWeWorkProps) => {
     }, []);
 
     return (
-        <section className="relative overflow-hidden bg-(--color-iceblue) py-[42px] xl:py-[92px]">
+        <section className="relative overflow-hidden bg-(--color-iceblue) py-[42px] xl:py-[92px] space-y-[42px]">
             <div className="container mx-auto">
                 <SectionTitle label={data.sectionTitle.label} title={data.sectionTitle.title} />
             </div>
 
             {/* Desktop: GSAP-pinned horizontal scroll */}
-            <div className="container mx-auto">
+            <div className="container mx-auto mt-[100px] 2xl:mt-[0]">
                 <div ref={pinRef} className="relative mt-10 hidden h-screen w-full lg:block">
                     <div
                         ref={trackRef}
@@ -72,7 +72,7 @@ const HowWeWork = ({ data }: HowWeWorkProps) => {
                     >
                         <div className="flex gap-x-[128px] me-[120px] ">
                             {data.points.map((point, index) => (
-                                <div key={point.id} className="relative w-[580px] shrink-0">
+                                <div key={point.id} className="relative w-[580px]  shrink-0">
                                     {index > 0 && (
                                         <span
                                             aria-hidden="true"
@@ -99,8 +99,8 @@ const HowWeWork = ({ data }: HowWeWorkProps) => {
                         </div>
 
                         <div
-                            className="relative mt-16 shrink-0"
-                            style={{ width: IMAGE_WIDTH, height: IMAGE_HEIGHT }}
+                            className="relative 2xl:mt-16 shrink-0 w-[stretch] h-[400px] 2xl:h-[400px]"
+
                         >
                             <Image
                                 src={data.image.src}

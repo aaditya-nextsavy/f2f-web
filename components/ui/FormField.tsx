@@ -6,10 +6,11 @@ export const fieldControlClass =
 type FormFieldProps = LabelHTMLAttributes<HTMLLabelElement> & {
   label: string;
   required?: boolean;
+  error?: string;
   children: ReactNode;
 };
 
-export function FormField({ label, required, children, className = "", ...rest }: FormFieldProps) {
+export function FormField({ label, required, error, children, className = "", ...rest }: FormFieldProps) {
   return (
     <label className={`flex flex-col gap-2 text-(length:--text-small) text-(--color-primary) ${className}`} {...rest}>
       <span>
@@ -17,6 +18,11 @@ export function FormField({ label, required, children, className = "", ...rest }
         {required && <span className="text-(--color-primary-hover)">*</span>}
       </span>
       {children}
+      {error && (
+        <span role="alert" className="text-(length:--text-xs) font-normal text-(--color-error)">
+          {error}
+        </span>
+      )}
     </label>
   );
 }

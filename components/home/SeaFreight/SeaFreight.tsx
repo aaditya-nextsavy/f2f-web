@@ -18,7 +18,7 @@ const SeaFreight = ({ title, data }: SeaFreightProps) => {
                     className=" xl:max-w-[60%] text-balance"
                 />
 
-                <div className="mt-8 grid grid-cols-1 gap-4 lg:mt-[120px] lg:grid-cols-2">
+                <div className="mt-8 grid grid-cols-1 gap-4 2xl:mt-[120px] lg:grid-cols-2">
                     {data.map((card) => (
                         <ImageCard
                             key={card.id}

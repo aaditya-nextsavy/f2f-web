@@ -63,7 +63,7 @@ export interface TocItem {
     label: string;
 }
 
-const SECTION_STYLES = new Set(["h2", "h3"]);
+const SECTION_STYLES = new Set(["h2"]);
 
 function isSectionHeading(block: unknown): block is PortableTextHeadingBlock {
     const node = block as PortableTextHeadingBlock;

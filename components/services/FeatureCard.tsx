@@ -21,7 +21,7 @@ function FeatureCard({ card }: { card: FeatureCardItem }) {
             </div>
 
             {/* Content */}
-            <div className="pt-[34px]">
+            <div className="pt-4 2xl:pt-[34px]">
                 <h3 className="text-[22px] tracking-[-1px] font-medium leading-[1.3] text-(--color-primary) sm:text-sm md:text-[28px] md:leading-[32px] tracking-[-0.8px]">
                     {card.title}
                 </h3>

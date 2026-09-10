@@ -19,6 +19,7 @@ const ServiceCard = ({ title, description, image, link }: ServiceCardProps) => {
                     flex
                     h-full
                     flex-col
+                    justify-between
                     overflow-visible
                     rounded-[16px]
                     bg-[#F3F5FC]
@@ -67,8 +68,9 @@ const ServiceCard = ({ title, description, image, link }: ServiceCardProps) => {
                     </svg>
                 </div>
 
-                <h3
-                    className="
+                <div>
+                    <h3
+                        className="
                         mt-4
                         text-[28px]
                         font-medium
@@ -80,12 +82,12 @@ const ServiceCard = ({ title, description, image, link }: ServiceCardProps) => {
                         ease-in-out
                         group-hover:text-(--color-iceblue)
                     "
-                >
-                    {title}
-                </h3>
+                    >
+                        {title}
+                    </h3>
 
-                <p
-                    className="
+                    <p
+                        className="
                         mt-2
                         text-[16px]
                         leading-[24px]
@@ -95,9 +97,12 @@ const ServiceCard = ({ title, description, image, link }: ServiceCardProps) => {
                         ease-in-out
                         group-hover:text-white/75
                     "
-                >
-                    {description}
-                </p>
+                    >
+                        {description}
+                    </p>
+                </div>
+
+
 
                 {link?.label && (
                     <div
@@ -106,8 +111,8 @@ const ServiceCard = ({ title, description, image, link }: ServiceCardProps) => {
                             inline-flex
                             items-center
                             gap-1
-                            text-[14px]
-                            leading-[24px]
+                            text-[18px]
+                            leading-[16px]
                             text-(--color-primary)
                             underline-offset-2
                             transition-colors

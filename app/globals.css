@@ -345,3 +345,70 @@ img {
     animation: none !important;
   }
 }
+
+
+.homeBannerBG {
+  opacity: 0.15;
+
+  @media (min-height: 612px) {
+    opacity: 0.25;
+  }
+
+  @media (min-height: 768px) {
+    opacity: 1;
+  }
+}
+
+.other-services {
+  .splide__track {
+    padding-right: 2.5rem !important;
+  }
+
+  &:has(.splide__slide.is-active:last-child) {
+    .splide__track {
+      padding-right: 0 !important;
+    }
+  }
+}
+
+
+.other-services {
+  position: relative;
+
+  .splide__pagination {
+    bottom: -3.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    gap: 0.5rem;
+  }
+
+  .splide__pagination__page {
+    width: 8px;
+    height: 8px;
+    margin: 0;
+  }
+
+  >.mt-6 {
+    position: relative;
+    z-index: 2;
+    gap: 170px;
+  }
+}
+
+.other-services {
+  .splide__pagination {
+    position: absolute;
+    bottom: -3.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: max-content;
+  }
+
+  .splide-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+}

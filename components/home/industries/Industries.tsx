@@ -70,7 +70,7 @@ const Industries = ({ title, data }: IndustriesProps) => {
     };
 
     return (
-        <section className="industries mt-[42px]">
+        <section className="industries mt-[42px] mb-[62px] lg:mb-0">
             <div className="container mx-auto">
                 <SectionTitle
                     label={title.label}
@@ -81,7 +81,7 @@ const Industries = ({ title, data }: IndustriesProps) => {
             </div>
 
             <div
-                className="mt-10 overflow-hidden lg:mt-[88px]"
+                className="mt-7 overflow-hidden lg:mt-[88px]"
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
             >
@@ -93,23 +93,32 @@ const Industries = ({ title, data }: IndustriesProps) => {
                         drag: true,
                         arrows: false,
                         pagination: false,
-                        fixedWidth: "19.6%",
+                        fixedWidth: "20%",
                         gap: "0",
+
                         breakpoints: {
-                            1440: { fixedWidth: "38.33%", gap: "0" },
-                            1024: { fixedWidth: "31.25%", gap: "0" },
-                            640: { fixedWidth: "83.3%", gap: "0" },
+                            1439: {
+                                fixedWidth: "25%",
+                            },
+                            1023: {
+                                fixedWidth: "33.3333%",
+                            },
+                            639: {
+                                fixedWidth: "83.3333%",
+                            },
                         },
                     }}
                 >
                     {data.map((card) => (
                         <SplideSlide key={card.id}>
                             <article className="group relative aspect-square overflow-hidden border-r border-t border-b border-(--color-primary) bg-(--cards-bg) transition-colors duration-300 ease-in-out hover:bg-(--color-iceblue)">
-                                <span className="absolute left-5 top-5 z-10 text-[14px] font-bold leading-[32px] text-(--color-primary)">
+                                {/* Number */}
+                                <span className="absolute left-5 top-5 z-20 text-[14px] font-bold leading-[32px] text-(--color-primary)">
                                     {String(card.id).padStart(2, "0")}
                                 </span>
 
-                                <div className="absolute inset-0 z-10 mb-20 lg:mb-10 flex items-center justify-center">
+                                {/* Icon area */}
+                                <div className="absolute inset-x-0 top-0 flex h-[58%] items-center justify-center">
                                     <div className="relative size-14 md:size-18">
                                         <Image
                                             src={card.image}
@@ -129,7 +138,8 @@ const Industries = ({ title, data }: IndustriesProps) => {
                                     </div>
                                 </div>
 
-                                <div className="absolute bottom-0 left-0 z-10 w-full p-[18px] xl:p-8 pt-0 text-white md:p-3 md:pt-7">
+                                {/* Content area */}
+                                <div className="absolute inset-x-0 bottom-0 z-10 flex h-[42%] flex-col justify-end p-[18px] pt-4 md:p-5 xl:p-8">
                                     <h3 className="text-xl font-semibold leading-[20px] text-(--color-primary) md:text-[20px]">
                                         {card.title}
                                     </h3>

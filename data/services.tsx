@@ -3,6 +3,11 @@ import type { ServicesPageData } from "@/types/services";
 export const servicesPageData: ServicesPageData = {
 
     fcl: {
+        meta: {
+            title: "FCL Sea Freight | Fairwinds Shipping",
+            description:
+                "Dedicated full container load shipping with clear updates and structured execution — direct container space for cargo that requires consistency and control.",
+        },
         bannerData: {
             label: "Sea Freight",
             title: "Dedicated Shipping with Full Control",
@@ -142,10 +147,10 @@ export const servicesPageData: ServicesPageData = {
             cards: [
                 {
                     id: 1,
-                    title: "Customs Clearance",
+                    title: "Less than Container Load (LCL)",
                     description:
-                        "Structured customs processes ensure accurate handling, faster approvals, and reliable shipment progress.",
-                    image: "/images/common/fcl-service.png",
+                        "Shared container shipping coordinated with accuracy, visibility, and dependable handling across international routes. ",
+                    image: "/images/common/lcl-service.png",
                     link: {
                         label: "Learn more",
                         href: "/other-services",
@@ -198,8 +203,8 @@ export const servicesPageData: ServicesPageData = {
                     variant: "yellow",
                 },
                 {
-                    label: "View All Services",
-                    href: "/other-services",
+                    label: "View our FCL services",
+                     href: "/fcl-sea-freight",
                     variant: "white-secondary",
                 },
             ],
@@ -213,44 +218,67 @@ export const servicesPageData: ServicesPageData = {
             sectiontitle: {
                 label: "FAQs",
                 title: "Full Container Load, Answered",
-                description: "Have questions about LCL shipping, cargo consolidation, or delivery? Our FAQ section covers common questions about consolidation, CFS handling, customs clearance, documentation, tracking, and final delivery. Find clear answers to understand how your LCL shipment moves from pickup to destination."
+                description: "Have questions about FCL shipping, container options, or the process? Our FAQ section covers common questions about dedicated container shipping, booking, documentation, customs clearance, tracking, and delivery. Find clear answers to help you understand the FCL process and plan your shipment with confidence."
             },
             faqs: [
                 {
                     id: 1,
-                    title: "What Is Full Container Load (FCL) Shipping?",
+                    title: "What Is FCL Sea Freight?",
                     descp:
-                        "FCL shipping means your cargo has exclusive use of an entire container, rather than sharing space with other shipments.",
+                        "FCL (Full Container Load) means a complete shipping container is dedicated to a single shipment or consignee. It is suitable for customers who have sufficient cargo to utilize a full container and offers better control over the movement of cargo.",
                 },
                 {
                     id: 2,
-                    title: "When Should I Choose FCL Over LCL?",
+                    title: "Do You Handle Both FCL Import And Export Shipments?",
                     descp:
-                        "FCL is generally the better fit once your cargo volume is large enough to fill most of a container, or when you need dedicated space and tighter control over handling.",
+                        "Yes. We handle both FCL import and export shipments, including freight coordination, documentation, customs clearance, port formalities, and delivery coordination.",
                 },
                 {
                     id: 3,
-                    title: "How Long Does FCL Shipping Typically Take?",
+                    title: "What Types Of Cargo Do You Handle?",
                     descp:
-                        "Transit times depend on the origin, destination, and route, but FCL generally moves faster than LCL since there is no consolidation or deconsolidation involved.",
+                        "We handle a wide range of commercial and industrial cargo, including FCL (Full Container Load), LCL (Less than Container Load), Oversize / OOG (Out-of-Gauge) Cargo, DG (Dangerous Goods) Cargo, Project Cargo, and Breakbulk Cargo. Our logistics solutions can be tailored to the cargo type, dimensions, weight, origin, destination, and specific handling requirements.",
                 },
                 {
                     id: 4,
-                    title: "Can I Book A Dedicated Container For A Single Shipment?",
+                    title: "What Information Is Required To Get An FCL Freight Quotation?",
                     descp:
-                        "Yes, FCL bookings reserve a full container exclusively for your cargo, regardless of how much of the container's capacity you use.",
+                        "To provide an accurate quotation, we generally require the port of loading, port of discharge, container size/type, number of containers, commodity, approximate weight, and preferred shipment date.",
                 },
                 {
                     id: 5,
-                    title: "Do You Provide Support With Customs And Documentation?",
+                    title: "Which Origins And Destinations Do You Cover?",
                     descp:
-                        "Yes, our team assists with customs documentation and clearance so your FCL shipment keeps moving smoothly across borders.",
+                        "We provide logistics solutions across major international trade lanes and ports. Please contact our team with your origin, destination, cargo details, and preferred shipping schedule so we can provide the most suitable routing and freight option.",
+                },
+                {
+                    id: 6,
+                    title: "Do You Provide Competitive Ocean Freight Rates?",
+                    descp:
+                        "Yes, we provide competitive export and import freight rates. We coordinate with shipping lines and other freight partners to provide suitable routing and competitive freight options based on the shipment requirements, destination, transit time, and available vessel schedules.",
+                },
+                {
+                    id: 7,
+                    title: "How Do You Track An FCL Shipment?",
+                    descp:
+                        "Once the shipment is booked, we monitor the vessel schedule and shipment milestones and coordinate updates regarding container movement, vessel departure, transshipment, arrival, and delivery.",
+                },
+                {
+                    id: 8,
+                    title: "Do You Assist With Shipping Line And Port Formalities?",
+                    descp:
+                        "Yes. We coordinate the required formalities with shipping lines, ports, terminals, CFSs, transporters, and other relevant stakeholders to facilitate smooth movement of the container.",
                 },
             ],
         },
     },
 
     lcl: {
+        meta: {
+            title: "LCL Sea Freight | Fairwinds Shipping",
+            description:
+                "Flexible less-than-container-load shipping for smaller volumes, with structured planning and careful handling from origin to destination.",
+        },
         bannerData: {
             label: "Less than Container Load (LCL)",
             title: "Flexible Shipping for Smaller Volumes",
@@ -403,14 +431,14 @@ export const servicesPageData: ServicesPageData = {
                 },
                 {
                     id: 2,
-                    image: "/images/services/lcl-1.png",
+                    image: "/images/services/lcl-2.png",
                     title: "Ideal For Smaller Shipments",
                     description:
                         "Move smaller cargo volumes efficiently without the cost of booking an entire container.",
                 },
                 {
                     id: 3,
-                    image: "/images/services/lcl-1.png",
+                    image: "/images/services/lcl-3.png",
                     title: "Flexible Routing Options",
                     description:
                         "Keep shipments moving without delays associated with filling an entire container, helping support more responsive operations.",
@@ -433,9 +461,9 @@ export const servicesPageData: ServicesPageData = {
             cards: [
                 {
                     id: 1,
-                    title: "Customs Clearance",
+                    title: "Full Container Load (FCL)",
                     description:
-                        "Structured customs processes ensure accurate handling, faster approvals, and reliable shipment progress.",
+                        "Shared container shipping coordinated with accuracy, visibility, and dependable handling across international routes. ",
                     image: "/images/common/fcl-service.png",
                     link: {
                         label: "Learn more",
@@ -489,8 +517,8 @@ export const servicesPageData: ServicesPageData = {
                     variant: "yellow",
                 },
                 {
-                    label: "View All Services",
-                    href: "/other-services",
+                    label: "View our FCL services",
+                      href: "/fcl-sea-freight",
                     variant: "white-secondary",
                 },
             ],
@@ -510,39 +538,62 @@ export const servicesPageData: ServicesPageData = {
             faqs: [
                 {
                     id: 1,
-                    title: "What Is Less Than Container Load (LCL) Shipping?",
+                    title: "What Is LCL Sea Freight?",
                     descp:
-                        "LCL shipping lets you share container space with other shipments, so you only pay for the space your cargo uses.",
+                        "LCL (Less than Container Load) is a shipping method where cargo from multiple customers is consolidated into a single container. It is ideal for shipments that do not require a full container.",
                 },
                 {
                     id: 2,
-                    title: "When Should I Choose LCL Over FCL?",
+                    title: "When Should I Choose LCL Instead Of FCL?",
                     descp:
-                        "LCL works best when your cargo volume isn't enough to fill a full container, helping you avoid paying for unused space.",
+                        "LCL is generally suitable when your cargo volume is not sufficient to fill a complete container. It allows you to pay for the space your cargo occupies rather than booking an entire container.",
                 },
                 {
                     id: 3,
-                    title: "How Long Does LCL Shipping Typically Take?",
+                    title: "What Information Is Required For An LCL Freight Quotation?",
                     descp:
-                        "LCL transit times are generally longer than FCL since cargo needs to be consolidated and deconsolidated at hubs along the route.",
+                        "We generally require the origin, destination, commodity, number of packages, dimensions, gross weight, and cargo readiness date. These details help us calculate the applicable freight and handling charges.",
                 },
                 {
                     id: 4,
-                    title: "Is My Cargo Kept Separate From Other Shipments?",
+                    title: "Do You Provide LCL Consolidation Services?",
                     descp:
-                        "Your cargo shares container space but remains clearly identified, labeled, and documented throughout transit.",
+                        "Yes. We coordinate with consolidation partners and freight networks to arrange suitable LCL services based on the origin, destination, cargo volume, and required transit time.",
                 },
                 {
                     id: 5,
-                    title: "Do You Provide Support With Customs And Documentation?",
+                    title: "Can You Arrange Pickup Of LCL Cargo From The Supplier?",
                     descp:
-                        "Yes, our team assists with customs documentation and clearance so your LCL shipment keeps moving smoothly across borders.",
+                        "Yes. Depending on the shipment requirements, we can coordinate factory pickup, transportation to the CFS/consolidation warehouse, and subsequent movement for export or import.",
+                },
+                {
+                    id: 6,
+                    title: "How Is LCL Freight Calculated?",
+                    descp:
+                        "LCL freight is generally calculated based on the chargeable volume (CBM) or weight, depending on the shipment and applicable freight terms. Other charges such as origin handling, CFS charges, documentation, customs clearance, and destination charges may also apply.",
+                },
+                {
+                    id: 7,
+                    title: "Can You Handle LCL Shipments To Different International Destinations?",
+                    descp:
+                        "Yes. We can arrange LCL services to and from various international destinations through available consolidation networks and shipping partners.",
+                },
+                {
+                    id: 8,
+                    title: "Why Choose LCL Forwarding Through Us?",
+                    descp:
+                        "Our LCL service combines freight coordination, customs expertise, documentation support, CFS coordination, and delivery arrangements, giving customers a single point of contact for their shipment.",
                 },
             ],
         },
     },
 
     otherServices: {
+        meta: {
+            title: "Other Services | Fairwinds Shipping",
+            description:
+                "A broad portfolio of shipping and logistics services supporting cargo movement, regulatory compliance, transportation, storage, and distribution.",
+        },
         bannerData: {
             label: "Additional Services",
             title: "Supporting Every Stage of Shipping",
@@ -550,7 +601,7 @@ export const servicesPageData: ServicesPageData = {
                 "A broad portfolio of shipping and logistics services designed to support cargo movement, regulatory compliance, transportation, storage, and distribution requirements across domestic and international supply chains.",
             bannerImage: {
                 src: "/images/services/other-services.png",
-                alt: "Warehousing and distribution operations",
+                alt: "Warehousing and Distribution operations",
             },
             action: {
                 label: "Contact Us",
@@ -701,7 +752,7 @@ export const servicesPageData: ServicesPageData = {
                 },
                 {
                     id: "multimodal-transport-operator",
-                    label: "Multimodal Transport",
+                    label: "MTO",
                     title: "Multimodal Transport Operator (MTO)",
                     description:
                         "Multimodal transport brings sea, air, road, and rail together under one coordinated plan. Our team manages every transition between modes, ensuring smooth handoffs, consistent timelines, and full visibility from origin to destination. With a single point of coordination, your cargo moves efficiently across every leg of the journey.",
@@ -743,14 +794,14 @@ export const servicesPageData: ServicesPageData = {
                 },
                 {
                     id: 2,
-                    image: "/images/services/lcl-1.png",
+                    image: "/images/services/lcl-2.png",
                     title: "Greater Shipment Visibility",
                     description:
                         "Maintain clear oversight across transportation, customs, storage, and delivery through every stage of the journey.",
                 },
                 {
                     id: 3,
-                    image: "/images/services/lcl-1.png",
+                    image: "/images/services/lcl-3.png",
                     title: "Streamlined Cargo Flow",
                     description:
                         "Connected logistics services help reduce handoffs, improve coordination, and keep shipments moving efficiently.",
@@ -821,7 +872,7 @@ export const servicesPageData: ServicesPageData = {
         cta2: {
             title: "Let’s simplify your container shipping requirements",
             description:
-                "OOur team helps you manage international container shipments with structured planning and consistent operational support.  ",
+                "Our team helps you manage international container shipments with structured planning and consistent operational support.  ",
             actions: [
                 {
                     label: "Contact Us",
@@ -829,8 +880,8 @@ export const servicesPageData: ServicesPageData = {
                     variant: "yellow",
                 },
                 {
-                    label: "View All Services",
-                    href: "/other-services",
+                    label: "View our FCL services",
+                    href: "/fcl-sea-freight",
                     variant: "white-secondary",
                 },
             ],
@@ -843,39 +894,59 @@ export const servicesPageData: ServicesPageData = {
         faqs: {
             sectiontitle: {
                 label: "FAQs",
-                title: "Other Services, Answered",
-                description: 'Have questions about our additional logistics services? Our FAQ section covers common questions about transportation, customs support, cargo handling, documentation, tracking, and other solutions we provide. Find answers to understand how Fairwinds can support your shipment beyond standard freight services.'
+                title: <>
+                    Frequently <br />
+                    Asked Questions</>,
+                description: 'Have questions about our additional logistics services? Our FAQ section covers common questions about transportation, customs support, cargo handling, documentation, tracking, and other solutions we provide. Find clear answers to understand how Fairwinds can support your shipment beyond standard freight services.'
             },
             faqs: [
                 {
                     id: 1,
-                    title: "What Other Shipping Services Do You Offer Beyond FCL And LCL?",
+                    title: "What Customs Clearance Services Do You Provide?",
                     descp:
-                        "We support customs clearance, project cargo, break bulk, air freight, road and rail transportation, warehousing and distribution, and multimodal transport.",
+                        "We provide comprehensive import and export customs clearance services, including documentation, customs formalities, examination coordination, assessment, and liaison with relevant authorities to facilitate smooth and timely cargo clearance.",
                 },
                 {
                     id: 2,
-                    title: "Can You Handle Oversized Or Non-Standard Cargo?",
+                    title: "Do You Provide Air Freight Services?",
                     descp:
-                        "Yes, our project cargo and break bulk services are built for shipments that don't fit standard containers, with planning tailored to each load.",
+                        "Yes. We offer air freight solutions for both imports and exports, with options based on cargo requirements, destination, urgency, and transit-time expectations. We coordinate booking, documentation, customs clearance, and delivery.",
                 },
                 {
                     id: 3,
-                    title: "Do You Assist With Customs Documentation?",
+                    title: "What Is Project Cargo And Can You Handle It?",
                     descp:
-                        "Yes, our team manages customs documentation and clearance processes to help your shipments move across borders without delays.",
+                        "Project Cargo involves the transportation of oversized, heavy, high-value, or complex cargo requiring specialized planning and handling. We coordinate the logistics process, including route planning, transportation, port handling, documentation, and other project-specific requirements.",
                 },
                 {
                     id: 4,
-                    title: "Can I Combine Multiple Transport Modes For One Shipment?",
+                    title: "Do You Provide Warehousing Services?",
                     descp:
-                        "Yes, our multimodal transport service coordinates air, sea, road, and rail movements under a single, structured plan.",
+                        "Yes. We can coordinate warehousing and cargo storage solutions based on the customer's requirements, including cargo handling, storage, inventory coordination, and movement of goods.",
                 },
                 {
                     id: 5,
-                    title: "Do You Offer Warehousing For Cargo Between Shipments?",
+                    title: "Do You Provide Transportation Services?",
                     descp:
-                        "Yes, we provide secure warehousing and distribution support to keep your cargo protected and ready to move.",
+                        "Yes. We have our own fleet for inland transportation solutions for containers and cargo, coordinating movement between factories, warehouses, ports, CFSs, and final delivery locations.",
+                },
+                {
+                    id: 6,
+                    title: "Can You Provide An End-To-End Logistics Solution?",
+                    descp:
+                        "Yes. We can integrate customs clearance, sea and air freight, warehousing, transportation, and cargo handling to provide a coordinated end-to-end logistics solution through a single point of contact.",
+                },
+                {
+                    id: 7,
+                    title: "Can You Handle Urgent, Specialized, Or Time-Sensitive Cargo?",
+                    descp:
+                        "Yes. We evaluate the nature of the cargo, required delivery timeline, origin and destination, and handling requirements to develop a suitable logistics plan and coordinate the necessary resources.",
+                },
+                {
+                    id: 8,
+                    title: "How Can I Get A Quotation For My Logistics Requirement?",
+                    descp:
+                        "Simply share your cargo details, origin, destination, commodity, dimensions/weight, preferred mode of transport, and required timeline with our team. We will assess your requirement and provide a suitable logistics solution and quotation.",
                 },
             ],
         },

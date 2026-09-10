@@ -1,20 +1,43 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { mainNav, coreServices, additionalServices } from "@/lib/navigation";
 import { Button } from "@/components/ui/Button";
 import { ChevronDownIcon } from "@/components/icons";
 
-export function MobileMenu({ onNavigate }: { onNavigate: () => void }) {
+export function MobileMenu({
+  open,
+  onNavigate,
+  onClosed,
+}: {
+  open: boolean;
+  onNavigate: () => void;
+  onClosed?: () => void;
+}) {
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [entered, setEntered] = useState(false);
   const allServices = [...coreServices, ...additionalServices];
 
+  useEffect(() => {
+    if (!open) return;
+    const id = requestAnimationFrame(() => setEntered(true));
+    return () => cancelAnimationFrame(id);
+  }, [open]);
+
+  const visualOpen = open && entered;
+
   return (
-    <div className="border-t border-(--indigo-border) bg-(--color-primary) lg:hidden ">
+    <div
+      onTransitionEnd={(event) => {
+        if (event.target === event.currentTarget && !open) onClosed?.();
+      }}
+      className={`border-t border-(--indigo-border) bg-(--color-primary) lg:hidden transition-transform duration-300 ease-in-out ${visualOpen ? "translate-y-0" : "-translate-y-full"
+        }`}
+    >
       <div
         data-lenis-prevent
-        className="container flex flex-col gap-1 py-4 pb-[44px] h-[calc(100vh-70px)] overflow-scroll "
+        className="container flex flex-col gap-1 py-4 pb-[44px] h-[calc(100vh-70px)] overflow-x-hidden overflow-y-scroll "
       >
         <button
           type="button"

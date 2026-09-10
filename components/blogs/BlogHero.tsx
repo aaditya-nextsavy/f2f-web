@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { FaRegCalendar, FaRegUser } from "react-icons/fa6";
+import { LuPenLine } from "react-icons/lu";
+
 import DiagonalLines from "@/components/common/DiagonalLines";
 
 interface BlogHeroProps {
@@ -37,7 +39,7 @@ const BlogHero = ({ label, title, author, date, image, imageAlt, sidebar, childr
                 <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-[14px] text-white/60">
                     {author && (
                         <span className="flex items-center gap-2">
-                            <FaRegUser size={13} /> By {author}
+                            <LuPenLine size={13} /> By {author}
                         </span>
                     )}
                     <span className="flex items-center gap-2">
@@ -52,10 +54,12 @@ const BlogHero = ({ label, title, author, date, image, imageAlt, sidebar, childr
                 <Image src={image} alt={imageAlt} fill priority sizes="100vw" className="object-cover" />
             </div>
 
-            <div className="mt-10 grid grid-cols-1 gap-10 lg:mt-14 lg:grid-cols-[1fr_360px] lg:gap-14">
-                <article>{children}</article>
+            <div className="mt-10 grid grid-cols-1 gap-8 sm:gap-10 lg:mt-14 lg:grid-cols-[1fr_360px] lg:gap-14">
 
-                <aside className="lg:sticky lg:top-28 lg:self-start">{sidebar}</aside>
+                <aside className="block sm:hidden lg:sticky lg:top-28 lg:self-start">{sidebar}</aside>
+                <article>{children}</article>
+                <aside className="hidden sm:block lg:sticky lg:top-34 lg:self-start">{sidebar}</aside>
+
             </div>
         </div>
     </>

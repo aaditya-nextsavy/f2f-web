@@ -41,6 +41,11 @@ export interface BannerDataType2 {
     bannerImage?: PlaceholderData;
 }
 
+export interface PageMetaData {
+    title: string;
+    description: string;
+}
+
 
 export interface TeamMemberData {
     id: string;
@@ -73,6 +78,7 @@ export type CoreValuesData = {
 export interface MissionVisionData {
     sectionTitle: SectionTitleData;
     body: ReactNode;
+    missionTitle: string;
     visionTitle: string;
     visionBody: ReactNode;
     image: PlaceholderData;
@@ -93,6 +99,7 @@ export interface HowWeWorkData {
 }
 
 export interface AboutPageData {
+    meta: PageMetaData;
     bannerData: BannerDataType2;
     ourStory: {
         sectionTitle: SectionTitleData;

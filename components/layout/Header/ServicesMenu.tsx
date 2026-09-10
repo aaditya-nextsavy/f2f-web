@@ -5,15 +5,16 @@ import Image from "next/image";
 
 export function ServicesMenu({ onNavigate }: { onNavigate?: () => void }) {
   return (
-    <div className="flex w-max max-w-[1228px] p-[52px] rounded-[10px] bg-(--color-white) p-8 shadow-[0px_4px_4px_0px_#00000040,0px_2px_3px_0px_#0000001A]">
-      <div className="grid grid-cols-[1fr_1.2fr] gap-8">
-        <div>
+    <div className="flex w-full max-w-[1000px] 2xl:max-w-[1228px] p-6 2xl:p-[52px] rounded-[10px] bg-(--color-white) p-8 shadow-[0px_4px_4px_0px_#00000040,0px_2px_3px_0px_#0000001A]">
+      <div className="flex 2xl:grid 2xl:grid-cols-[1fr_1.2fr] gap-8 ">
+        <div className="w-max">
           <p className="text-[14px] leading-[32px] tracking-[-0.2px] font-semibold text-(--color-primary)  pb-3"
           >
             CORE SERVICE
           </p>
           <svg
-            width="560"
+            className="w-max max-w-[400px] 2xl:w-[560px]"
+            // width="560"
             height="1"
             viewBox="0 0 560 1"
             style={{ opacity: 0.2 }}
@@ -36,7 +37,7 @@ export function ServicesMenu({ onNavigate }: { onNavigate?: () => void }) {
                 onClick={onNavigate}
                 className="group flex flex-col gap-3"
               >
-                <div className="flex h-auto w-full items-center aspect-(242/70) justify-center  text-(--color-primary) transition-colors">
+                <div className="flex h-auto w-full items-center max-w-[150px] 2xl:max-w-[240px]  aspect-(242/70) justify-center  text-(--color-primary) transition-colors">
 
                   <Image
                     src={service?.iconSrc || "/images/common/menu-fcl.png"}
@@ -75,7 +76,7 @@ export function ServicesMenu({ onNavigate }: { onNavigate?: () => void }) {
             ADDITIONAL SERVICE
           </p>
           <svg
-            width="560"
+            className="w-max max-w-[400px] 2xl:w-[560px]"
             height="1"
             viewBox="0 0 560 1"
             style={{ opacity: 0.2 }}
@@ -90,13 +91,13 @@ export function ServicesMenu({ onNavigate }: { onNavigate?: () => void }) {
               strokeDasharray="4 4"
             />
           </svg>
-          <div className="mt-4 grid grid-cols-2 gap-x-6 gap-y-3">
+          <div className="mt-4 grid grid-cols-2 gap-x-3 2xl:gap-x-6 gap-y-3">
             {additionalServices.map((service) => (
               <Link
                 key={service.label}
                 href={service.href}
                 onClick={onNavigate}
-                className="text-[16px] leading-[24px] font-regular text-(--color-primary) hover:underline underline-offset-4"
+                className="text-[14px] 2xl:text-[16px] leading-[24px] font-regular text-(--color-primary) hover:underline underline-offset-4"
               >
                 {service.label}
               </Link>

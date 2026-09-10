@@ -5,7 +5,13 @@ export interface LegalSectionData {
     description: ReactNode;
 }
 
+export interface PageMetaData {
+    title: string;
+    description: string;
+}
+
 export interface LegalPageData {
+    meta: PageMetaData;
     banner: {
         label?: string;
         title: string;

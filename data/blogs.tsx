@@ -1,6 +1,11 @@
 import type { BlogsPageData } from "@/types/blogs";
 
 export const blogsPageData: BlogsPageData = {
+    meta: {
+        title: "Blog | Fairwinds Shipping",
+        description:
+            "Perspectives on shipping, logistics, and global trade from the Fairwinds Shipping team.",
+    },
     banner: {
         label: "Blogs",
         title: <>

@@ -18,7 +18,7 @@ export default function HeroVideo({ video, placeholder }: HeroVideoProps) {
                 fill
                 priority
                 sizes="100vw"
-                className="object-cover"
+                className="object-cover "
             />
 
             {/* Hero video */}

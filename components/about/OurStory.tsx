@@ -17,7 +17,7 @@ const OurStory = ({ title, image }: OurStoryProps) => {
                     label={title.label}
                     title={title.title}
                     className="mx-auto  text-start lg:text-center"
-                    titleClassName="text-[24px]! leading-[30px]! md:text-[32px] lg:text-[34px]! lg:leading-[42px]! text-balance capitalize mt-1!"
+                    titleClassName="text-[24px]! leading-[30px]! md:text-[32px] lg:text-[34px]! lg:leading-[42px]! text-balance mt-1!"
                 />
 
                 <div className="hidden lg:block w-full py-6 relative overflow-hidden lg:rounded-[48px] mt-[40px] lg:mt-[60px] h-auto aspect-53/36 lg:aspect-[168/59]">
@@ -38,7 +38,7 @@ const OurStory = ({ title, image }: OurStoryProps) => {
                     src={image.src}
                     alt={image.alt}
                     fill
-                // className="object-contain"
+                    className="object-cover lg:object-contain"
                 />
 
             </div>

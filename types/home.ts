@@ -29,6 +29,11 @@ export interface PlaceholderData {
     alt: string;
 }
 
+export interface PageMetaData {
+    title: string;
+    description: string;
+}
+
 export interface HeroBannerData {
     title: string;
     description: string;
@@ -102,6 +107,7 @@ export interface StatData {
 }
 
 export interface HomePageData {
+    meta: PageMetaData;
     heroBanner: HeroBannerData;
     heroAbout: HeroAboutData;
     seaFreight: {
