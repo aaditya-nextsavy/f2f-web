@@ -391,7 +391,7 @@ export function Footer() {
                     type="button"
                     onClick={() => handleToggle(index)}
                     aria-expanded={isOpen}
-                    className="flex w-full items-center justify-between gap-4 text-left lg:pointer-events-none lg:cursor-default"
+                    className="flex w-full items-center font-semibold justify-between gap-4 text-left lg:pointer-events-none lg:cursor-default"
                   >
                     <span className="text-(length:--text-small) font-normal text-white/60">
                       {group.title}
