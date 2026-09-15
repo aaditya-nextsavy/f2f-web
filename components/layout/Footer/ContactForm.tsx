@@ -2,6 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import { FormField, fieldControlClass } from "@/components/ui/FormField";
+import { Select } from "@/components/ui/Select";
 import { Button } from "@/components/ui/Button";
 import { serviceOptions } from "@/lib/navigation";
 import { ArrowRightIcon, CheckCircleIcon, AlertCircleIcon } from "@/components/icons";
@@ -54,6 +55,11 @@ export function ContactForm() {
     const { value } = event.target;
     setForm((prev) => ({ ...prev, [field]: value }));
     setErrors((prev) => (prev[field] ? { ...prev, [field]: undefined } : prev));
+  };
+
+  const updateService = (value: string) => {
+    setForm((prev) => ({ ...prev, service: value }));
+    setErrors((prev) => (prev.service ? { ...prev, service: undefined } : prev));
   };
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
@@ -157,21 +163,13 @@ export function ContactForm() {
         </FormField>
 
         <FormField label="Service Interested In" required error={errors.service}>
-          <select
+          <Select
             value={form.service}
-            onChange={update("service")}
-            aria-invalid={Boolean(errors.service)}
-            className={`${fieldControlClass} ${errorInputClass("service")}`}
-          >
-            <option value="" disabled>
-              Select Service
-            </option>
-            {serviceOptions.map((option) => (
-              <option key={option} value={option}>
-                {option}
-              </option>
-            ))}
-          </select>
+            onChange={updateService}
+            options={serviceOptions}
+            placeholder="Select Service"
+            invalid={Boolean(errors.service)}
+          />
         </FormField>
 
         <FormField label="Cargo Quantity (In Tons)">

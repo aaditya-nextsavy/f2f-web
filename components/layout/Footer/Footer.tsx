@@ -30,6 +30,7 @@ export function Footer() {
   const year = new Date().getFullYear();
   const pathname = usePathname();
   const isContactPage = pathname === "/contact";
+   const isAboutPage = pathname === "/about";
   const [openIndex, setOpenIndex] = useState(-1);
   const [hoveredLink, setHoveredLink] = useState<string | null>(null);
 
@@ -38,7 +39,7 @@ export function Footer() {
   };
 
   return (
-    <footer className="relative mt-[42px] overflow-hidden bg-(--color-primary) xl:mt-[92px]">
+    <footer className={`relative overflow-hidden bg-(--color-primary)  ${isAboutPage ? "" : " mt-[42px] xl:mt-[92px]"} `}>
       {/* Desktop background */}
       <Image
         src="/images/common/footer-bg.png"

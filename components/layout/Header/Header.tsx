@@ -17,6 +17,7 @@ export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileMenuMounted, setMobileMenuMounted] = useState(false);
   const servicesRef = useRef<HTMLDivElement>(null);
+  const servicesCloseTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -35,6 +36,25 @@ export function Header() {
     document.addEventListener("mousedown", onClickOutside);
     return () => document.removeEventListener("mousedown", onClickOutside);
   }, [servicesOpen]);
+
+  useEffect(() => {
+    return () => {
+      if (servicesCloseTimeoutRef.current) clearTimeout(servicesCloseTimeoutRef.current);
+    };
+  }, []);
+
+  const openServicesMenu = () => {
+    if (servicesCloseTimeoutRef.current) {
+      clearTimeout(servicesCloseTimeoutRef.current);
+      servicesCloseTimeoutRef.current = null;
+    }
+    setServicesOpen(true);
+  };
+
+  const scheduleCloseServicesMenu = () => {
+    if (servicesCloseTimeoutRef.current) clearTimeout(servicesCloseTimeoutRef.current);
+    servicesCloseTimeoutRef.current = setTimeout(() => setServicesOpen(false), 150);
+  };
 
   const isDark = scrolled || mobileOpen;
   const textColorClass = isDark ? "text-(--color-primary)" : "text-(--color-white)";
@@ -112,7 +132,12 @@ export function Header() {
 
 
         <nav className="hidden items-center gap-x-4 2xl:gap-x-8.5 lg:flex">
-          <div ref={servicesRef} className="relative">
+          <div
+            ref={servicesRef}
+            className="relative"
+            onMouseEnter={openServicesMenu}
+            onMouseLeave={scheduleCloseServicesMenu}
+          >
             <button
               type="button"
 

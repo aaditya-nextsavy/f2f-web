@@ -68,7 +68,7 @@ const HowWeWork = ({ data }: HowWeWorkProps) => {
                 <div ref={pinRef} className="relative mt-10 hidden h-screen w-full lg:block">
                     <div
                         ref={trackRef}
-                        className="absolute top-1/2 left-0 flex -translate-y-1/2 flex-col will-change-transform"
+                        className="absolute top-[43%] left-0 flex -translate-y-1/2 flex-col will-change-transform"
                     >
                         <div className="flex gap-x-[128px] me-[120px] ">
                             {data.points.map((point, index) => (
