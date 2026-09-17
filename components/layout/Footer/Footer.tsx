@@ -383,7 +383,7 @@ export function Footer() {
                   href={href}
                   target={newTab ? "_blank" : undefined}
                   rel={newTab ? "noopener noreferrer" : undefined}
-                  className="group flex items-center gap-7 py-6 transition-colors  max-w-[100%]"
+                  className="group flex items-center gap-3 xl:gap-7 py-6 transition-colors  max-w-[100%]"
                 >
                   <span className="flex h-[46px] w-[46px] shrink-0 items-center justify-center rounded-(--radius-full) bg-white text-(--color-primary)">
                     <Icon className="h-[25px]" />
@@ -422,7 +422,7 @@ export function Footer() {
             "
           >
             {/* Logo */}
-            <div className="order-last lg:order-none pb-5 lg:pb-0 w-full flex justify-between items-center gap-1 lg:gap-0 lg:items-start  flex-col py-[32px] pb-42px sm:py-0 sm:pb-0">
+            <div className="order-last lg:order-none pb-5 lg:pb-0 w-full flex justify-between items-center gap-1 lg:gap-0 lg:items-start  flex-col py-[12px] pb-6 mb-32px sm:py-0 sm:bb-0 sm:mb-0">
 
               <svg width="255" height="47" viewBox="0 0 255 47" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fillRule="evenodd" clipRule="evenodd" d="M0.134888 17.622V28.7011H17.5757C24.9915 28.7011 23.4809 28.8346 29.5234 23.0948C34.7419 18.0224 36.3898 18.6899 46.2776 18.6899H60.2851V7.34375H47.7881C34.8792 7.47723 42.1577 17.622 15.2411 17.622H0.134888Z" fill="white" />

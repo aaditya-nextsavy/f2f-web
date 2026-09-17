@@ -73,42 +73,45 @@ const OtherServices = ({ title, data }: OtherServicesProps) => {
                         ))}
                     </Splide>
 
-                    <div className="mt-6 flex items-center justify-center gap-5">
-                        <div className="flex items-center gap-2">
-                            {data.map((card, index) => (
+                    <div className="container mx-auto">
+                        <div className="mt-6 flex items-center justify-between gap-5 ">
+                            <div className="flex items-center gap-2">
+                                {data.map((card, index) => (
+                                    <button
+                                        key={card.id}
+                                        type="button"
+                                        aria-label={`Go to slide ${index + 1}`}
+                                        onClick={() => splideRef.current?.splide?.go(index)}
+                                        className={`h-2 rounded-full transition-all duration-300 ${index === activeIndex
+                                            ? "w-6 bg-(--color-primary)"
+                                            : "w-2 bg-(--color-light-indigo)"
+                                            }`}
+                                    />
+                                ))}
+                            </div>
+
+                            <div className="flex items-center gap-3">
                                 <button
-                                    key={card.id}
                                     type="button"
-                                    aria-label={`Go to slide ${index + 1}`}
-                                    onClick={() => splideRef.current?.splide?.go(index)}
-                                    className={`h-2 rounded-full transition-all duration-300 ${index === activeIndex
-                                        ? "w-6 bg-(--color-primary)"
-                                        : "w-2 bg-(--color-light-indigo)"
-                                        }`}
-                                />
-                            ))}
-                        </div>
+                                    aria-label="Previous slide"
+                                    onClick={() => splideRef.current?.splide?.go("<")}
+                                    className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-(--color-primary) text-(--color-primary) transition-colors duration-300 hover:bg-(--color-primary) hover:text-(--color-white)"
+                                >
+                                    <FaChevronLeft size={16} />
+                                </button>
 
-                        <div className="flex items-center gap-3">
-                            <button
-                                type="button"
-                                aria-label="Previous slide"
-                                onClick={() => splideRef.current?.splide?.go("<")}
-                                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-(--color-primary) text-(--color-primary) transition-colors duration-300 hover:bg-(--color-primary) hover:text-(--color-white)"
-                            >
-                                <FaChevronLeft size={16} />
-                            </button>
-
-                            <button
-                                type="button"
-                                aria-label="Next slide"
-                                onClick={() => splideRef.current?.splide?.go(">")}
-                                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-(--color-primary) text-(--color-primary) transition-colors duration-300 hover:bg-(--color-primary) hover:text-(--color-white)"
-                            >
-                                <FaChevronRight size={16} />
-                            </button>
+                                <button
+                                    type="button"
+                                    aria-label="Next slide"
+                                    onClick={() => splideRef.current?.splide?.go(">")}
+                                    className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-(--color-primary) text-(--color-primary) transition-colors duration-300 hover:bg-(--color-primary) hover:text-(--color-white)"
+                                >
+                                    <FaChevronRight size={16} />
+                                </button>
+                            </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </section>

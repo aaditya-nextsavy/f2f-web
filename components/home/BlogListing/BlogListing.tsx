@@ -84,7 +84,7 @@ const BlogListing = ({ title, data, exploreLink }: BlogListingProps) => {
                         ))}
                     </Splide>
 
-                    <div className="mt-6 flex items-center justify-center gap-5">
+                    <div className="mt-6 flex items-center justify-between gap-5">
                         <div className="flex items-center gap-2">
                             {data.map((post, index) => (
                                 <button
