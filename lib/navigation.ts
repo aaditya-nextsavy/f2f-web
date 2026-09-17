@@ -42,7 +42,6 @@ export const footerLinkGroups: { title: string; links: NavLink[] }[] = [
     title: "Quick Links",
     links: [
       { label: "About Us", href: "/about" },
-      { label: "FCL Service", href: "/fcl-sea-freight" },
       { label: "Blogs", href: "/blog" },
       { label: "Contact", href: "/contact" },
     ],

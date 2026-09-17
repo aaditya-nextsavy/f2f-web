@@ -217,7 +217,7 @@ const BannerType2 = ({
 
                 <div
                     className={`flex flex-col justify-between   ${hasImage ? "lg:w-[60%] lg:pb-16 min-h-[220px] lg:min-h-[280px]" : "w-full"
-                        } ${!hasDescription ? " h-max pb-[87px]" : "justify-end lg:pb-16 min-h-[220px] lg:min-h-[280px]"}`}
+                        } ${!hasDescription ? " h-max lg:pb-[87px]" : "justify-end lg:pb-16 min-h-[220px] lg:min-h-[280px]"}`}
                 >
                     <div>
                         {label && (

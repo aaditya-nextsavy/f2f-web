@@ -97,7 +97,7 @@ export function ServicesMenu({ onNavigate }: { onNavigate?: () => void }) {
                 key={service.label}
                 href={service.href}
                 onClick={onNavigate}
-                className="text-[14px] 2xl:text-[16px] leading-[24px] font-regular text-(--color-primary) hover:underline underline-offset-4"
+                className="text-[14px] 2xl:text-[16px] capitalize leading-[24px] font-regular text-(--color-primary) hover:underline underline-offset-4"
               >
                 {service.label}
               </Link>

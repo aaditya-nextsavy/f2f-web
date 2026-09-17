@@ -422,7 +422,7 @@ export function Footer() {
             "
           >
             {/* Logo */}
-            <div className="order-last lg:order-none pb-5 lg:pb-0 w-full flex justify-between items-center gap-1 lg:gap-0 lg:items-start  flex-col py-[32px] sm:py-0">
+            <div className="order-last lg:order-none pb-5 lg:pb-0 w-full flex justify-between items-center gap-1 lg:gap-0 lg:items-start  flex-col py-[32px] pb-42px sm:py-0 sm:pb-0">
 
               <svg width="255" height="47" viewBox="0 0 255 47" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fillRule="evenodd" clipRule="evenodd" d="M0.134888 17.622V28.7011H17.5757C24.9915 28.7011 23.4809 28.8346 29.5234 23.0948C34.7419 18.0224 36.3898 18.6899 46.2776 18.6899H60.2851V7.34375H47.7881C34.8792 7.47723 42.1577 17.622 15.2411 17.622H0.134888Z" fill="white" />
@@ -482,7 +482,7 @@ export function Footer() {
               return (
                 <div
                   key={group.title}
-                  className={`border-b last:border-b-0 border-white/15 py-4 lg:border-none lg:py-0 ${isLargeGroup ? "xl:col-span-2" : ""
+                  className={`border-b last:border-b-0 border-white/15 py-6 lg:border-none lg:py-0 ${isLargeGroup ? "xl:col-span-2" : ""
                     }`}
                 >
                   <button
@@ -511,7 +511,7 @@ export function Footer() {
                       <div
                         className={
                           isLargeGroup
-                            ? "mt-4 grid grid-cols-2 gap-x-8 gap-y-2"
+                            ? "mt-4 grid grid-cols-2 gap-x-8 gap-y-4"
                             : "mt-4 grid grid-flow-col lg:grid-rows-4 gap-x-10 gap-y-2 h-max grid-rows-auto "
                         }
                       >
@@ -526,7 +526,7 @@ export function Footer() {
                               target={link.newPage ? "_blank" : undefined}
                               onMouseEnter={() => setHoveredLink(linkKey)}
                               onMouseLeave={() => setHoveredLink(null)}
-                              className={`text-(length:--text-small) transition-opacity duration-300 ${isDimmed ? "opacity-50" : "opacity-100"
+                              className={`text-(length:--text-small) capitalize transition-opacity duration-300 ${isDimmed ? "opacity-50" : "opacity-100"
                                 }`}
                             >
                               {link.label}
