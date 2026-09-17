@@ -12,13 +12,13 @@ export default function LegalContent({ sections }: LegalContentProps) {
                     {sections.map((section, index) => (
                         <div
                             key={index}
-                            className="border-b border-dashed border-(--form-placeholder) py-12 first:pt-0 last:border-b-0 last:pb-0 lg:py-[64px]"
+                            className="border-b border-dashed border-(--form-placeholder) py-8 first:pt-0 last:border-b-0 last:pb-0 lg:py-[48px]"
                         >
-                            <h2 className="text-[28px] font-medium capitalize leading-[1.15] tracking-[-1px] text-(--color-primary) lg:text-[56px] lg:leading-[60px]">
+                            <h2 className="text-[28px] font-medium capitalize leading-[1.15] tracking-[-1px] text-(--color-primary) lg:text-[42px] lg:leading-[50px]">
                                 {section.title}
                             </h2>
 
-                            <div className="mt-[42px] text-[16px] leading-[26px] tracking-[-0.3px] text-(--color-primary)/80 lg:text-[18px] lg:leading-[28px] [&_ol]:mt-4 [&_ol]:list-decimal [&_ol]:space-y-2 [&_ol]:pl-5">
+                            <div className="mt-[32px] text-[16px] leading-[26px] tracking-[-0.3px] text-(--color-primary)/80 lg:text-[18px] lg:leading-[28px] [&_ol]:mt-4 [&_ol]:list-decimal [&_ol]:space-y-2 [&_ol]:pl-5">
                                 {section.description}
                             </div>
                         </div>

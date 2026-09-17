@@ -10,15 +10,19 @@ import { aboutPageData } from '@/data/about'
 import CoreValues from '@/components/about/CoreValues'
 import MissionVision from '@/components/about/MissionVision'
 import HowWeWork from '@/components/about/HowWeWork'
+import { BreadcrumbJsonLd } from '@/components/seo/schemas'
 
 export const metadata: Metadata = {
     title: aboutPageData.meta.title,
     description: aboutPageData.meta.description,
+    alternates: { canonical: '/about' },
 }
 
 export default function Page() {
     return (
         <>
+            <BreadcrumbJsonLd items={[{ name: 'Home', path: '/' }, { name: 'About Us', path: '/about' }]} />
+
             <main className='space-y-[40px] xl:space-y-[90px]'>
 
                 {/* heroBannertypetwo */}

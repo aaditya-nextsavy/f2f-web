@@ -13,12 +13,15 @@ import { client } from "@/sanity/lib/client";
 import { sanityFetch } from "@/sanity/lib/live";
 import { BLOG_BY_SLUG_QUERY, BLOG_LIST_QUERY, BLOG_SLUGS_QUERY } from "@/sanity/lib/queries";
 import {
+    getIntroExcerpt,
     getTableOfContents,
     resolveImageUrl,
     toBlogPostData,
+    type PortableTextIntroBlock,
     type SanityPostDetail,
     type SanityPostListItem,
 } from "@/sanity/lib/mappers";
+import { BlogPostingJsonLd, BreadcrumbJsonLd } from "@/components/seo/schemas";
 
 export async function generateStaticParams() {
     const slugs = await client.fetch<string[]>(BLOG_SLUGS_QUERY);
@@ -37,7 +40,10 @@ export async function generateMetadata({
 
     return {
         title: `${typedPost.listingTitle} | Fairwinds Shipping Blog`,
-        description: typedPost.listingDescription,
+        description:
+            typedPost.listingDescription?.trim() ||
+            getIntroExcerpt(typedPost.body as PortableTextIntroBlock[]),
+        alternates: { canonical: `/blog/${slug}` },
     };
 }
 
@@ -53,6 +59,7 @@ export default async function Page({ params }: PageProps<"/blog/[slug]">) {
 
     const typedPost = post as SanityPostDetail;
     const tocItems = getTableOfContents(typedPost.body);
+    const postData = toBlogPostData(typedPost);
 
     const relatedPosts = (allPosts as SanityPostListItem[])
         .filter((item) => item.slug !== slug)
@@ -61,11 +68,27 @@ export default async function Page({ params }: PageProps<"/blog/[slug]">) {
 
     return (
         <main>
+            <BreadcrumbJsonLd
+                items={[
+                    { name: "Home", path: "/" },
+                    { name: "Blog", path: "/blog" },
+                    { name: typedPost.listingTitle, path: `/blog/${slug}` },
+                ]}
+            />
+            <BlogPostingJsonLd
+                title={typedPost.title}
+                description={postData.description}
+                image={resolveImageUrl(typedPost.mainImage) || undefined}
+                author={typedPost.author}
+                datePublished={typedPost.publishedAt}
+                path={`/blog/${slug}`}
+            />
+
             <BlogHero
                 label="Blog"
                 title={typedPost.title}
                 author={typedPost.author}
-                date={toBlogPostData(typedPost).date}
+                date={postData.date}
                 image={resolveImageUrl(typedPost.mainImage)}
                 imageAlt={typedPost.mainImage?.alt ?? typedPost.title}
                 sidebar={
@@ -78,7 +101,7 @@ export default async function Page({ params }: PageProps<"/blog/[slug]">) {
                 <PortableTextBody value={typedPost.body} />
             </BlogHero>
 
-            <div className="py-[42px] lg:py-[92px] mt-[42px] space-y-[42px] xl:mt-[92px] xl:space-y-[92px] ">
+            <div className="2xl:py-[42px] lg:py-[92px] mt-[42px] space-y-[42px] xl:mt-[92px] xl:space-y-[92px] ">
                 <CTA
                     title="Need Help Choosing The Right Shipping Solution?"
                     description="Our team can guide you through FCL, LCL, and every mode in between so your cargo moves with clarity and confidence."

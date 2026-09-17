@@ -46,7 +46,7 @@ function ServiceFileCardView({
                         <SectionTitle
                             title={card.title}
                             theme={isDark ? "inverted" : "default"}
-                            titleClassName="xl:text-[56px]! leading-[60px]!"
+                            titleClassName="xl:text-[56px]! leading-[1.3]!"
                         />
 
                         <p
@@ -90,7 +90,7 @@ function ServiceFileCardView({
                         <div className="overflow-hidden">
                             <div className="pt-7">
                                 <h4
-                                    className={`text-[24px] font-medium lg:text-[28px] ${isDark
+                                    className={`text-[24px] font-medium lg:text-[26px] ${isDark
                                         ? "text-white"
                                         : "text-(--color-primary)"
                                         }`}
@@ -177,8 +177,8 @@ function ServiceFileCardView({
 
                 {/* Images */}
                 <div
-                    className={`lg:w-1/2 ${isDark
-                        ? "services-files-dark"
+                    className={`lg:w-1/2 rounded-[12px]! xl:rounded-[28px]! overflow-hidden ${isDark
+                        ? "services-files-dark "
                         : "services-files-light"
                         }`}
                 >
@@ -197,7 +197,7 @@ function ServiceFileCardView({
                                 key={index}
                                 className="w-full"
                             >
-                                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[24px]">
+                                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[12px] xl:rounded-[24px]">
                                     <Image
                                         src={image.src}
                                         alt={image.alt}
@@ -298,7 +298,7 @@ export default function ServicesFiles({
                             </svg>
 
                             <span
-                                className={`flex items-center ${isDark
+                                className={`flex items-center translate-y-[3px]  ${isDark
                                     ? "text-white"
                                     : "text-(--color-primary)"
                                     }`}

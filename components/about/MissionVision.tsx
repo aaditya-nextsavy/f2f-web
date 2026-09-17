@@ -9,7 +9,7 @@ type MissionVisionProps = {
 export default function MissionVision({ data }: MissionVisionProps) {
     return (
         <section className="py-16 sm:py-20 lg:pt-[80px] lg:pb-[104px] bg-(--light-indigo-bg) relative overflow-hidden">
-            <div className="pointer-events-none absolute inset-x-0 top-0 h-[719px] w-full overflow-hidden">
+            <div className="hidden lg:block pointer-events-none absolute inset-x-0 top-0 h-full w-auto overflow-hidden translate-y-[0px]">
                 <svg
                     className="mt-[30px] h-full w-[300%] lg:w-full "
                     viewBox="0 0 1920 719"
@@ -24,10 +24,10 @@ export default function MissionVision({ data }: MissionVisionProps) {
 
             </div>
             <div className="container mx-auto">
-                <div className="relative overflow-hidden  ">
+                <div className="relative lg:overflow-hidden  ">
 
 
-                    <div className="relative flex flex-col gap-10 lg:flex-row lg:items-center lg:gap-16 xl:gap-[100px]">
+                    <div className="relative flex flex-col gap-14 lg:flex-row lg:items-center lg:gap-16 xl:gap-[100px]">
                         <div className="flex flex-col lg:flex-1">
                             <SectionTitle
                                 label={data.sectionTitle.label}
@@ -37,21 +37,33 @@ export default function MissionVision({ data }: MissionVisionProps) {
 
                             <div className="lg:px-6 lg:mb-[60px]">
 
-                                <h3 className="mt-[30px] lg:mt-[60px]  text-[24px] leading-8 font-medium text-(--color-primary)  lg:text-[28px] lg:leading-[32px]">
-                                    {data.missionTitle}
-                                </h3>
+                                <div className=" relative">
 
-                                <p className="mt-3 lg:mt-5 max-w-[455px] text-[16px] leading-[24px] text-(--color-primary)/75 [&_strong]:font-semibold [&_strong]:text-(--color-primary) lg:text-[16px]">
-                                    {data.body}
-                                </p>
+                                    <div className="block lg:hidden absolute top-0 left-0 w-full h-full scale-[1.3] sm:scale-1 sm:scale-[1.5]  bg-[#11227A0D] pointer-events-none"></div>
 
-                                <h3 className=" text-[24px] leading-8 font-medium  text-(--color-primary) mt-[30px] lg:mt-[90px] lg:text-[28px] lg:leading-[32px]">
-                                    {data.visionTitle}
-                                </h3>
 
-                                <p className="mt-3 max-w-[455px] text-[16px] leading-[24px] text-(--color-primary)/75 [&_strong]:font-semibold [&_strong]:text-(--color-primary) lg:text-[16px]">
-                                    {data.visionBody}
-                                </p>
+                                    <h3 className="mt-[70px] lg:mt-[60px]  text-[24px] leading-8 font-medium text-(--color-primary)  lg:text-[28px] lg:leading-[32px]">
+                                        {data.missionTitle}
+                                    </h3>
+
+                                    <p className="mt-3 lg:mt-5 max-w-[455px] text-[16px] leading-[24px] text-(--color-primary)/75 [&_strong]:font-semibold [&_strong]:text-(--color-primary) lg:text-[16px]">
+                                        {data.body}
+                                    </p>
+                                </div>
+
+
+                                <div className=" relative">
+
+                                    <div className="block lg:hidden absolute top-0 left-0 w-full h-full scale-[1.3] sm:scale-1 sm:scale-[1.5]  bg-[#11227A0D] pointer-events-none"></div>
+
+                                    <h3 className=" text-[24px] leading-8 font-medium  text-(--color-primary) mt-[90px] lg:mt-[90px] lg:text-[28px] lg:leading-[32px] 2xl:mt-[140px] ">
+                                        {data.visionTitle}
+                                    </h3>
+
+                                    <p className="mt-3 max-w-[455px] text-[16px] leading-[24px] text-(--color-primary)/75 [&_strong]:font-semibold [&_strong]:text-(--color-primary) lg:text-[16px]">
+                                        {data.visionBody}
+                                    </p>
+                                </div>
                             </div>
 
 

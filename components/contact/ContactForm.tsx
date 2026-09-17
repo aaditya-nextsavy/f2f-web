@@ -8,6 +8,7 @@ import { serviceOptions } from "@/lib/navigation";
 import { ArrowRightIcon, CheckCircleIcon, AlertCircleIcon } from "@/components/icons";
 import { usePopup } from "@/components/providers/PopupProvider";
 import { validateContactForm, type ContactFormErrors } from "@/lib/validateContactForm";
+import { getRecaptchaToken } from "@/lib/recaptcha";
 import type { ContactFormValues } from "@/types/contact";
 
 type ContactFormState = ContactFormValues;
@@ -71,10 +72,11 @@ export function ContactForm() {
 
     setSubmitting(true);
     try {
+      const recaptchaToken = await getRecaptchaToken("contact_form_submit");
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, recaptchaToken }),
       });
       const data = await response.json().catch(() => null);
 

@@ -40,10 +40,11 @@ export const post = defineType({
         defineField({
             name: "listingDescription",
             title: "Blog Short Description (Listing)",
-            description: "Short summary shown on blog listing cards.",
+            description:
+                "Short summary shown on blog listing cards. Optional — if left empty, this is generated automatically from the first paragraph of the Content below (skipping a leading heading).",
             type: "text",
             rows: 3,
-            validation: (Rule) => Rule.required().max(220),
+            validation: (Rule) => Rule.max(220),
         }),
         defineField({
             name: "slug",

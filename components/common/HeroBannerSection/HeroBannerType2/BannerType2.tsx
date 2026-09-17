@@ -227,7 +227,7 @@ const BannerType2 = ({
                         )}
 
                         <h1
-                            className={`text-[42px] leading-[46px] tracking-[-1px] text-white lg:text-[54px] md:text-[58px] md:leading-[64px] 2xl:leading-[88px] 2xl:tracking-[-2px]  ${label ? "mt-1" : ""
+                            className={`text-[42px] leading-[46px] tracking-[-1px] text-white lg:text-[54px] md:text-[58px] md:leading-[64px]   ${label ? "mt-1" : ""
                                 } ${hasImage ? "max-w-[900px]" : "max-w-[100%] "}`}
                         >
                             {title}

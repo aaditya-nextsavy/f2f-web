@@ -8,7 +8,7 @@ type WhyItWorksProps = {
 
 const WhyItWorks = ({ data }: WhyItWorksProps) => {
     return (
-        <section className="py-[92px] bg-(--color-iceblue)">
+        <section className="py-[42px] 2xl:py-[90px] bg-(--color-iceblue)">
             <div className="container mx-auto">
                 <SectionTitle
                     label={data.sectiontitle.label}

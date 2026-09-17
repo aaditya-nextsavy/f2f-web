@@ -70,24 +70,12 @@ const TeamCard = ({
 
             {/* Bio */}
             <div className="relative">
-                {/* Always visible 3 lines */}
-                <p className="line-clamp-3 text-[16px] leading-[24px] text-(--color-primary) lg:text-[18px] lg:leading-[24px]">
-                    {member.bio}
-                </p>
-
-                {/* Expandable content */}
-                <div
-                    className={`grid transition-[grid-template-rows] duration-500 ease-in-out ${isExpanded
-                            ? "grid-rows-[1fr]"
-                            : "grid-rows-[0fr]"
+                <p
+                    className={`text-[16px] leading-[24px] text-(--color-primary) lg:text-[18px] lg:leading-[24px] ${isExpanded ? "" : "line-clamp-3"
                         }`}
                 >
-                    <div className="min-h-0 overflow-hidden">
-                        <p className="pt-1 text-[16px] leading-[24px] text-(--color-primary) lg:text-[16px] lg:leading-[24px]">
-                            {member.bio}
-                        </p>
-                    </div>
-                </div>
+                    {member.bio}
+                </p>
             </div>
 
             {/* Read More */}

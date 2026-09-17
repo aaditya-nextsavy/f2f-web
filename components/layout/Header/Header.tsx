@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Logo } from "@/components/ui/Logo";
 import { Button } from "@/components/ui/Button";
 import { mainNav } from "@/lib/navigation";
@@ -12,6 +13,7 @@ import { FaArrowRight } from "react-icons/fa6";
 
 
 export function Header() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -64,12 +66,12 @@ export function Header() {
       className={`fixed border-b border-(--light-border) inset-x-0 top-0 z-(--z-header) transition-colors duration-300 ${isDark ? "bg-(--color-white) shadow-sm" : "bg-transparent"
         }`}
     >
-      <div className={` ${mobileOpen ? "bg-(--color-primary) text-white" : ""} container flex h-[72px] items-center justify-between 2xl:h-[120px] `}>
+      <div className={` ${mobileOpen ? "bg-(--color-primary) text-white" : ""} container flex h-[72px] items-center justify-between 2xl:h-[92px] `}>
 
 
         <Link href="/">
           {!scrolled || mobileOpen ? (
-            <> <svg className="h-[26px] w-[142px] 2xl:h-[47px] 2xl:w-[255px]" viewBox="0 0 255 47" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <> <svg className="h-[26px] w-[142px] 2xl:h-[47px] 2xl:w-[205px]" viewBox="0 0 255 47" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path fillRule="evenodd" clipRule="evenodd" d="M0.134766 17.6223V28.7014H17.5756C24.9914 28.7014 23.4807 28.8349 29.5232 23.0951C34.7418 18.0227 36.3897 18.6901 46.2774 18.6901H60.285V7.34399H47.788C34.8791 7.47748 42.1575 17.6223 15.241 17.6223H0.134766Z" fill="white" />
               <path fillRule="evenodd" clipRule="evenodd" d="M0 35.5044V46.5836C5.76783 46.5836 11.673 46.5836 17.5781 46.5836C21.5607 46.5836 21.6981 45.5157 23.6207 43.6469C32.4097 35.1039 28.9765 36.4388 42.4348 36.4388H60.2876V25.3596C54.3824 25.3596 48.6146 25.3596 42.7094 25.3596C38.1776 25.3596 36.5296 28.2962 32.2724 32.4342C30.8991 33.7691 29.9378 35.3709 26.7792 35.3709L0 35.5044Z" fill="white" />
               <path fillRule="evenodd" clipRule="evenodd" d="M38.3149 0.000244141H10.2997H6.17982C2.60926 3.20385 0.823976 7.87577 0 11.0794C0.549317 11.0794 1.23595 11.0794 1.78526 11.0794C9.06372 11.0794 17.0288 11.4798 23.8953 11.0794C29.1138 10.8124 32.5471 1.46857 38.3149 0.000244141Z" fill="white" />
@@ -99,7 +101,7 @@ export function Header() {
             </svg>
             </>
           ) : (
-            <svg className="h-[26px] w-[142px] 2xl:h-[47px] 2xl:w-[255px]" viewBox="0 0 255 47" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg className="h-[26px] w-[142px] 2xl:h-[47px] 2xl:w-[205px]" viewBox="0 0 255 47" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path fillRule="evenodd" clipRule="evenodd" d="M0.134766 17.6222V28.7013H17.5756C24.9914 28.7013 23.4807 28.8348 29.5232 23.095C34.7418 18.0226 36.3897 18.6901 46.2774 18.6901H60.285V7.34393H47.788C34.8791 7.47742 42.1575 17.6222 15.241 17.6222H0.134766Z" fill="#11227A" />
               <path fillRule="evenodd" clipRule="evenodd" d="M0 35.5044V46.5835C5.76783 46.5835 11.673 46.5835 17.5781 46.5835C21.5607 46.5835 21.6981 45.5156 23.6207 43.6468C32.4097 35.1039 28.9765 36.4387 42.4348 36.4387H60.2876V25.3596C54.3824 25.3596 48.6146 25.3596 42.7094 25.3596C38.1776 25.3596 36.5296 28.2962 32.2724 32.4342C30.8991 33.769 29.9378 35.3708 26.7792 35.3708L0 35.5044Z" fill="#11227A" />
               <path fillRule="evenodd" clipRule="evenodd" d="M38.3149 0.000183105H10.2997H6.17982C2.60926 3.20379 0.823976 7.87571 0 11.0793C0.549317 11.0793 1.23595 11.0793 1.78526 11.0793C9.06372 11.0793 17.0288 11.4798 23.8953 11.0793C29.1138 10.8124 32.5471 1.4685 38.3149 0.000183105Z" fill="#11227A" />
@@ -165,15 +167,23 @@ export function Header() {
             )}
           </div>
 
-          {mainNav.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={`text-[18px] mx-5 my-4.5 transition-opacity font-normal hover:opacity-80 ${textColorClass}`}
-            >
-              {link.label}
-            </Link>
-          ))}
+          {mainNav.map((link) => {
+            const isActive =
+              pathname === link.href || pathname?.startsWith(`${link.href}/`);
+
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`inline-flex items-center rounded-(--radius-full) px-5 py-4.5 text-[16px] 2xl:text-[18px] max-h-[35px] 2xl:max-h-[49px] font-normal transition-all ${textColorClass} ${isActive
+                  ? "bg-(--color-lavender-hover) opacity-80"
+                  : "hover:bg-(--color-lavender-hover) hover:opacity-80"
+                  }`}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
 
           <Button className={` text-[14px] 2xl:text-[16px]  max-h-[35px] 2xl:max-h-[48px] ${isDark ? "border-(--color-primary)! text-(--color-primary)! hover:text-white! hover:border-white! " : ""}`} href="/contact">
             Contact Us

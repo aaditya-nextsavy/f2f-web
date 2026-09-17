@@ -172,7 +172,7 @@ const CTA2 = ({ title, description, actions, image }: CTA2Props) => {
             </div>
 
             <div className="container mx-auto relative z-[1]">
-                <div className="flex flex-col items-center gap-10 py-[41px] 2xl:py-[60px] lg:flex-row lg:justify-between lg:gap-16 lg:pt-15 lg:pb-0">
+                <div className="flex flex-col items-center gap-10 py-[41px] 2xl:py-[45px] lg:flex-row lg:justify-between lg:gap-16 lg:pt-15 lg:pb-0">
                     <div className="lg:max-w-[50%] text-center lg:py-[92px] lg:text-left">
                         <h3 className="text-[30px] md:text-[48px] md:leading-[54px] font-bold leading-[1.15] text-white 2xl:text-[72px] 2xl:leading-[78px]">
                             {title}
@@ -190,20 +190,20 @@ const CTA2 = ({ title, description, actions, image }: CTA2Props) => {
                         </div>
                     </div>
 
-                    <div className="hidden lg:flex w-full max-w-[60%] items-end justify-center lg:h-[400px] mt-[-20px] scale-[1.3]">
-                        <div className="container-swing relative h-full w-full">
+                    <div className="hidden lg:flex w-full max-w-[60%] mr-[100px] 2xl:mr-0  items-end justify-center aspect-square lg:h-[500px] mt-[-20px] ">
+                        <div className="container-swing relative h-full w-full lg:right-[100px] xl:right-0">
                             <Image
-                                src="/images/common/container-orange.png"
+                                src="/images/common/container-orange1.png"
                                 alt="container"
                                 fill
-                                className="container-orange z-[1] mt-[-65px] object-contain"
+                                className="container-orange z-[1] top-0 object-contain translate-y-[-75px] mt-[-50px]  2xl:scale-[1.2] "
                             />
 
                             <Image
-                                src="/images/common/container-blue.png"
+                                src="/images/common/container-blue1.png"
                                 alt="container"
                                 fill
-                                className="container-blue ms-[100px] mt-[-65px] object-contain "
+                                className="top-0 container-blue ms-[100px]  lg:translate-y-[-120px] 2xl:translate-y-[-75px] top-0 object-contain"
                             />
                         </div>
 

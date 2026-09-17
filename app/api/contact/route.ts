@@ -2,6 +2,7 @@ import path from "node:path";
 import { NextResponse } from "next/server";
 import nodemailer, { type Transporter } from "nodemailer";
 import { validateContactForm } from "@/lib/validateContactForm";
+import { verifyRecaptchaToken } from "@/lib/verifyRecaptcha";
 import { socialLinks } from "@/lib/navigation";
 import type { ContactFormValues } from "@/types/contact";
 
@@ -150,6 +151,14 @@ export async function POST(request: Request) {
     if (Object.keys(errors).length > 0) {
         return NextResponse.json(
             { message: "Please fix the highlighted fields and try again.", errors },
+            { status: 400 },
+        );
+    }
+
+    const recaptchaValid = await verifyRecaptchaToken(payload.recaptchaToken, "contact_form_submit");
+    if (!recaptchaValid) {
+        return NextResponse.json(
+            { message: "We couldn't verify your submission. Please refresh the page and try again." },
             { status: 400 },
         );
     }

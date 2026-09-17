@@ -15,10 +15,12 @@ import { homePageData } from '@/data/home'
 import { sanityFetch } from '@/sanity/lib/live'
 import { BLOG_LIST_QUERY } from '@/sanity/lib/queries'
 import { toBlogPostData, type SanityPostListItem } from '@/sanity/lib/mappers'
+import { FaqJsonLd } from '@/components/seo/schemas'
 
 export const metadata: Metadata = {
   title: homePageData.meta.title,
   description: homePageData.meta.description,
+  alternates: { canonical: '/' },
 }
 
 export default async function Home() {
@@ -84,6 +86,8 @@ export default async function Home() {
           data={homePageData.faqs.faqs}
         />
       </main>
+
+      <FaqJsonLd faqs={homePageData.faqs.faqs} />
     </>
   );
 }

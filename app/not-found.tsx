@@ -33,7 +33,7 @@ export default function NotFound() {
                     <h1 className=" text-[clamp(34px,4vw,84px)] font-bold px-3 lg:px-0  lg:font-extrabold tracking-[-3.5px] leading-[1.1] lg:leading-[1.1]">
                         This Page Is Off Course
                     </h1>
-                    <p className="mx-auto mt-6 lg:mt-[42px] max-w-[560px] text-[16px] leading-[24px] tracking-[-0.3px] text-white lg:text-[20px] lg:leading-[20px] lg:tracking-[-0.8px]">
+                    <p className="mx-auto mt-6 lg:mt-[25px] max-w-[760px] text-[16px] leading-[24px] font-semibold tracking-[-0.3px] text-white lg:text-[20px] lg:leading-[24px] lg:tracking-[-0.8px]">
                         We may not have found the page you&apos;re looking for, but your cargo is
                         always guided with care, visibility, and attention every step of the way.
                     </p>
@@ -52,7 +52,7 @@ export default function NotFound() {
                         bottom-0
                         z-30
                         h-[170px]
-                        bg-[linear-gradient(177.18deg,rgba(17,34,122,0)_-8.18%,rgba(17,34,122,0.53)_48.86%,rgba(17,34,122,0.69)_72.06%,#11227A_92.36%)]
+                        bg-[linear-gradient(177.18deg,rgba(0,0,0,0)_-8.18%,rgba(17,34,122,0.13)_48.86%,rgba(17,34,122,0.69)_72.06%,#11227A_92.36%)]
                         sm:h-[190px]
                         lg:h-[220px]
                     "

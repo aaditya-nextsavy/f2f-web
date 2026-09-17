@@ -34,7 +34,7 @@ const PortableTextBody = ({ value }: PortableTextBodyProps) => {
                     <>
                         {showDivider && (
                             <div
-                                className="mt-[32px] mb-[32px] lg:mt-[68px] lg:mb-[68px] h-px w-full opacity-30"
+                                className="mt-[32px] mb-[32px] lg:mt-[48px] lg:mb-[48px] h-px w-full opacity-30"
                                 style={{
                                     backgroundImage:
                                         "repeating-linear-gradient(to right, #11227A 0 5px, transparent 5px 10px)",
@@ -43,7 +43,7 @@ const PortableTextBody = ({ value }: PortableTextBodyProps) => {
                         )}
                         <h2
                             id={block._key}
-                            className="scroll-mt-28 text-[26px] font-medium capitalize leading-[1.15] tracking-[-0.5px] text-(--color-primary) lg:text-[56px] lg:leading-[60px] lg:tracking-[-1px]"
+                            className="scroll-mt-28 text-[26px] font-medium capitalize leading-[1.15] tracking-[-0.5px] text-(--color-primary) lg:text-[50px] lg:leading-[42px] lg:tracking-[-1px]"
                         >
                             {children}
                         </h2>
@@ -102,8 +102,8 @@ const PortableTextBody = ({ value }: PortableTextBodyProps) => {
                     <Image
                         src="/images/common/blue-tick.svg"
                         alt=""
-                        width={22}
-                        height={22}
+                        width={32}
+                        height={32}
                         className="shrink-0 my-auto"
                     />
                     <span className={paragraphClass}>{children}</span>

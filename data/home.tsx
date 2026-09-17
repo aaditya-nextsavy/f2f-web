@@ -32,7 +32,7 @@ export const homePageData: HomePageData = {
         },
 
         placeholder: {
-            src: "/images/herobanner/f2f-hero.png",
+            src: "/images/herobanner/f2f.png",
             alt: "Cargo transportation across sea, air, and land",
         },
 
@@ -93,7 +93,7 @@ export const homePageData: HomePageData = {
                 title: "Customs Clearance",
                 description:
                     "Structured customs processes ensure accurate handling, faster approvals, and reliable shipment progress.",
-                image: "/images/common/fcl-service.png",
+                image: "/images/common/fcl-service1.png",
                 link: {
                     label: "Learn more",
                     href: "/other-services#customs-clearance",
@@ -219,6 +219,20 @@ export const homePageData: HomePageData = {
                 title: "Automotive ",
                 descp: "Smooth logistics support for automotive parts, components, and supply chain movement.",
                 image: "/images/common/industries-06.png",
+
+            },
+            {
+                id: 7,
+                title: "Renewable Energy & Projects",
+                descp: "Specialized handling for large-scale energy shipments and complex project movements.",
+                image: "/images/common/industries-07.png",
+
+            },
+            {
+                id: 8,
+                title: "agriculture commodities",
+                descp: "Reliable logistics solutions for agricultural commodities with efficient handling and timely delivery.",
+                image: "/images/common/industries-08.png",
 
             },
         ],

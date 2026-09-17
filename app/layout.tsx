@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import { SanityLive } from "@/sanity/lib/live";
+import { OrganizationJsonLd, WebsiteJsonLd } from "@/components/seo/schemas";
+import { SITE_URL } from "@/lib/siteConfig";
 import "./globals.css";
 
 const montserrat = Montserrat({
@@ -10,6 +12,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: "Fairwinds Shipping Pvt Ltd",
   description:
     "Global freight forwarding and logistics solutions — FCL, LCL, customs clearance, project cargo, and more.",
@@ -47,6 +50,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${montserrat.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <OrganizationJsonLd />
+        <WebsiteJsonLd />
         {children}
         <SanityLive />
       </body>

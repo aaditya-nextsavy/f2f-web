@@ -74,15 +74,13 @@ export function Select({ value, onChange, options, placeholder = "Select", inval
         aria-activedescendant={open ? optionId(highlighted) : undefined}
         onClick={() => setOpen((prev) => !prev)}
         onKeyDown={handleKeyDown}
-        className={`${fieldControlClass} flex cursor-pointer items-center justify-between gap-2 pr-3 text-left ${
-          !value ? "text-(--form-placeholder)" : ""
-        } ${invalid ? "border-(--color-error) focus:border-(--color-error)" : ""} ${className}`}
+        className={`${fieldControlClass} flex cursor-pointer items-center justify-between gap-2 pr-3 text-left ${!value ? "text-(--form-placeholder)" : ""
+          } ${invalid ? "border-(--color-error) focus:border-(--color-error)" : ""} ${className}`}
       >
         <span className="truncate">{value || placeholder}</span>
         <ChevronDownIcon
-          className={`h-4 w-4 shrink-0 text-(--color-primary)/60 transition-transform duration-200 ease-out ${
-            open ? "rotate-180" : ""
-          }`}
+          className={`h-4 w-4 shrink-0 text-(--color-primary)/60 transition-transform duration-200 ease-out ${open ? "rotate-180" : ""
+            }`}
         />
       </button>
 
@@ -91,9 +89,8 @@ export function Select({ value, onChange, options, placeholder = "Select", inval
         role="listbox"
         aria-hidden={!open}
         data-lenis-prevent
-        className={`absolute z-20 mt-2 max-h-60 w-full origin-top overflow-auto rounded-(--radius-md) border border-(--blue-border) bg-white p-1.5 shadow-lg outline-none transition-[opacity,transform] duration-150 ease-out ${
-          open ? "visible scale-100 opacity-100" : "invisible pointer-events-none scale-95 opacity-0"
-        }`}
+        className={`absolute z-20 mt-2 max-h-60 w-full origin-top overflow-auto rounded-(--radius-md) border border-(--blue-border) bg-white p-1.5 shadow-lg outline-none transition-[opacity,transform] duration-150 ease-out ${open ? "visible scale-100 opacity-100" : "invisible pointer-events-none scale-95 opacity-0"
+          }`}
       >
         {options.map((option, index) => (
           <li
@@ -103,13 +100,12 @@ export function Select({ value, onChange, options, placeholder = "Select", inval
             aria-selected={option === value}
             onMouseEnter={() => setHighlighted(index)}
             onClick={() => selectOption(option)}
-            className={`cursor-pointer rounded-(--radius-sm) px-3 py-2 text-(length:--text-body) text-(--color-primary) transition-colors duration-150 ${
-              option === value
+            className={`cursor-pointer rounded-(--radius-sm) px-3 py-2 text-(length:--text-body) text-(--color-primary) transition-colors duration-150 capitalize ${option === value
                 ? "bg-(--color-iceblue) font-medium"
                 : highlighted === index
                   ? "bg-(--color-iceblue)/60"
                   : ""
-            }`}
+              }`}
           >
             {option}
           </li>

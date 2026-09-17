@@ -40,6 +40,20 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
         const lenis = new Lenis({
             autoRaf: false,
             anchors: true,
+            // Lenis normally clamps scroll to a `limit` it caches from a
+            // debounced ResizeObserver on <html>. If that cache is even
+            // briefly stale relative to the real document height (async
+            // image/font layout shifts, carousels mounting, absolutely
+            // positioned content that doesn't register as a box-size
+            // change), every wheel scroll gets clamped to the stale
+            // (shorter) height - the page appears to hard-block partway
+            // down. Dragging the native scrollbar bypasses that clamp and
+            // moves the real scrollTop further, but the next wheel tick
+            // re-clamps against the same stale limit and snaps back to
+            // where it was "blocked". naiveDimensions makes the limit
+            // getter read scrollHeight/clientHeight live instead of from
+            // that cache, so it can never go stale.
+            naiveDimensions: true,
         });
         lenisRef.current = lenis;
 

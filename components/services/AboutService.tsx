@@ -10,7 +10,7 @@ export default function AboutService({ data }: AboutServiceProps) {
     return (
         <section className="">
             <div className="container mx-auto">
-                <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:gap-16 xl:gap-[100px]">
+                <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:gap-16 xl:gap-[100px]">
                     <div className="flex flex-col lg:flex-1">
                         <SectionTitle
                             label={data.sectiontitle.label}

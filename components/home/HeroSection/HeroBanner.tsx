@@ -16,7 +16,7 @@ interface HeroBannerProps {
 
 export default function HeroBanner({ title, description, actions, video, placeholder }: HeroBannerProps) {
     return (
-        <section style={{ background: "var(--mobile-hero-gradient)" }} className="relative isolate  max-h-[100vh] 2xl:min-h-[680px] h-screen w-full overflow-hidden bg-(--mobile-hero-gradient)">
+        <section style={{ background: "var(--mobile-hero-gradient)" }} className="relative isolate  max-h-[100vh] 2xl:min-h-[680px] h-[83vh] md:h-screen w-full overflow-hidden bg-(--mobile-hero-gradient)">
 
             <div className="hidden lg:block homeBannerBG ">
                 <HeroVideo video={video} placeholder={placeholder} />

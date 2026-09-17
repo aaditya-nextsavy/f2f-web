@@ -9,7 +9,7 @@ interface SeaFreightProps {
 
 const SeaFreight = ({ title, data }: SeaFreightProps) => {
     return (
-        <section className="py-4">
+        <section className="lg:py-4">
             <div className="container mx-auto">
                 <SectionTitle
                     label={title.label}

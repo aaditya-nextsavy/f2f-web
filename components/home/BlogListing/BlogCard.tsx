@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { FaArrowRight } from "react-icons/fa6";
 import { Button } from "@/components/ui/Button";
 import type { BlogPostData } from "@/types/home";
 
@@ -70,11 +71,15 @@ const BlogCard = ({ post, featured = false }: BlogCardProps) => {
                 {post.date}
             </span>
 
-            <h3 className="mt-2 text-[24px] font-medium leading-[34px] tracking-[-0.4px] text-(--color-primary)">
+            <h3 className="mt-2 text-[24px] font-medium leading-[34px] tracking-[-0.4px] text-(--color-primary) capitalize">
                 {post.title}
             </h3>
 
-            <p className="mt-2 flex-1 text-[15px] leading-[24px] text-(--color-primary)">
+            {/* Fixed to exactly 3 lines (line-height 24px) regardless of the
+                actual description length, so cards with a short excerpt don't
+                collapse and cards with a long one don't grow — every row in
+                the grid ends up the same height. */}
+            <p className="mt-2 line-clamp-3 min-h-[72px] flex-1 text-[15px] leading-[24px] text-(--color-primary)">
                 {post.description}
             </p>
 
@@ -84,6 +89,7 @@ const BlogCard = ({ post, featured = false }: BlogCardProps) => {
                 className="mt-4 self-start px-[34px] py-[10px] text-[16px] font-normal! leading-[24px] w-[100%]! sm:w-max!"
             >
                 Read Full Blog
+                <FaArrowRight size={15} />
             </Button>
         </article>
     );

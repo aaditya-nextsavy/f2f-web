@@ -15,8 +15,8 @@ export const blogsPageData: BlogsPageData = {
 
     sidebarCta: {
         title: "Need A Smarter Way To Move Your Cargo?",
-        description:
-            "Our team can help you find the right shipping solution for your business.",
+        // description:
+        //     "Our team can help you find the right shipping solution for your business.",
         action: {
             label: "Contact Us",
             href: "/contact",

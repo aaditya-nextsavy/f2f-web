@@ -72,52 +72,30 @@ export function CloseIcon(props: SVGProps<SVGSVGElement>) {
 
 export function PhoneIcon(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" {...props}>
-      <path
-        d="M6.5 4H9.5L11 8L8.75 9.5C9.65 11.5 11 12.85 13 13.75L14.5 11.5L18.5 13V16C18.5 17.1 17.6 18 16.5 18C10.7 17.6 6.4 13.3 6 7.5C6 6.4 6.5 4 6.5 4Z"
-        stroke="currentColor"
-        strokeWidth={1.5}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20.437 17.1047C19.7499 16.4124 18.0858 15.4021 17.2785 14.9949C16.2271 14.4653 16.1405 14.4221 15.3141 15.036C14.7629 15.4458 14.3964 15.8118 13.7513 15.6742C13.1062 15.5366 11.7043 14.7609 10.4768 13.5373C9.24935 12.3137 8.42857 10.8711 8.29055 10.2282C8.15253 9.58522 8.52463 9.22307 8.93047 8.67055C9.50247 7.89174 9.4592 7.76193 8.97028 6.71054C8.58909 5.89278 7.54938 4.2443 6.8545 3.56067C6.11117 2.82642 6.11117 2.95623 5.6322 3.15526C5.24225 3.31929 4.86815 3.51872 4.51461 3.75105C3.82233 4.21098 3.43811 4.59303 3.16942 5.16719C2.90073 5.74135 2.78002 7.0874 4.1676 9.60815C5.55519 12.1289 6.5287 13.4178 8.54366 15.4272C10.5586 17.4365 12.108 18.5169 14.3731 19.7872C17.1751 21.3565 18.2498 21.0506 18.8257 20.7824C19.4016 20.5141 19.7854 20.1334 20.2462 19.4411C20.4791 19.0881 20.679 18.7145 20.8433 18.3248C21.0427 17.8476 21.1725 17.8476 20.437 17.1047Z" stroke="#11227A" strokeWidth="1.2" strokeMiterlimit="10" />
     </svg>
+
   );
 }
 
 export function MailIcon(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" {...props}>
-      <rect
-        x="4"
-        y="6"
-        width="16"
-        height="12"
-        rx="2"
-        stroke="currentColor"
-        strokeWidth={1.5}
-      />
-      <path
-        d="M4.5 7L12 13L19.5 7"
-        stroke="currentColor"
-        strokeWidth={1.5}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4 5H20C20.55 5 21 5.45 21 6V18C21 18.55 20.55 19 20 19H4C3.45 19 3 18.55 3 18V6C3 5.45 3.45 5 4 5Z" stroke="#11227A" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M3 6.5L12 12L21 6.5" stroke="#11227A" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
+
   );
 }
 
 export function MapPinIcon(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" {...props}>
-      <path
-        d="M12 21C12 21 18 15.5 18 10.5C18 7 15.3 4 12 4C8.7 4 6 7 6 10.5C6 15.5 12 21 12 21Z"
-        stroke="currentColor"
-        strokeWidth={1.5}
-        strokeLinejoin="round"
-      />
-      <circle cx="12" cy="10.5" r="2.25" stroke="currentColor" strokeWidth={1.5} />
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z" stroke="#11227A" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M12 2C9.87827 2 7.84344 2.84285 6.34315 4.34315C4.84285 5.84344 4 7.87827 4 10C4 11.892 4.402 13.13 5.5 14.5L12 22L18.5 14.5C19.598 13.13 20 11.892 20 10C20 7.87827 19.1571 5.84344 17.6569 4.34315C16.1566 2.84285 14.1217 2 12 2Z" stroke="#11227A" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
+
   );
 }
 

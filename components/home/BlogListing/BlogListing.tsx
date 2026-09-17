@@ -1,6 +1,7 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import type { Splide as SplideInstance } from "@splidejs/splide";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
@@ -17,6 +18,7 @@ interface BlogListingProps {
 
 const BlogListing = ({ title, data, exploreLink }: BlogListingProps) => {
     const splideRef = useRef<Splide>(null);
+    const [activeIndex, setActiveIndex] = useState(0);
 
     const featuredPost = data.find((post) => post.featured) || data[0];
     const otherPosts = data.filter((post) => post.id !== featuredPost.id);
@@ -67,11 +69,12 @@ const BlogListing = ({ title, data, exploreLink }: BlogListingProps) => {
                             perPage: 1,
                             gap: "1rem",
                             padding: { right: "2.5rem" },
-                            pagination: true,
+                            pagination: false,
                             arrows: false,
                             drag: true,
                             autoHeight: true,
                         }}
+                        onMoved={(_splide: SplideInstance, newIndex: number) => setActiveIndex(newIndex)}
                         aria-label="Blog posts"
                     >
                         {data.map((post) => (
@@ -81,24 +84,41 @@ const BlogListing = ({ title, data, exploreLink }: BlogListingProps) => {
                         ))}
                     </Splide>
 
-                    <div className="mt-6 flex items-center justify-center gap-4">
-                        <button
-                            type="button"
-                            aria-label="Previous slide"
-                            onClick={() => splideRef.current?.splide?.go("<")}
-                            className="flex h-11 w-11 items-center justify-center rounded-full border border-(--color-primary) text-(--color-primary) transition-colors duration-300 ease-in-out hover:bg-(--color-primary) hover:text-(--color-white)"
-                        >
-                            <FaChevronLeft size={16} />
-                        </button>
+                    <div className="mt-6 flex items-center justify-center gap-5">
+                        <div className="flex items-center gap-2">
+                            {data.map((post, index) => (
+                                <button
+                                    key={post.id}
+                                    type="button"
+                                    aria-label={`Go to slide ${index + 1}`}
+                                    onClick={() => splideRef.current?.splide?.go(index)}
+                                    className={`h-2 rounded-full transition-all duration-300 ${index === activeIndex
+                                        ? "w-6 bg-(--color-primary)"
+                                        : "w-2 bg-(--color-light-indigo)"
+                                        }`}
+                                />
+                            ))}
+                        </div>
 
-                        <button
-                            type="button"
-                            aria-label="Next slide"
-                            onClick={() => splideRef.current?.splide?.go(">")}
-                            className="flex h-11 w-11 items-center justify-center rounded-full border border-(--color-primary) text-(--color-primary) transition-colors duration-300 ease-in-out hover:bg-(--color-primary) hover:text-(--color-white)"
-                        >
-                            <FaChevronRight size={16} />
-                        </button>
+                        <div className="flex items-center gap-3">
+                            <button
+                                type="button"
+                                aria-label="Previous slide"
+                                onClick={() => splideRef.current?.splide?.go("<")}
+                                className="flex h-11 w-11 items-center justify-center rounded-full border border-(--color-primary) text-(--color-primary) transition-colors duration-300 ease-in-out hover:bg-(--color-primary) hover:text-(--color-white)"
+                            >
+                                <FaChevronLeft size={16} />
+                            </button>
+
+                            <button
+                                type="button"
+                                aria-label="Next slide"
+                                onClick={() => splideRef.current?.splide?.go(">")}
+                                className="flex h-11 w-11 items-center justify-center rounded-full border border-(--color-primary) text-(--color-primary) transition-colors duration-300 ease-in-out hover:bg-(--color-primary) hover:text-(--color-white)"
+                            >
+                                <FaChevronRight size={16} />
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

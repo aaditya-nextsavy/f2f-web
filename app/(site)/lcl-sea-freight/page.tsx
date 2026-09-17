@@ -10,10 +10,12 @@ import Faqs from "@/components/common/Faqs/Faqs";
 import Industries from "@/components/home/industries/Industries";
 import { servicesPageData } from "@/data/services";
 import { homePageData } from "@/data/home";
+import { BreadcrumbJsonLd, FaqJsonLd, ServiceJsonLd } from "@/components/seo/schemas";
 
 export const metadata: Metadata = {
     title: servicesPageData.lcl.meta.title,
     description: servicesPageData.lcl.meta.description,
+    alternates: { canonical: "/lcl-sea-freight" },
 };
 
 export default function Page() {
@@ -22,6 +24,14 @@ export default function Page() {
 
     return (
         <main className="space-y-[42px] xl:space-y-[92px]">
+            <BreadcrumbJsonLd
+                items={[{ name: "Home", path: "/" }, { name: "LCL Sea Freight", path: "/lcl-sea-freight" }]}
+            />
+            <ServiceJsonLd
+                name="LCL Sea Freight"
+                description={servicesPageData.lcl.meta.description}
+                path="/lcl-sea-freight"
+            />
 
             <BannerType2
                 label={bannerData.label}
@@ -61,6 +71,8 @@ export default function Page() {
                     data={faqs.faqs}
                 />
             )}
+
+            <FaqJsonLd faqs={faqs?.faqs} />
         </main>
     );
 }

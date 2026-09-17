@@ -48,7 +48,7 @@ export default function ContactSection({ heading, description }: ContactSectionP
                                         <span className="text-[14px] leading-4 text-(--color-primary) capitalize">
                                             {label}
                                         </span>
-                                        <span className="text-[20px] font-medium leading-[30px] tracking-[-0.3px] text-(--color-primary) hover:underline underline-offset-3">
+                                        <span className="text-[20px] font-medium leading-[30px] tracking-[-0.3px] text-(--color-primary) hover:underline underline-offset-3 decoration-1">
                                             {value}
                                         </span>
                                     </span>

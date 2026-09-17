@@ -30,7 +30,7 @@ export function Footer() {
   const year = new Date().getFullYear();
   const pathname = usePathname();
   const isContactPage = pathname === "/contact";
-   const isAboutPage = pathname === "/about";
+  const isAboutPage = pathname === "/about";
   const [openIndex, setOpenIndex] = useState(-1);
   const [hoveredLink, setHoveredLink] = useState<string | null>(null);
 
@@ -51,7 +51,7 @@ export function Footer() {
       {/* Mobile background */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden lg:hidden">
         <svg
-          className="h-full w-full"
+          className="h-full w-full hidden lg:block"
           viewBox="0 0 375 2144"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -258,51 +258,148 @@ export function Footer() {
             </linearGradient>
           </defs>
         </svg>
+
+
+        <svg className=" h-stretch w-full  lg:hidden" viewBox="0 0 375 974" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g opacity="0.09">
+            <path d="M375 959.116H231.423C202.253 959.116 197.391 956.816 181.996 974.303C165.284 992.854 168.156 993.61 150.554 993.632H0V955.436H139.861C219.268 955.435 197.796 920.46 235.879 920H375V959.116Z" fill="url(#paint0_linear_972_2898)" />
+            <path d="M375 885.676L231.423 885.675C202.253 885.675 197.391 883.387 181.996 900.778C165.284 919.228 168.156 919.978 150.554 920H0V882.014H139.861C219.268 882.014 197.796 847.23 235.879 846.772H375V885.676Z" fill="url(#paint1_linear_972_2898)" />
+            <path d="M375 808.401H231.423C202.253 808.401 197.391 806.113 181.996 823.505C165.284 841.955 168.156 842.705 150.554 842.727H0V804.74H139.861C219.268 804.74 197.796 769.958 235.879 769.5H375V808.401Z" fill="url(#paint2_linear_972_2898)" />
+            <path d="M375 731.128H231.423C202.253 731.128 197.391 728.839 181.996 746.23C164.17 765.91 168.625 765.452 146.748 765.452H0V727.466H139.861C219.268 727.466 197.796 692.683 235.879 692.226H375V731.128Z" fill="url(#paint3_linear_972_2898)" />
+            <path d="M375 653.854H231.423C202.253 653.854 197.391 651.566 181.996 668.957C165.284 687.407 168.156 688.158 150.554 688.18H0V650.192H139.861C219.268 650.192 197.796 615.41 235.879 614.952H375V653.854Z" fill="url(#paint4_linear_972_2898)" />
+            <path d="M375 576.58H231.423C202.253 576.58 197.391 574.292 181.996 591.683C165.284 610.132 168.156 610.883 150.554 610.905H0V572.92H139.861C219.268 572.92 197.796 538.136 235.879 537.679H375V576.58Z" fill="url(#paint5_linear_972_2898)" />
+            <path d="M375 499.117H231.423C202.253 499.117 197.391 496.816 181.996 514.304C165.284 532.855 168.156 533.61 150.554 533.632H0V495.436H139.861C219.268 495.436 197.796 460.46 235.879 460H375V499.117Z" fill="url(#paint6_linear_972_2898)" />
+            <path d="M375 425.675L231.423 425.674C202.253 425.674 197.391 423.387 181.996 440.778C165.284 459.228 168.156 459.978 150.554 460H0V422.014H139.861C219.268 422.014 197.796 387.23 235.879 386.772H375V425.675Z" fill="url(#paint7_linear_972_2898)" />
+            <path d="M375 348.401H231.423C202.253 348.401 197.391 346.113 181.996 363.504C164.17 383.184 168.625 382.726 146.748 382.726H0V344.739H139.861C219.268 344.739 197.796 309.957 235.879 309.499H375V348.401Z" fill="url(#paint8_linear_972_2898)" />
+            <path d="M375 271.127H231.423C202.253 271.127 197.391 268.839 181.996 286.23C165.284 304.68 168.156 305.43 150.554 305.452H0V267.466H139.861C219.268 267.466 197.796 232.683 235.879 232.226H375V271.127Z" fill="url(#paint9_linear_972_2898)" />
+            <path d="M375 193.854H231.423C202.253 193.854 197.391 191.565 181.996 208.956C165.284 227.406 168.156 228.157 150.554 228.179H0V190.192H139.861C219.268 190.192 197.796 155.41 235.879 154.952H375V193.854Z" fill="url(#paint10_linear_972_2898)" />
+            <path d="M375 116.58H231.423C202.253 116.58 197.391 114.292 181.996 131.683C165.284 150.132 168.156 150.883 150.554 150.905H0V112.919H139.861C219.268 112.919 197.796 78.1355 235.879 77.6777H375V116.58Z" fill="url(#paint11_linear_972_2898)" />
+            <path d="M375 39.1162H231.423C202.253 39.1162 197.391 36.8158 181.996 54.3027C165.284 72.8544 168.156 73.6099 150.554 73.6318H0V35.4355H139.861C219.268 35.4355 197.796 0.46027 235.879 0H375V39.1162Z" fill="url(#paint12_linear_972_2898)" />
+          </g>
+          <defs>
+            <linearGradient id="paint0_linear_972_2898" x1="187.5" y1="-1.91019e-07" x2="186.656" y2="973.345" gradientUnits="userSpaceOnUse">
+              <stop stopColor="white" stopOpacity="0.3" />
+              <stop offset="0.529782" stopColor="#505C9D" stopOpacity="0.51" />
+              <stop offset="0.829305" stopColor="#11227A" stopOpacity="0.8" />
+              <stop offset="0.994539" stopColor="#11227A" />
+            </linearGradient>
+            <linearGradient id="paint1_linear_972_2898" x1="187.5" y1="-1.91019e-07" x2="186.656" y2="973.345" gradientUnits="userSpaceOnUse">
+              <stop stopColor="white" stopOpacity="0.3" />
+              <stop offset="0.529782" stopColor="#505C9D" stopOpacity="0.51" />
+              <stop offset="0.829305" stopColor="#11227A" stopOpacity="0.8" />
+              <stop offset="0.994539" stopColor="#11227A" />
+            </linearGradient>
+            <linearGradient id="paint2_linear_972_2898" x1="187.5" y1="-1.91019e-07" x2="186.656" y2="973.345" gradientUnits="userSpaceOnUse">
+              <stop stopColor="white" stopOpacity="0.3" />
+              <stop offset="0.529782" stopColor="#505C9D" stopOpacity="0.51" />
+              <stop offset="0.829305" stopColor="#11227A" stopOpacity="0.8" />
+              <stop offset="0.994539" stopColor="#11227A" />
+            </linearGradient>
+            <linearGradient id="paint3_linear_972_2898" x1="187.5" y1="-1.91019e-07" x2="186.656" y2="973.345" gradientUnits="userSpaceOnUse">
+              <stop stopColor="white" stopOpacity="0.3" />
+              <stop offset="0.529782" stopColor="#505C9D" stopOpacity="0.51" />
+              <stop offset="0.829305" stopColor="#11227A" stopOpacity="0.8" />
+              <stop offset="0.994539" stopColor="#11227A" />
+            </linearGradient>
+            <linearGradient id="paint4_linear_972_2898" x1="187.5" y1="-1.91019e-07" x2="186.656" y2="973.345" gradientUnits="userSpaceOnUse">
+              <stop stopColor="white" stopOpacity="0.3" />
+              <stop offset="0.529782" stopColor="#505C9D" stopOpacity="0.51" />
+              <stop offset="0.829305" stopColor="#11227A" stopOpacity="0.8" />
+              <stop offset="0.994539" stopColor="#11227A" />
+            </linearGradient>
+            <linearGradient id="paint5_linear_972_2898" x1="187.5" y1="-1.91019e-07" x2="186.656" y2="973.345" gradientUnits="userSpaceOnUse">
+              <stop stopColor="white" stopOpacity="0.3" />
+              <stop offset="0.529782" stopColor="#505C9D" stopOpacity="0.51" />
+              <stop offset="0.829305" stopColor="#11227A" stopOpacity="0.8" />
+              <stop offset="0.994539" stopColor="#11227A" />
+            </linearGradient>
+            <linearGradient id="paint6_linear_972_2898" x1="187.5" y1="-1.91019e-07" x2="186.656" y2="973.345" gradientUnits="userSpaceOnUse">
+              <stop stopColor="white" stopOpacity="0.3" />
+              <stop offset="0.529782" stopColor="#505C9D" stopOpacity="0.51" />
+              <stop offset="0.829305" stopColor="#11227A" stopOpacity="0.8" />
+              <stop offset="0.994539" stopColor="#11227A" />
+            </linearGradient>
+            <linearGradient id="paint7_linear_972_2898" x1="187.5" y1="-1.91019e-07" x2="186.656" y2="973.345" gradientUnits="userSpaceOnUse">
+              <stop stopColor="white" stopOpacity="0.3" />
+              <stop offset="0.529782" stopColor="#505C9D" stopOpacity="0.51" />
+              <stop offset="0.829305" stopColor="#11227A" stopOpacity="0.8" />
+              <stop offset="0.994539" stopColor="#11227A" />
+            </linearGradient>
+            <linearGradient id="paint8_linear_972_2898" x1="187.5" y1="-1.91019e-07" x2="186.656" y2="973.345" gradientUnits="userSpaceOnUse">
+              <stop stopColor="white" stopOpacity="0.3" />
+              <stop offset="0.529782" stopColor="#505C9D" stopOpacity="0.51" />
+              <stop offset="0.829305" stopColor="#11227A" stopOpacity="0.8" />
+              <stop offset="0.994539" stopColor="#11227A" />
+            </linearGradient>
+            <linearGradient id="paint9_linear_972_2898" x1="187.5" y1="-1.91019e-07" x2="186.656" y2="973.345" gradientUnits="userSpaceOnUse">
+              <stop stopColor="white" stopOpacity="0.3" />
+              <stop offset="0.529782" stopColor="#505C9D" stopOpacity="0.51" />
+              <stop offset="0.829305" stopColor="#11227A" stopOpacity="0.8" />
+              <stop offset="0.994539" stopColor="#11227A" />
+            </linearGradient>
+            <linearGradient id="paint10_linear_972_2898" x1="187.5" y1="-1.91019e-07" x2="186.656" y2="973.345" gradientUnits="userSpaceOnUse">
+              <stop stopColor="white" stopOpacity="0.3" />
+              <stop offset="0.529782" stopColor="#505C9D" stopOpacity="0.51" />
+              <stop offset="0.829305" stopColor="#11227A" stopOpacity="0.8" />
+              <stop offset="0.994539" stopColor="#11227A" />
+            </linearGradient>
+            <linearGradient id="paint11_linear_972_2898" x1="187.5" y1="-1.91019e-07" x2="186.656" y2="973.345" gradientUnits="userSpaceOnUse">
+              <stop stopColor="white" stopOpacity="0.3" />
+              <stop offset="0.529782" stopColor="#505C9D" stopOpacity="0.51" />
+              <stop offset="0.829305" stopColor="#11227A" stopOpacity="0.8" />
+              <stop offset="0.994539" stopColor="#11227A" />
+            </linearGradient>
+            <linearGradient id="paint12_linear_972_2898" x1="187.5" y1="-1.91019e-07" x2="186.656" y2="973.345" gradientUnits="userSpaceOnUse">
+              <stop stopColor="white" stopOpacity="0.3" />
+              <stop offset="0.529782" stopColor="#505C9D" stopOpacity="0.51" />
+              <stop offset="0.829305" stopColor="#11227A" stopOpacity="0.8" />
+              <stop offset="0.994539" stopColor="#11227A" />
+            </linearGradient>
+          </defs>
+        </svg>
+
       </div>
 
       {!isContactPage && (
         <div className="container mx-auto footer-top-wrapper">
-          <div className="relative z-[1] grid gap-8 py-16 text-(--color-white) lg:grid-cols-2 lg:gap-16 lg:py-21 lg:border-b border-white/20">
-            <div className="flex flex-col justify-between">
-              <div>
-                <h2 className="text-[38px] lg:text-[56px] leading-[1.1] lg:leading-[60px] font-medium">Get In Touch</h2>
-                <p className="mt-4 max-w-[100%] lg:max-w-[688px] text-[16px] lg:text-[18px] text-balance leading-[28px] tracking-[-0.3px]">
-                  Have a shipment to move or need a quotation? Reach out with your requirements and our
-                  team will provide structured support, clear communication, and dependable shipping
-                  solutions.
-                </p>
-              </div>
-
-
-              <div className="mt-10 flex flex-col divide-y divide-white/40 ">
-                {contactRows.map(({ icon: Icon, label, value, href, newTab }) => (
-                  <Link
-                    key={label}
-                    href={href}
-                    target={newTab ? "_blank" : undefined}
-                    rel={newTab ? "noopener noreferrer" : undefined}
-                    className="group flex items-center gap-7 py-6 transition-colors  max-w-[100%]"
-                  >
-                    <span className="flex h-[46px] w-[46px] shrink-0 items-center justify-center rounded-(--radius-full) bg-white text-(--color-primary)">
-                      <Icon className="h-[25px]" />
-                    </span>
-
-                    <span className="flex flex-1 flex-col">
-                      <span className="text-[14px] leading-4">{label}</span>
-                      <span className="text-[16px] lg:text-[20px] font-normal leading-[30px] hover:underline underline-offset-4">
-                        {value}
-                      </span>
-                    </span>
-
-                    <ChevronRightIcon className="h-4 w-4 opacity-70 transition-transform group-hover:translate-x-0.5" />
-                  </Link>
-                ))}
-              </div>
+          <div className="footer-contact-grid relative z-[1] py-3 pt-[60px]  xl:py-16 text-(--color-white) lg:py-21 lg:border-b border-white/20">
+            <div className="footer-contact-heading">
+              <h2 className="text-[38px] lg:text-[56px] leading-[1.1] lg:leading-[60px] font-medium">Get In Touch</h2>
+              <p className="mt-4 max-w-[100%] lg:max-w-[688px] text-[16px] lg:text-[18px] text-balance leading-[28px] tracking-[-0.3px]">
+                Have a shipment to move or need a quotation? Reach out with your requirements and our
+                team will provide structured support, clear communication, and dependable shipping
+                solutions.
+              </p>
             </div>
-            <div className="relative z-[1]">
+
+            <div className="footer-contact-form relative z-[1]">
               <ContactForm />
             </div>
 
+            <div className="footer-contact-rows flex flex-col divide-y divide-white/40">
+              {contactRows.map(({ icon: Icon, label, value, href, newTab }) => (
+                <Link
+                  key={label}
+                  href={href}
+                  target={newTab ? "_blank" : undefined}
+                  rel={newTab ? "noopener noreferrer" : undefined}
+                  className="group flex items-center gap-7 py-6 transition-colors  max-w-[100%]"
+                >
+                  <span className="flex h-[46px] w-[46px] shrink-0 items-center justify-center rounded-(--radius-full) bg-white text-(--color-primary)">
+                    <Icon className="h-[25px]" />
+                  </span>
+
+                  <span className="flex flex-1 flex-col">
+                    <span className="text-[14px] leading-4">{label}</span>
+                    <span className="text-[16px] lg:text-[20px] font-normal leading-[30px] hover:underline underline-offset-4 decoration-1">
+                      {value}
+                    </span>
+                  </span>
+
+                  <ChevronRightIcon className="h-4 w-4 opacity-70 transition-transform group-hover:translate-x-0.5" />
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       )}
@@ -325,7 +422,7 @@ export function Footer() {
             "
           >
             {/* Logo */}
-            <div className=" pb-5 lg:pb-0 w-full flex justify-between items-center gap-1 lg:gap-0 lg:items-start  flex-col">
+            <div className="order-last lg:order-none pb-5 lg:pb-0 w-full flex justify-between items-center gap-1 lg:gap-0 lg:items-start  flex-col py-[32px] sm:py-0">
 
               <svg width="255" height="47" viewBox="0 0 255 47" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fillRule="evenodd" clipRule="evenodd" d="M0.134888 17.622V28.7011H17.5757C24.9915 28.7011 23.4809 28.8346 29.5234 23.0948C34.7419 18.0224 36.3898 18.6899 46.2776 18.6899H60.2851V7.34375H47.7881C34.8792 7.47723 42.1577 17.622 15.2411 17.622H0.134888Z" fill="white" />
@@ -394,7 +491,7 @@ export function Footer() {
                     aria-expanded={isOpen}
                     className="flex w-full items-center font-semibold justify-between gap-4 text-left lg:pointer-events-none lg:cursor-default"
                   >
-                    <span className="text-(length:--text-small) font-normal text-white/60">
+                    <span className="text-[18px] font-normal text-white">
                       {group.title}
                     </span>
 

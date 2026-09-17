@@ -60,7 +60,7 @@ const BlogsGrid = ({ posts }: BlogsGridProps) => {
                 {/* All posts are rendered up front (hidden ones via CSS) so the full
                     listing stays crawlable even without JS; only the visual reveal
                     is progressive. */}
-                <div className="grid grid-cols-1 gap-x-6 gap-y-22 sm:grid-cols-2 lg:grid-cols-3">
+                <div className="grid grid-cols-1 gap-y-14 gap-x-6 xl:gap-y-22 sm:grid-cols-2 lg:grid-cols-3">
                     {posts.map((post, index) => (
                         <div key={post.id} className={index < visibleCount ? "" : "hidden"}>
                             <BlogCard post={post} />

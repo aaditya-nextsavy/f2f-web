@@ -3,15 +3,18 @@ import BannerType2 from '@/components/common/HeroBannerSection/HeroBannerType2/B
 import ContactSection from '@/components/contact/ContactSection'
 import MapEmbed from '@/components/contact/MapEmbed'
 import { contactPageData } from '@/data/contact'
+import { BreadcrumbJsonLd } from '@/components/seo/schemas'
 
 export const metadata: Metadata = {
     title: contactPageData.meta.title,
     description: contactPageData.meta.description,
+    alternates: { canonical: '/contact' },
 }
 
 export default function Page() {
     return (
         <main className='space-y-[40px] xl:space-y-[90px]'>
+            <BreadcrumbJsonLd items={[{ name: 'Home', path: '/' }, { name: 'Contact', path: '/contact' }]} />
             <BannerType2
                 label={contactPageData.banner.label}
                 title={contactPageData.banner.title}

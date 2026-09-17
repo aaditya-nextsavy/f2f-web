@@ -29,7 +29,7 @@ export function ServicesMenu({ onNavigate }: { onNavigate?: () => void }) {
               strokeDasharray="4 4"
             />
           </svg>
-          <div className="mt-4 flex flex-row gap-[62px]">
+          <div className="mt-4 flex flex-row gap-[32px]">
             {coreServices.map((service) => (
               <Link
                 key={service.label}

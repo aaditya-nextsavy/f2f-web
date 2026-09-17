@@ -222,31 +222,43 @@ img {
 .services-files-light .splide__pagination {
   position: static;
   margin-top: 16px;
+  gap: 6px;
 }
 
 .services-files-light .splide__pagination__page {
+  width: 18px;
+  height: 6px;
+  border-radius: 999px;
   background: var(--color-light-indigo);
   opacity: 1;
+  transition: width 0.3s ease, background-color 0.3s ease;
 }
 
 .services-files-light .splide__pagination__page.is-active {
+  width: 36px;
   background: var(--color-primary);
-  transform: scale(1.2);
+  transform: none;
 }
 
 .services-files-dark .splide__pagination {
   position: static;
   margin-top: 16px;
+  gap: 6px;
 }
 
 .services-files-dark .splide__pagination__page {
+  width: 18px;
+  height: 6px;
+  border-radius: 999px;
   background: rgba(255, 255, 255, 0.3);
   opacity: 1;
+  transition: width 0.3s ease, background-color 0.3s ease;
 }
 
 .services-files-dark .splide__pagination__page.is-active {
+  width: 36px;
   background: var(--color-white);
-  transform: scale(1.2);
+  transform: none;
 }
 
 
@@ -414,7 +426,7 @@ img {
 }
 
 
-@keyframes stats-twinkle-aa{
+@keyframes stats-twinkle-aa {
 
   0%,
   100% {
@@ -492,5 +504,52 @@ img {
 
   75% {
     opacity: 0.24;
+  }
+}
+
+
+.custom-title-line-height {
+  line-height: 1.1 !important;
+}
+
+/* Footer "Get In Touch" block: on mobile the contact form should sit
+   between the heading and the phone/email/map rows, but on desktop the
+   form sits beside them as a second column. Grid areas let the single
+   <ContactForm> instance (it holds real form state + reCAPTCHA) be
+   repositioned per breakpoint without ever being rendered twice. */
+.footer-contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "heading"
+    "form"
+    "contact";
+  gap: 2rem;
+}
+
+.footer-contact-heading {
+  grid-area: heading;
+}
+
+.footer-contact-form {
+  grid-area: form;
+}
+
+.footer-contact-rows {
+  grid-area: contact;
+}
+
+@media (min-width: 1024px) {
+  .footer-contact-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      "heading form"
+      "contact form";
+    gap: 4rem;
+  }
+
+  .footer-contact-rows {
+    align-self: end;
   }
 }

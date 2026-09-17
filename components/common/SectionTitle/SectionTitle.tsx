@@ -59,7 +59,8 @@ const SectionTitle = ({
 
                 {title && (
                     <h2
-                        className={` text-[28px] font-medium leading-[1.1] tracking-[-1px] ${textColorClass} md:text-[48px] lg:text-[56px] xl:leading-[60px] ${titleClassName}`}
+
+                        className={` text-[28px]  font-medium leading-[1.1] tracking-[-1px] ${textColorClass} md:text-[48px] lg:text-[56px] xl:leading-[60px] ${titleClassName} `}
                     >
                         {title}
                     </h2>

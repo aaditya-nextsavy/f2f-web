@@ -16,7 +16,7 @@ const HeroAbout = ({ title, description }: HeroAboutProps) => {
 
             <div className="container mx-auto">
                 <div className="flex flex-col justify-center">
-                    <div className="flex flex-col pb-4 gap-6 sm:gap-3 2xl:gap-0" >
+                    <div className="flex flex-col lg:pb-4 gap-6 sm:gap-3 2xl:gap-0" >
                         <h2 className="max-w-[100%] lg:max-w-[60%] text-[24px] leading-[30px] tracking-[-1px] md:text-[34px] text-balance  lg:text-[46px] lg:leading-[52px] font-bold text-(--color-primary) 2xl:leading-[78px] lg:tracking-[-1.8px]  2xl:text-[64px]">
                             {title}
                         </h2>

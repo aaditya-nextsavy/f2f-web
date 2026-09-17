@@ -29,4 +29,5 @@ export interface ContactFormValues {
     service: string;
     cargoQuantity: string;
     message: string;
+    recaptchaToken?: string;
 }

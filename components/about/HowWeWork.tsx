@@ -106,7 +106,7 @@ const HowWeWork = ({ data }: HowWeWorkProps) => {
                                 src={data.image.src}
                                 alt={data.image.alt}
                                 fill
-                                className="object-contain object-left"
+                                className="object-cover object-left w-[100%] md:max-w-[95%]! h-auto!"
                             />
                         </div>
                     </div>
