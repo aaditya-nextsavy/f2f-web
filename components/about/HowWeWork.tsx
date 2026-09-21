@@ -27,7 +27,7 @@ const HowWeWork = ({ data }: HowWeWorkProps) => {
 
         const mm = gsap.matchMedia();
 
-        mm.add("(min-width: 1024px)", () => {
+        mm.add("(min-width: 1280px)", () => {
             const getDistance = () => Math.max(track.scrollWidth - window.innerWidth, 0);
 
             const tween = gsap.to(track, {
@@ -65,7 +65,7 @@ const HowWeWork = ({ data }: HowWeWorkProps) => {
 
             {/* Desktop: GSAP-pinned horizontal scroll */}
             <div className="container mx-auto mt-[20px] 2xl:mt-[0]">
-                <div ref={pinRef} className="relative mt-10 hidden h-screen w-full lg:block">
+                <div ref={pinRef} className="relative mt-10 hidden h-screen w-full xl:block">
                     <div
                         ref={trackRef}
                         className="absolute top-[40%] 2xl:top-[38%] left-0 flex -translate-y-1/2 flex-col will-change-transform"
@@ -113,7 +113,7 @@ const HowWeWork = ({ data }: HowWeWorkProps) => {
                 </div>
             </div>
 
-            <div className="container mx-auto mt-8 flex flex-col gap-6 lg:hidden">
+            <div className="container mx-auto mt-8 flex flex-col gap-6 xl:hidden">
                 {data.points.map((point) => (
                     <div
                         key={point.id}
