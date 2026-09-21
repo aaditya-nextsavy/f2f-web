@@ -46,8 +46,8 @@ export default function Faqs({ title, data = [] }: FaqsProps) {
                                     aria-expanded={isOpen}
                                     className="flex w-full cursor-pointer items-center justify-between gap-6 py-8 text-left"
                                 >
-                                    <span className="text-[20px] md:text-[22px] font-medium leading-[30px] capitalize text-(--color-primary) 2xl:text-[24px] 2xl:leading-[34px]">
-                                        {faq.title}
+                                    <span className="text-[20px] md:text-[22px] font-medium leading-[30px] text-(--color-primary) 2xl:text-[24px] 2xl:leading-[34px]">
+                                        {faq.title.charAt(0).toUpperCase() + faq.title.slice(1).toLowerCase()}
                                     </span>
 
                                     <span

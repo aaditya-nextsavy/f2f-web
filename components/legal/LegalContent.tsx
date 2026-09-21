@@ -18,7 +18,7 @@ export default function LegalContent({ sections }: LegalContentProps) {
                                 {section.title}
                             </h2>
 
-                            <div className="mt-[32px] text-[16px] leading-[26px] tracking-[-0.3px] text-(--color-primary)/80 lg:text-[18px] lg:leading-[28px] [&_ol]:mt-4 [&_ol]:list-decimal [&_ol]:space-y-2 [&_ol]:pl-5">
+                            <div className="mt-[32px] text-[16px] leading-[26px] tracking-[-0.3px] text-(--color-primary)/80 lg:text-[18px] lg:leading-[28px] [&_ol]:mt-4 [&_ol]:list-decimal [&_ol]:space-y-2 [&_ol]:pl-5 [&_ul]:mt-4 [&_ul]:list-disc [&_ul]:space-y-2 [&_ul]:pl-5 [&_p+p]:mt-4 [&_ul+p]:mt-4 [&_strong]:font-medium">
                                 {section.description}
                             </div>
                         </div>

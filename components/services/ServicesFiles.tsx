@@ -46,7 +46,7 @@ function ServiceFileCardView({
                         <SectionTitle
                             title={card.title}
                             theme={isDark ? "inverted" : "default"}
-                            titleClassName="xl:text-[56px]! leading-[1.3]!"
+                            titleClassName="xl:text-[44px]! leading-[1.3]!"
                         />
 
                         <p
@@ -63,7 +63,7 @@ function ServiceFileCardView({
                     <button
                         type="button"
                         onClick={() => setIsExpanded((prev) => !prev)}
-                        className={`mt-1 flex w-fit items-center gap-2 border-b pb-1 text-[14px] font-semibold underline-offset-4 sm:hidden ${isDark
+                        className={`mt-1 flex w-fit items-center gap-2 border-b pb-1 text-[14px] font-semibold underline-offset-4 min-[991px]:hidden ${isDark
                             ? "border-white text-white"
                             : "border-(--color-primary) text-(--color-primary)"
                             }`}
@@ -82,7 +82,7 @@ function ServiceFileCardView({
 
                     {/* Expandable details */}
                     <div
-                        className={`grid transition-[grid-template-rows] duration-500 ease-in-out sm:grid-rows-[1fr] ${isExpanded
+                        className={`grid transition-[grid-template-rows] duration-500 ease-in-out min-[991px]:grid-rows-[1fr] ${isExpanded
                             ? "grid-rows-[1fr]"
                             : "grid-rows-[0fr]"
                             }`}
@@ -161,18 +161,7 @@ function ServiceFileCardView({
                             )}
                         </Button>
                     </div>
-                    {/* <div className="mt-5 hidden md:block">
-                        <Button
-                            href={card.action.href}
-                            variant={card.action.variant}
-                        >
-                            {card.action.label}
 
-                            {card.action.variant === "yellow" && (
-                                <FaArrowRight size={15} />
-                            )}
-                        </Button>
-                    </div> */}
                 </div>
 
                 {/* Images */}
@@ -189,6 +178,9 @@ function ServiceFileCardView({
                             arrows: false,
                             pagination: true,
                             drag: true,
+                            autoplay: true,
+                            interval: 3000,
+                            speed: 600,
                             gap: "0",
                         }}
                     >
@@ -263,7 +255,7 @@ export default function ServicesFiles({
     return (
         <section className="container mx-auto">
             {/* Desktop tabs */}
-            <div className="ms-10 hidden flex-wrap gap-2 sm:flex">
+            <div className="ms-10 hidden flex-wrap min-[991px]:flex">
                 {data.cards.map((card, index) => {
                     const isDark = index % 2 === 1;
                     const isActive = card.id === activeId;
@@ -276,7 +268,7 @@ export default function ServicesFiles({
                                 handleSelect(card.id)
                             }
                             aria-pressed={isActive}
-                            className={`relative cursor-pointer px-8 py-3 text-[10px] font-semibold uppercase tracking-wide transition-opacity lg:text-[11px] ${isActive
+                            className={`relative cursor-pointer px-8 py-3 text-[14px] font-semibold lowercase tracking-wide transition-opacity lg:text-[11px] ${isActive
                                 ? "opacity-100 font-bold!"
                                 : "opacity-70 hover:opacity-90 font-medium!"
                                 }`}
@@ -311,7 +303,7 @@ export default function ServicesFiles({
             </div>
 
             {/* Cards */}
-            <div className="relative flex flex-col gap-10 sm:block sm:gap-0">
+            <div className="relative flex flex-col gap-10 min-[991px]:block min-[991px]:gap-0">
                 {data.cards.map((card, index) => {
                     const isDark = index % 2 === 1;
                     const isActive =
@@ -323,7 +315,7 @@ export default function ServicesFiles({
                             id={card.id}
                             className={`scroll-mt-[110px] 2xl:scroll-mt-[200px] ${isActive
                                 ? "relative opacity-100 transition-opacity duration-500 ease-in-out "
-                                : "relative opacity-100 transition-opacity duration-500 ease-in-out sm:pointer-events-none sm:absolute sm:inset-0 sm:opacity-0"
+                                : "relative opacity-100 transition-opacity duration-500 ease-in-out min-[991px]:pointer-events-none min-[991px]:absolute min-[991px]:inset-0 min-[991px]:opacity-0"
                                 }`}
                         >
                             <ServiceFileCardView
