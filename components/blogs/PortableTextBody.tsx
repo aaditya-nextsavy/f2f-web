@@ -7,6 +7,9 @@ import { INTRODUCTION_ANCHOR_ID, type SanityImageWithAlt } from "@/sanity/lib/ma
 const paragraphClass =
     "text-[16px] leading-[26px] text-(--color-primary)/80 lg:text-[18px] lg:leading-[28px] lg:tracking-[-0.3px]";
 
+// A list item can carry a heading style; drop the heading's top margin there so it lines up with the tick/number.
+const listHeadingReset = "[&>:is(h3,h4,h5,h6)]:mt-0";
+
 function isSectionHeading(block: unknown): block is PortableTextBlock {
     const node = block as PortableTextBlock;
     return node?._type === "block" && node.style === "h2";
@@ -43,7 +46,7 @@ const PortableTextBody = ({ value }: PortableTextBodyProps) => {
                         )}
                         <h2
                             id={block._key}
-                            className="scroll-mt-28 text-[26px] font-medium capitalize leading-[1.15] tracking-[-0.5px] text-(--color-primary) lg:text-[50px] lg:leading-[42px] lg:tracking-[-1px]"
+                            className="scroll-mt-28 text-[26px] font-medium capitalize leading-[1.15] tracking-[-0.5px] text-(--color-primary) lg:text-[42px] lg:leading-[42px] lg:tracking-[-1px]"
                         >
                             {children}
                         </h2>
@@ -53,7 +56,7 @@ const PortableTextBody = ({ value }: PortableTextBodyProps) => {
             h3: ({ children, value: block }) => (
                 <h3
                     id={block._key}
-                    className="scroll-mt-32 text-[20px] font-medium leading-[1.3] text-(--color-primary) lg:text-[26px]"
+                    className="scroll-mt-32 mt-8 text-[20px] font-medium leading-[1.3] text-(--color-primary) lg:text-[26px] lg:mt-10 [h2+&]:mt-4"
                 >
                     {children}
                 </h3>
@@ -61,7 +64,7 @@ const PortableTextBody = ({ value }: PortableTextBodyProps) => {
             h4: ({ children, value: block }) => (
                 <h4
                     id={block._key}
-                    className="scroll-mt-32 mt-6 flex items-start gap-3 text-[17px] font-medium leading-[1.35] text-(--color-primary) lg:text-[20px]"
+                    className="scroll-mt-32 mt-7 lg:mt-8 [:is(h2,h3)+&]:mt-4 flex items-start gap-3 text-[17px] font-medium leading-[1.35] text-(--color-primary) lg:text-[20px]"
                 >
                     <span className="mt-2.5 h-2 w-2 shrink-0 rounded-full bg-(--color-indigo)" />
                     {children}
@@ -70,7 +73,7 @@ const PortableTextBody = ({ value }: PortableTextBodyProps) => {
             h5: ({ children, value: block }) => (
                 <h5
                     id={block._key}
-                    className="scroll-mt-32 mt-5 text-[16px] font-medium leading-[1.4] text-(--color-primary) lg:text-[18px]"
+                    className="scroll-mt-32 mt-6 lg:mt-7 [:is(h2,h3,h4)+&]:mt-3 text-[16px] font-medium leading-[1.4] text-(--color-primary) lg:text-[18px]"
                 >
                     {children}
                 </h5>
@@ -78,7 +81,7 @@ const PortableTextBody = ({ value }: PortableTextBodyProps) => {
             h6: ({ children, value: block }) => (
                 <h6
                     id={block._key}
-                    className="scroll-mt-32 mt-4 text-[14px] font-semibold uppercase tracking-[0.4px] leading-[1.4] text-(--color-primary)/80 lg:text-[15px]"
+                    className="scroll-mt-32 mt-5 lg:mt-6 [:is(h2,h3,h4,h5)+&]:mt-3 text-[14px] font-semibold uppercase tracking-[0.4px] leading-[1.4] text-(--color-primary)/80 lg:text-[15px]"
                 >
                     {children}
                 </h6>
@@ -86,15 +89,15 @@ const PortableTextBody = ({ value }: PortableTextBodyProps) => {
             normal: ({ children, value: block }) => (
                 <p
                     id={block._key === introKey ? INTRODUCTION_ANCHOR_ID : undefined}
-                    className={`scroll-mt-28 mt-5 mb-4 sm:mb-0 ${paragraphClass}`}
+                    className={`scroll-mt-28 mt-3 mb-4 sm:mb-0 [:is(h3,h4,h5,h6)+&]:mt-2 lg:[:is(h3,h4,h5,h6)+&]:mt-3 ${paragraphClass}`}
                 >
                     {children}
                 </p>
             ),
         },
         list: {
-            bullet: ({ children }) => <ul className="mt-5 space-y-3">{children}</ul>,
-            number: ({ children }) => <ol className="mt-5 space-y-3">{children}</ol>,
+            bullet: ({ children }) => <ul className="mt-5 space-y-3 [:is(h3,h4,h5,h6)+&]:mt-2 lg:[:is(h3,h4,h5,h6)+&]:mt-3">{children}</ul>,
+            number: ({ children }) => <ol className="mt-5 space-y-3 [:is(h3,h4,h5,h6)+&]:mt-2 lg:[:is(h3,h4,h5,h6)+&]:mt-3">{children}</ol>,
         },
         listItem: {
             bullet: ({ children }) => (
@@ -106,7 +109,7 @@ const PortableTextBody = ({ value }: PortableTextBodyProps) => {
                         height={32}
                         className="shrink-0 my-auto"
                     />
-                    <span className={paragraphClass}>{children}</span>
+                    <span className={`${paragraphClass} ${listHeadingReset}`}>{children}</span>
                 </li>
             ),
             number: ({ children, index }) => (
@@ -114,7 +117,7 @@ const PortableTextBody = ({ value }: PortableTextBodyProps) => {
                     <span className="mt-0.5 flex h-[22px] w-[22px] shrink-0 items-center justify-center rounded-full bg-(--color-indigo) text-[12px] font-semibold text-white">
                         {index + 1}
                     </span>
-                    <span className={paragraphClass}>{children}</span>
+                    <span className={`${paragraphClass} ${listHeadingReset}`}>{children}</span>
                 </li>
             ),
         },

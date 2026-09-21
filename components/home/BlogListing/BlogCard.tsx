@@ -67,7 +67,7 @@ const BlogCard = ({ post, featured = false }: BlogCardProps) => {
                 />
             </div>
 
-            <span className="mt-6 text-[18px] leading-[28px] text-(--color-primary)">
+            <span className="mt-3 xl:mt-6 text-[18px] leading-[28px] text-(--color-primary)">
                 {post.date}
             </span>
 

@@ -113,8 +113,7 @@ export default async function Page({ params }: PageProps<"/blog/[slug]">) {
 
                 <section className="container mx-auto  pt-8 sm:pt-6 ">
                     <SectionTitle
-                        label="Blogs"
-                        title="Keep Exploring The World Of Shipping And Logistics"
+                        title="Related Blogs"
                         className="pb-[42px] xl:pb-[62px]"
                     />
 

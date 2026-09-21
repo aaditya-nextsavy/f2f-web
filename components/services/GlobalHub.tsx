@@ -264,7 +264,7 @@ export default function GlobalHub({ data }: GlobalHubProps) {
 
             <div className="hidden lg:block pointer-events-none absolute top-1/2 right-0 z-[1] aspect-square w-[300px] -translate-y-1/2 translate-x-[50%] sm:w-[420px] lg:w-[760px]">
                 <Image
-                    src="/images/home/statastics/earth.svg"
+                    src="/images/home/statastics/earth2.svg"
                     alt=""
                     fill
                     aria-hidden="true"

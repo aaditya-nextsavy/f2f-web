@@ -71,20 +71,20 @@ const TeamCard = ({
             {/* Bio */}
             <div className="relative">
                 <p
-                    className={`text-[16px] leading-[24px] text-(--color-primary) lg:text-[18px] lg:leading-[24px] ${isExpanded ? "" : "line-clamp-3"
+                    className={`text-[16px] leading-[24px] text-(--color-primary) lg:text-[18px] lg:leading-[24px] ${isExpanded ? "" : "lg:line-clamp-3"
                         }`}
                 >
                     {member.bio}
                 </p>
             </div>
 
-            {/* Read More */}
+            {/* Read More (desktop only; full bio is shown below 1024px) */}
             {member.link?.label && (
                 <button
                     type="button"
                     onClick={() => toggleBio(member.id)}
                     aria-expanded={isExpanded}
-                    className="mt-1 flex w-fit cursor-pointer items-center gap-2 text-[14px] leading-[32px] font-semibold uppercase tracking-[0.5px] text-(--color-primary) transition-opacity duration-300 hover:opacity-70 hover:underline"
+                    className="mt-1 hidden w-fit cursor-pointer lg:flex items-center gap-2 text-[14px] leading-[32px] font-semibold uppercase tracking-[0.5px] text-(--color-primary) transition-opacity duration-300 hover:opacity-70 hover:underline"
                 >
                     <span>
                         {isExpanded

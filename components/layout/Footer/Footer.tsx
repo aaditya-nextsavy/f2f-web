@@ -31,6 +31,7 @@ export function Footer() {
   const pathname = usePathname();
   const isContactPage = pathname === "/contact";
   const isAboutPage = pathname === "/about";
+  const isServicesPage = ["/fcl-sea-freight", "/lcl-sea-freight", "/other-services"].includes(pathname);
   const [openIndex, setOpenIndex] = useState(-1);
   const [hoveredLink, setHoveredLink] = useState<string | null>(null);
 
@@ -39,7 +40,7 @@ export function Footer() {
   };
 
   return (
-    <footer className={`relative overflow-hidden bg-(--color-primary)  ${isAboutPage ? "" : " mt-[42px] xl:mt-[92px]"} `}>
+    <footer className={`relative overflow-hidden bg-(--color-primary)  ${(isAboutPage || isServicesPage) ? "" : " mt-[42px] xl:mt-[92px]"} `}>
       {/* Desktop background */}
       <Image
         src="/images/common/footer-bg.png"
@@ -414,7 +415,7 @@ export function Footer() {
               lg:gap-y-8 
               lg:grid-cols-[255px_repeat(3,minmax(0,1fr))]
               lg:gap-x-[40px]
-              lg:pb-[120px]
+              lg:pb-[55px]
               xl:grid-cols-[350px_repeat(5,minmax(0,1fr))]
               2xl:grid-cols-[530px_repeat(5,minmax(0,1fr))]
               xl:gap-x-[40px]
@@ -511,8 +512,8 @@ export function Footer() {
                       <div
                         className={
                           isLargeGroup
-                            ? "mt-4 grid grid-cols-2 gap-x-8 gap-y-4"
-                            : "mt-4 grid grid-flow-col lg:grid-rows-4 gap-x-10 gap-y-2 h-max grid-rows-auto "
+                            ? "mt-4 grid grid-cols-2 gap-x-8 gap-y-5"
+                            : "mt-4 grid grid-flow-col lg:grid-rows-4 gap-x-10 gap-y-5 lg:gap-y-2 h-max grid-rows-2 "
                         }
                       >
                         {group.links.map((link) => {

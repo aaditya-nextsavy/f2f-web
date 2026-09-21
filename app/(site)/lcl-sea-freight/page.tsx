@@ -48,7 +48,7 @@ export default function Page() {
 
             {globalHub && <GlobalHub data={globalHub} />}
 
-            {whyItWorks && <WhyItWorks data={whyItWorks} />}
+            {whyItWorks && <WhyItWorks data={whyItWorks} className="-mt-[42px] 2xl:-mt-[90px]" />}
 
             {otherServicesSection && (
                 <OtherServices

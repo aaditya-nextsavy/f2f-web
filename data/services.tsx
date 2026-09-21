@@ -203,8 +203,8 @@ export const servicesPageData: ServicesPageData = {
                     variant: "yellow",
                 },
                 {
-                    label: "View our FCL services",
-                    href: "/fcl-sea-freight",
+                    label: "View our LCL services",
+                    href: "/lcl-sea-freight",
                     variant: "white-secondary",
                 },
             ],
@@ -217,7 +217,7 @@ export const servicesPageData: ServicesPageData = {
         faqs: {
             sectiontitle: {
                 label: "FAQs",
-                title: "Full Container Load, Answered",
+                title: <>Frequently<br /> Asked Questions</>,
                 description: "Have questions about FCL shipping, container options, or the process? Our FAQ section covers common questions about dedicated container shipping, booking, documentation, customs clearance, tracking, and delivery. Find clear answers to help you understand the FCL process and plan your shipment with confidence."
             },
             faqs: [
@@ -531,7 +531,7 @@ export const servicesPageData: ServicesPageData = {
         faqs: {
             sectiontitle: {
                 label: "FAQs",
-                title: "Less Than Container Load, Answered",
+                title: <>Frequently <br /> Asked Questions</>,
                 description: "Have questions about LCL shipping, cargo consolidation, or delivery? Our FAQ section covers common questions about consolidation, CFS handling, customs clearance, documentation, tracking, and final delivery. Find clear answers to understand how your LCL shipment moves from pickup to destination."
             },
 

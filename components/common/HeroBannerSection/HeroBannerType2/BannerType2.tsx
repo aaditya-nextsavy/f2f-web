@@ -221,13 +221,13 @@ const BannerType2 = ({
                 >
                     <div>
                         {label && (
-                            <span className="text-[14px] leading-[32px] tracking-[-0.8px] font-medium uppercase tracking-[1.5px] text-white/60">
+                            <span className="text-[14px] leading-[32px] tracking-[-0.8px] font-semibold capitalize  text-white/60">
                                 {label}
                             </span>
                         )}
 
                         <h1
-                            className={`text-[42px] leading-[46px] tracking-[-1px] text-white lg:text-[54px] md:text-[58px] md:leading-[64px]   ${label ? "mt-1" : ""
+                            className={`text-[42px] leading-[46px] tracking-[-2px] text-white lg:text-[54px] md:text-[58px] md:leading-[60px]   ${label ? "mt-1" : ""
                                 } ${hasImage ? "max-w-[900px]" : "max-w-[100%] "}`}
                         >
                             {title}

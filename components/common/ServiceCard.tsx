@@ -80,6 +80,7 @@ const ServiceCard = ({ title, description, image, link }: ServiceCardProps) => {
                         duration-300
                         tracking-[-0.8px]
                         ease-in-out
+                        capitalize
                         group-hover:text-(--color-iceblue)
                     "
                     >

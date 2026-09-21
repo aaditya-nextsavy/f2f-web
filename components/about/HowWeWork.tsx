@@ -64,11 +64,11 @@ const HowWeWork = ({ data }: HowWeWorkProps) => {
             </div>
 
             {/* Desktop: GSAP-pinned horizontal scroll */}
-            <div className="container mx-auto mt-[100px] 2xl:mt-[0]">
+            <div className="container mx-auto mt-[20px] 2xl:mt-[0]">
                 <div ref={pinRef} className="relative mt-10 hidden h-screen w-full lg:block">
                     <div
                         ref={trackRef}
-                        className="absolute top-[43%] left-0 flex -translate-y-1/2 flex-col will-change-transform"
+                        className="absolute top-[40%] 2xl:top-[38%] left-0 flex -translate-y-1/2 flex-col will-change-transform"
                     >
                         <div className="flex gap-x-[128px] me-[120px] ">
                             {data.points.map((point, index) => (
@@ -99,7 +99,7 @@ const HowWeWork = ({ data }: HowWeWorkProps) => {
                         </div>
 
                         <div
-                            className="relative 2xl:mt-16 shrink-0 w-[stretch] h-[400px] 2xl:h-[400px]"
+                            className="relative 2xl:mt-6 shrink-0 w-[stretch] h-[400px] 2xl:h-[400px]"
 
                         >
                             <Image
@@ -113,7 +113,6 @@ const HowWeWork = ({ data }: HowWeWorkProps) => {
                 </div>
             </div>
 
-            {/* Mobile / tablet: stacked cards */}
             <div className="container mx-auto mt-8 flex flex-col gap-6 lg:hidden">
                 {data.points.map((point) => (
                     <div

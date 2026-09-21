@@ -180,7 +180,7 @@ export const aboutPageData: AboutPageData = {
                     "We take the time to understand your priorities and build a clear plan around your shipment requirements.",
                 ],
                 mobileImage: {
-                    src: "/images/about/about-how-1.png",
+                    src: "/images/about/about-how-1.svg",
                     alt: "Illustration of Fairwinds' shipping process from booking to delivery, including understanding shipment requirements and building a clear plan",
                 }
             },
@@ -193,7 +193,7 @@ export const aboutPageData: AboutPageData = {
                     "We coordinate the moving parts behind the journey to help keep cargo moving efficiently from origin to destination.",
                 ],
                 mobileImage: {
-                    src: "/images/about/about-how-2.png",
+                    src: "/images/about/about-how-2.svg",
                     alt: "Illustration of Fairwinds' shipping process from booking to delivery, including coordination of moving parts and shipment visibility",
                 }
             },
@@ -206,7 +206,7 @@ export const aboutPageData: AboutPageData = {
                     "With timely updates and shipment visibility, you always know what comes next and what to expect.",
                 ],
                 mobileImage: {
-                    src: "/images/about/about-how-3.png",
+                    src: "/images/about/about-how-3.svg",
                     alt: "Keeping customers informed with timely updates and shipment visibility",
                 }
             },
@@ -219,13 +219,13 @@ export const aboutPageData: AboutPageData = {
                     "With careful coordination and final checks, we ensure cargo arrives planned and ready for the next step.",
                 ],
                 mobileImage: {
-                    src: "/images/about/about-how-4.png",
+                    src: "/images/about/about-how-4.svg",
                     alt: "Delivery check after quality inspection of cargo at destination",
                 }
             },
         ],
         image: {
-            src: "/images/about/howwework1.svg",
+            src: "/images/about/howwework2.svg",
             alt: "Illustration of Fairwinds' shipping process from booking to delivery",
         },
     },

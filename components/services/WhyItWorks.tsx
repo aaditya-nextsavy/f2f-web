@@ -4,11 +4,12 @@ import type { WhyItWorksData } from "@/types/services";
 
 type WhyItWorksProps = {
     data: WhyItWorksData;
+    className?: string;
 };
 
-const WhyItWorks = ({ data }: WhyItWorksProps) => {
+const WhyItWorks = ({ data, className = "" }: WhyItWorksProps) => {
     return (
-        <section className="py-[42px] 2xl:py-[90px] bg-(--color-iceblue)">
+        <section className={`py-[42px] 2xl:py-[90px] bg-(--color-iceblue) ${className}`}>
             <div className="container mx-auto">
                 <SectionTitle
                     label={data.sectiontitle.label}

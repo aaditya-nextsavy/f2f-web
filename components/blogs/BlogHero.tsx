@@ -33,7 +33,7 @@ const BlogHero = ({ label, title, author, date, image, imageAlt, sidebar, childr
                 )}
 
                 <h1 className="mt-4 max-w-[820px] text-[30px] font-medium leading-[1.2] tracking-[-0.5px] text-white lg:text-[52px] lg:leading-[1.12] lg:tracking-[-1px]">
-                    {title}
+                    {typeof title === "string" ? title.charAt(0).toUpperCase() + title.slice(1) : title}
                 </h1>
 
                 <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-[14px] text-white/60">

@@ -29,8 +29,8 @@ export default function NotFound() {
 
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/30 via-black/5 to-transparent" />
 
-                <div className="relative z-10 mx-auto w-[calc(100%-48px)]  top-[110px] lg:top-[20%] xl:top-[23%] text-center text-white">
-                    <h1 className=" text-[clamp(34px,4vw,84px)] font-bold px-3 lg:px-0  lg:font-extrabold tracking-[-3.5px] leading-[1.1] lg:leading-[1.1]">
+                <div className="relative z-10 mx-auto w-[calc(100%-48px)]  top-[150px] lg:top-[20%] xl:top-[23%] text-center text-white">
+                    <h1 className=" text-[clamp(34px,4vw,84px)] font-extrabold px-3 lg:px-0  lg:font-extrabold tracking-[-0.3px] leading-[1.1] lg:leading-[1.1]">
                         This Page Is Off Course
                     </h1>
                     <p className="mx-auto mt-6 lg:mt-[25px] max-w-[760px] text-[16px] leading-[24px] font-semibold tracking-[-0.3px] text-white lg:text-[20px] lg:leading-[24px] lg:tracking-[-0.8px]">

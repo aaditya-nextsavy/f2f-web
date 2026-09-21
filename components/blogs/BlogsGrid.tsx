@@ -46,7 +46,7 @@ const BlogsGrid = ({ posts }: BlogsGridProps) => {
 
     if (posts.length === 0) {
         return (
-            <section className="blogs-grid pb-[42px] xl:pb-[92px]">
+            <section className="blogs-grid pb-[22px] ">
                 <div className="container mx-auto">
                     <NoBlogsMessage />
                 </div>
@@ -55,7 +55,7 @@ const BlogsGrid = ({ posts }: BlogsGridProps) => {
     }
 
     return (
-        <section className="blogs-grid pb-[42px] xl:pb-[92px]">
+        <section className="blogs-grid pb-[22px] ">
             <div className="container mx-auto">
                 {/* All posts are rendered up front (hidden ones via CSS) so the full
                     listing stays crawlable even without JS; only the visual reveal

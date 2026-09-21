@@ -255,7 +255,7 @@ export default function ServicesFiles({
     return (
         <section className="container mx-auto">
             {/* Desktop tabs */}
-            <div className="ms-10 hidden flex-wrap min-[991px]:flex">
+            <div className="ms-10 hidden relative z-0 flex-wrap min-[991px]:flex">
                 {data.cards.map((card, index) => {
                     const isDark = index % 2 === 1;
                     const isActive = card.id === activeId;
@@ -268,15 +268,25 @@ export default function ServicesFiles({
                                 handleSelect(card.id)
                             }
                             aria-pressed={isActive}
-                            className={`relative cursor-pointer px-8 py-3 text-[14px] font-semibold lowercase tracking-wide transition-opacity lg:text-[11px] ${isActive
-                                ? "opacity-100 font-bold!"
-                                : "opacity-70 hover:opacity-90 font-medium!"
+                            // Each tab sits behind the one before it and in
+                            // front of the one after it; the active tab wins.
+                            style={{
+                                zIndex: isActive
+                                    ? data.cards.length + 1
+                                    : data.cards.length - index,
+                            }}
+                            className={`relative -ml-10 xl:-ml-7  cursor-pointer px-10 py-3 text-[12px]  lg:text-[14px] font-semibold capitalize tracking-wide first:ml-0 xl:text-[16px] ${isActive
+                                ? "font-bold!"
+                                : "font-medium!"
                                 }`}
                         >
                             <svg
-                                className={`absolute inset-0 -z-10 mt-[1px] h-full w-full ${isDark
+                                className={`absolute inset-0 -z-10 mt-[1px] h-full w-full transition-[filter] duration-300 ${isDark
                                     ? "text-(--color-primary)"
                                     : "text-(--color-iceblue)"
+                                    } ${isActive
+                                        ? "drop-shadow-[4px_0_8px_rgba(0,0,0,0.25)]"
+                                        : "drop-shadow-[3px_0_5px_rgba(0,0,0,0.15)]"
                                     }`}
                                 preserveAspectRatio="none"
                                 viewBox="0 0 212 50"
@@ -303,7 +313,7 @@ export default function ServicesFiles({
             </div>
 
             {/* Cards */}
-            <div className="relative flex flex-col gap-10 min-[991px]:block min-[991px]:gap-0">
+            <div className="relative flex flex-col gap-10 min-[991px]:block min-[991px]:gap-0 z-[2]">
                 {data.cards.map((card, index) => {
                     const isDark = index % 2 === 1;
                     const isActive =

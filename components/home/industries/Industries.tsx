@@ -120,7 +120,7 @@ const Industries = ({ title, data, tightBottom = true }: IndustriesProps) => {
 
                                 {/* Icon area */}
                                 <div className="absolute inset-x-0 top-0 flex h-[58%] items-center justify-center">
-                                    <div className="relative size-18 md:size-14 2xl:size-22 mt-[40px] md:mt-0">
+                                    <div className="relative size-18 md:size-14 2xl:size-22 mt-[40px] md:mt-0 sm:opacity-20 md:opacity-100">
                                         <Image
                                             src={card.image}
                                             alt=""
@@ -140,9 +140,11 @@ const Industries = ({ title, data, tightBottom = true }: IndustriesProps) => {
                                 </div>
 
                                 {/* Content area */}
-                                <div className="absolute inset-x-0 bottom-0 z-10 flex h-[42%] flex-col justify-end p-[18px] pt-4 md:p-5 xl:p-8">
+                                <div className="absolute inset-x-0 bottom-0 z-10 flex h-[42%] flex-col justify-end p-[12px] pt-4 md:py-5 md:px-2 xl:py-8 xl:px-3">
                                     <h3 className="text-[18px] xl:text-xl font-semibold leading-[20px] text-(--color-primary) md:text-[20px]">
-                                        {card.title}
+                                        {typeof card.title === "string"
+                                            ? card.title.charAt(0).toUpperCase() + card.title.slice(1)
+                                            : card.title}
                                     </h3>
 
                                     <p className="mt-2 max-w-[340px] text-[14px] xl:text-[16px] leading-relaxed text-(--color-primary)">

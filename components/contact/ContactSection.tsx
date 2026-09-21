@@ -23,7 +23,7 @@ export default function ContactSection({ heading, description }: ContactSectionP
 
                     <div className="flex flex-col justify-between">
                         <div>
-                            <h2 className="text-[28px] font-medium text-balance leading-[28px] lg:leading-[60px] text-(--color-primary) lg:text-[56px]">
+                            <h2 className="text-[28px] font-medium text-balance leading-[28px] lg:leading-[60px] tracking-[-0.3px] sm:tracking-[-1px] text-(--color-primary) lg:text-[56px]">
                                 {heading}
                             </h2>
 
