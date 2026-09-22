@@ -46,11 +46,11 @@ function ServiceFileCardView({
                         <SectionTitle
                             title={card.title}
                             theme={isDark ? "inverted" : "default"}
-                            titleClassName="xl:text-[44px]! leading-[1.3]!"
+                            titleClassName="xl:text-[38px]! leading-[1.3]!"
                         />
 
                         <p
-                            className={`mt-5 text-[15px] leading-[24px] lg:text-[16px] lg:leading-[26px] ${isDark
+                            className={`mt-5 text-[14px] leading-[24px] lg:text-[16px] lg:leading-[20px] ${isDark
                                 ? "text-white"
                                 : "text-(--color-primary)/70"
                                 }`}

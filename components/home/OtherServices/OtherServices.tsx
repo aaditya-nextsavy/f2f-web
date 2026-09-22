@@ -77,16 +77,20 @@ const OtherServices = ({ title, data }: OtherServicesProps) => {
 
                     <div className="container mx-auto">
                         <div className="mt-6 flex items-center justify-between gap-5 ">
-                            <div className="flex items-center gap-2">
+                            {/* Same active(rectangle)/inactive(circle) pagination
+                                treatment as the services page's image-slider cards
+                                (.services-files-light .splide__pagination__page in
+                                globals.css): 18x6 dot, 36x6 pill when active, 6px gap. */}
+                            <div className="flex items-center gap-1.5">
                                 {data.map((card, index) => (
                                     <button
                                         key={card.id}
                                         type="button"
                                         aria-label={`Go to slide ${index + 1}`}
                                         onClick={() => splideRef.current?.splide?.go(index)}
-                                        className={`h-2 rounded-full transition-all duration-300 ${index === activeIndex
-                                            ? "w-6 bg-(--color-primary)"
-                                            : "w-2 bg-(--color-light-indigo)"
+                                        className={`h-1.5 rounded-full transition-all duration-300 ${index === activeIndex
+                                            ? "w-9 bg-(--color-primary)"
+                                            : "w-4.5 bg-(--color-light-indigo)"
                                             }`}
                                     />
                                 ))}

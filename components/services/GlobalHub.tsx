@@ -254,7 +254,7 @@ export default function GlobalHub({ data }: GlobalHubProps) {
                     </div>
 
                     <div className="relative h-[320px] w-full lg:h-[700px] lg:w-[42%]">
-                        <div className="flex h-full justify-center gap-[50px] lg:gap-[62px] lg:justify-start lg:ps-[8%] transform rotate-90 lg:rotate-0">
+                        <div className="flex h-full justify-center gap-[50px] lg:gap-[62px] lg:justify-start lg:ps-[8%] transform rotate-90 lg:rotate-0 mt-5 sm:mt-0">
                             <FlagColumn countries={data.countries} direction="down" />
                             <FlagColumn countries={reversedCountries} direction="up" className="mt-[-56px]" />
                         </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { FiPlus } from "react-icons/fi";
@@ -25,6 +25,14 @@ const contactRows = [
 ];
 
 const socialIcons = [FacebookIcon, XIcon, LinkedInIcon, InstagramIcon];
+
+// Mirrors the manual line break used for this same label on the "Other
+// Services" cards (see data/home.tsx). Handled here at render time, rather
+// than in the shared NavLink data, because that label string is also reused
+// as-is for the nav menu and the contact form's service dropdown options.
+const FOOTER_LABEL_BREAKS: Record<string, ReactNode> = {
+  "Transportation (Road/Rail)": <>Transportation <br /> (Road/Rail)</>,
+};
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -423,7 +431,7 @@ export function Footer() {
             "
           >
             {/* Logo */}
-            <div className="order-last lg:order-none pb-5 lg:pb-0 w-full flex justify-between items-center gap-1 lg:gap-0 lg:items-start  flex-col py-[12px] pb-6 mb-32px sm:py-0 sm:bb-0 sm:mb-0">
+            <div className="order-last lg:order-none pb-5 lg:pb-0 w-full flex justify-between items-center gap-1 lg:gap-0 lg:items-start  flex-col py-[12px] pb-6 mb-32px sm:py-0 sm:bb-0 sm:mb-0 mt-4 sm:mt-0 ">
 
               <svg width="255" height="47" viewBox="0 0 255 47" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fillRule="evenodd" clipRule="evenodd" d="M0.134888 17.622V28.7011H17.5757C24.9915 28.7011 23.4809 28.8346 29.5234 23.0948C34.7419 18.0224 36.3898 18.6899 46.2776 18.6899H60.2851V7.34375H47.7881C34.8792 7.47723 42.1577 17.622 15.2411 17.622H0.134888Z" fill="white" />
@@ -513,7 +521,11 @@ export function Footer() {
                         className={
                           isLargeGroup
                             ? "mt-4 grid grid-cols-2 gap-x-8 gap-y-5"
-                            : "mt-4 grid grid-flow-col lg:grid-rows-4 gap-x-10 gap-y-5 lg:gap-y-2 h-max grid-rows-2 "
+                            // grid-cols-2 on mobile so a 2-item group (Sea Freight
+                            // Services, Company) sits side by side in one row instead
+                            // of stacking; lg+ switches back to a single column of up
+                            // to 4 stacked rows (the original desktop list layout).
+                            : "mt-4 grid grid-cols-2 gap-x-10 gap-y-5 lg:grid-cols-1 lg:grid-flow-col lg:grid-rows-4 lg:gap-y-2 h-max "
                         }
                       >
                         {group.links.map((link) => {
@@ -530,7 +542,7 @@ export function Footer() {
                               className={`text-(length:--text-small) capitalize transition-opacity duration-300 ${isDimmed ? "opacity-50" : "opacity-100"
                                 }`}
                             >
-                              {link.label}
+                              {FOOTER_LABEL_BREAKS[link.label] ?? link.label}
                             </Link>
                           );
                         })}

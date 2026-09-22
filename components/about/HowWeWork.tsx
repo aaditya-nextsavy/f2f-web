@@ -58,7 +58,7 @@ const HowWeWork = ({ data }: HowWeWorkProps) => {
     }, []);
 
     return (
-        <section className="relative overflow-hidden bg-(--color-iceblue) py-[42px] xl:py-[92px] space-y-[42px]">
+        <section className="relative overflow-hidden bg-(--color-iceblue) pt-[42px] xl:pt-[92px] space-y-[42px]">
             <div className="container mx-auto">
                 <SectionTitle label={data.sectionTitle.label} title={data.sectionTitle.title} />
             </div>

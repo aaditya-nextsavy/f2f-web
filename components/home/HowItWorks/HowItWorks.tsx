@@ -43,16 +43,31 @@ const HowItWorks = ({ title, paragraphs, steps }: HowItWorksProps) => {
                 {/* Desktop layout */}
                 <div className="hidden lg:block relative z-10 mt-10  2xl:mt-[92px] pt-[40px] 2xl:pt-[92px]">
 
-                    <Image
-                        src="/images/home/howitworks/how-it-works-left.svg"
-                        alt=""
-                        width={1000}
-                        height={1286}
-                        aria-hidden="true"
-                        className="pointer-events-none absolute top-0 w-[58.5%] 2xl:w-[55.8%] left-0 hidden lg:block object-cover h-fit"
-                    />
+                    <div className="container relative mx-auto">
 
-                    <div className="container mx-auto">
+                        {/*
+                            left/width break out of the container to the true screen edge
+                            (calc(...vw) is viewport-relative, so it ignores the container's
+                            own centering/max-width) while still landing the right edge
+                            exactly on the horizontal center of the yellow check circle
+                            (half the grid gap past the midpoint, plus the number's fixed
+                            29px width, the gap-4 next to it, and half the circle's 36px
+                            size = 109px past the container's own midpoint). bottom-0 pins
+                            the bottom to the grid's actual bottom edge so the line always
+                            reaches the last step (step count / text wrapping changes its
+                            height independently of width, so a fixed aspect ratio can fall
+                            short); object-cover crops any resulting mismatch from the top
+                            since only the small curve up there is affected, not the
+                            straight run doing the actual connecting.
+                        */}
+                        <Image
+                            src="/images/home/howitworks/how-it-works-left.svg"
+                            alt=""
+                            width={1045}
+                            height={850}
+                            aria-hidden="true"
+                            className="pointer-events-none absolute hidden -top-10 bottom-0 left-[calc(50%-50vw)] w-[calc(50vw+109px)] object-cover object-top-right lg:block 2xl:-top-25 max-h-[unset] h-stretch"
+                        />
 
                         <div className=" hidden lg:grid lg:grid-cols-2 lg:gap-[92px]">
                             <div className="space-y-6 max-w-[710px]">

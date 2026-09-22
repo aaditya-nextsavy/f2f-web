@@ -49,6 +49,7 @@ const BlogCard = ({ post, featured = false }: BlogCardProps) => {
                         className="mt-5 px-[34px] py-[10px] text-[16px] font-normal! leading-[24px]"
                     >
                         Read Full Blog
+                        <FaArrowRight size={15} />
                     </Button>
                 </div>
             </article>

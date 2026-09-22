@@ -139,8 +139,12 @@ const Industries = ({ title, data, tightBottom = true }: IndustriesProps) => {
                                     </div>
                                 </div>
 
-                                {/* Content area */}
-                                <div className="absolute inset-x-0 bottom-0 z-10 flex h-[42%] flex-col justify-end p-[12px] pt-4 md:py-5 md:px-2 xl:py-8 xl:px-3">
+                                {/* Content area: justify-start (not -end) so every card's h3
+                                    begins at the same fixed offset from the top of this box,
+                                    regardless of whether the title wraps to one or two lines —
+                                    bottom-anchoring made the title's start position float based
+                                    on its own + the paragraph's combined height. */}
+                                <div className="absolute inset-x-0 bottom-0 z-10 flex h-[42%] flex-col justify-start p-3 pt-4 md:py-5 md:px-2 xl:py-8 xl:px-3">
                                     <h3 className="text-[18px] xl:text-xl font-semibold leading-[20px] text-(--color-primary) md:text-[20px]">
                                         {typeof card.title === "string"
                                             ? card.title.charAt(0).toUpperCase() + card.title.slice(1)

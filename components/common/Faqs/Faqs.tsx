@@ -11,6 +11,32 @@ interface FaqsProps {
     data?: FaqData[];
 }
 
+// Words that must keep their own casing wherever they appear in a question
+// (pronouns, acronyms, proper nouns) — everything else is forced to sentence
+// case. Add to this list as new terms show up in FAQ copy.
+const ALWAYS_CAPITALIZED = ["I", "FCL", "LCL", "CHA", "MTO", "FMCG", "CFS", "CBM", "Fairwinds"];
+
+const alwaysCapitalizedByUpperCase = new Map(
+    ALWAYS_CAPITALIZED.map((word) => [word.toUpperCase(), word]),
+);
+
+// Renders any input casing as sentence case: first word capitalized, every
+// other word lowercased, except for the terms above, which are always
+// rendered with their own fixed casing regardless of position or how the
+// source data typed them.
+function toFaqSentenceCase(text: string): string {
+    let isFirstWord = true;
+
+    return text.replace(/[A-Za-z]+(?:['-][A-Za-z]+)*/g, (word) => {
+        const fixed = alwaysCapitalizedByUpperCase.get(word.toUpperCase());
+        const cased = fixed ?? word.toLowerCase();
+        const result = isFirstWord ? cased.charAt(0).toUpperCase() + cased.slice(1) : cased;
+
+        isFirstWord = false;
+        return result;
+    });
+}
+
 export default function Faqs({ title, data = [] }: FaqsProps) {
     const [openIndex, setOpenIndex] = useState(0);
 
@@ -47,7 +73,7 @@ export default function Faqs({ title, data = [] }: FaqsProps) {
                                     className="flex w-full cursor-pointer items-center justify-between gap-6 py-8 text-left"
                                 >
                                     <span className="text-[20px] md:text-[22px] font-medium leading-[30px] text-(--color-primary) 2xl:text-[24px] 2xl:leading-[34px]">
-                                        {faq.title.charAt(0).toUpperCase() + faq.title.slice(1).toLowerCase()}
+                                        {toFaqSentenceCase(faq.title)}
                                     </span>
 
                                     <span
