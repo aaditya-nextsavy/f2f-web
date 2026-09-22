@@ -49,7 +49,7 @@ const HowItWorks = ({ title, paragraphs, steps }: HowItWorksProps) => {
                         width={1000}
                         height={1286}
                         aria-hidden="true"
-                        className="pointer-events-none absolute top-0 w-[58.5%] 2xl:w-[55.8%] left-0 hidden lg:block object-cover"
+                        className="pointer-events-none absolute top-0 w-[58.5%] 2xl:w-[55.8%] left-0 hidden lg:block object-cover h-fit"
                     />
 
                     <div className="container mx-auto">
@@ -69,7 +69,7 @@ const HowItWorks = ({ title, paragraphs, steps }: HowItWorksProps) => {
                                 {steps.map((step, index) => (
                                     <div key={step.id} className="relative flex gap-[24px] 2xl:gap-[64px] pb-12 2xl:pb-14 last:pb-0">
                                         <div className="flex flex-row items-start gap-4 mt-1.5">
-                                            <span className="text-[24px]  text-(--color-primary)/40">
+                                            <span className="text-[24px]  text-(--color-primary)/40 min-w-[29px] max-w-[29px]">
                                                 {String(step.id).padStart(2, "0")}
                                             </span>
                                             <span className=" flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-(--color-yellow)">

@@ -23,7 +23,7 @@ export default function HeroBanner({ title, description, actions, video, placeho
             </div>
 
             {/* Content */}
-            <div className=" flex flex-col h-[stretch] lg:justify-center lg:justify-start  relative z-10 mx-auto w-[calc(100%-48px)] max-w-[1200px] top-[25%] md:top-[20%] lg:top-[10%]  2xl:top-[13%] text-start lg:text-center text-white pt-8 2xl:pt-0 ">
+            <div className=" flex flex-col h-[stretch] lg:justify-center lg:justify-start  relative z-10 mx-auto w-[calc(100%-48px)] max-w-[1200px] top-[25%] md:top-[20%] lg:top-[7%]  2xl:top-[9%] text-start lg:text-center text-white pt-8 2xl:pt-0 ">
                 <h1 className="text-balance lg:max-w-[70%] xl:max-w-[85%]  2xl:max-w-[90%] mx-auto text-[36px] lg:text-[52px] xl:text-[64px] 2xl:text-[84px] font-extrabold tracking-[-1.5px] lg:tracking-[-3.5px] leading-[44px]  lg:leading-[54px]  2xl:leading-[97px] ">
                     {title}
                 </h1>

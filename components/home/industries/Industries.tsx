@@ -114,7 +114,7 @@ const Industries = ({ title, data, tightBottom = true }: IndustriesProps) => {
                         <SplideSlide key={card.id}>
                             <article className="group relative aspect-square overflow-hidden border-r border-t border-b border-(--color-primary) bg-(--cards-bg) transition-colors duration-300 ease-in-out hover:bg-(--color-iceblue)">
                                 {/* Number */}
-                                <span className="absolute left-5 top-5 z-20 text-[14px] font-bold leading-[32px] text-(--color-primary)">
+                                <span className="absolute left-3 top-5 z-20 text-[14px] font-bold leading-[32px] text-(--color-primary)">
                                     {String(card.id).padStart(2, "0")}
                                 </span>
 

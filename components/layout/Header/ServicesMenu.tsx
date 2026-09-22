@@ -13,7 +13,7 @@ export function ServicesMenu({ onNavigate }: { onNavigate?: () => void }) {
             CORE SERVICE
           </p>
           <svg
-            className="w-max max-w-[400px] 2xl:w-[560px]"
+            className="w-max max-w-[400px] 2xl:w-[100%] max-w-[unset]"
             // width="560"
             height="1"
             viewBox="0 0 560 1"

@@ -27,6 +27,7 @@ const SeaFreight = ({ title, data }: SeaFreightProps) => {
                             image={card.image}
                             variant={card.variant}
                             link={card.link}
+                            alt={card.alt}
                         />
                     ))}
                 </div>

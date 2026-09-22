@@ -134,7 +134,8 @@ export const homePageData: HomePageData = {
             },
             {
                 id: 5,
-                title: "Transportation (Road/Rail)",
+                title: <>Transportation <br /> (Road/Rail)</>,
+                alt: "Transportation (Road/Rail)",
                 description:
                     "Planned and coordinated road and rail transportation ensuring secure movement, reliable transit, and timely delivery.",
                 image: "/images/common/road-rail.png",

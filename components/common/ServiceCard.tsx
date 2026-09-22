@@ -1,16 +1,21 @@
+import type { ReactNode } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { FaArrowRightLong } from "react-icons/fa6";
 import type { LinkData } from "@/types/home";
 
 interface ServiceCardProps {
-    title: string;
+    title: ReactNode;
     description: string;
     image: string;
     link?: LinkData;
+    /** Plain-text alternative for the image when `title` isn't a plain string. */
+    alt?: string;
 }
 
-const ServiceCard = ({ title, description, image, link }: ServiceCardProps) => {
+const ServiceCard = ({ title, description, image, link, alt }: ServiceCardProps) => {
+    const imageAlt = alt ?? (typeof title === "string" ? title : "Service");
+
     return (
         <Link href={link?.href || "#"} className="group block h-full">
             <article
@@ -34,7 +39,7 @@ const ServiceCard = ({ title, description, image, link }: ServiceCardProps) => {
                 <div className="absolute -top-10 left-1/2 w-[60%] max-w-[240px] -translate-x-1/2">
                     <Image
                         src={image}
-                        alt={title}
+                        alt={imageAlt}
                         width={240}
                         height={140}
                         className="h-auto w-full object-contain transition-transform duration-300 ease-in-out group-hover:scale-110"

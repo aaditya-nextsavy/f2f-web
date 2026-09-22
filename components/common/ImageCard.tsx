@@ -1,14 +1,17 @@
+import type { ReactNode } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { FaArrowRightLong } from "react-icons/fa6";
 import type { LinkData } from "@/types/home";
 
 interface ImageCardProps {
-    title: string;
+    title: ReactNode;
     description: string;
     image: string;
     variant?: string;
     link?: LinkData;
+    /** Plain-text alternative for the image when `title` isn't a plain string. */
+    alt?: string;
 }
 
 const ImageCard = ({
@@ -16,7 +19,10 @@ const ImageCard = ({
     description,
     image,
     link,
+    alt,
 }: ImageCardProps) => {
+    const imageAlt = alt ?? (typeof title === "string" ? title : "Service");
+
     return (
         <Link
             href={link?.href || "#"}
@@ -92,7 +98,7 @@ const ImageCard = ({
                 >
                     <Image
                         src={image}
-                        alt={title}
+                        alt={imageAlt}
                         width={450}
                         height={300}
                         className="

@@ -49,11 +49,13 @@ export interface HeroAboutData {
 
 export interface ServiceCardData {
     id: number;
-    title: string;
+    title: ReactNode;
     description: string;
     image: string;
     variant?: string;
     link?: LinkData;
+    /** Plain-text alternative for the card image when `title` isn't a plain string. */
+    alt?: string;
 }
 
 export interface IndustryCardData {

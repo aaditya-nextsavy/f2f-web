@@ -40,6 +40,7 @@ const OtherServices = ({ title, data }: OtherServicesProps) => {
                                 description={card.description}
                                 image={card.image}
                                 link={card.link}
+                                alt={card.alt}
                             />
                         </div>
                     ))}
@@ -68,6 +69,7 @@ const OtherServices = ({ title, data }: OtherServicesProps) => {
                                     description={card.description}
                                     image={card.image}
                                     link={card.link}
+                                    alt={card.alt}
                                 />
                             </SplideSlide>
                         ))}
