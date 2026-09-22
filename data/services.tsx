@@ -461,7 +461,8 @@ export const servicesPageData: ServicesPageData = {
             cards: [
                 {
                     id: 1,
-                    title: "Full Container Load (FCL)",
+                    title: <>Full Container Load <br /> (FCL)</>,
+                    alt: "Full Container Load (FCL)",
                     description:
                         "Shared container shipping coordinated with accuracy, visibility, and dependable handling across international routes. ",
                     image: "/images/common/fcl-service.png",
@@ -849,7 +850,8 @@ export const servicesPageData: ServicesPageData = {
                 },
                 {
                     id: 2,
-                    title: "Transportation (Road/Rail)",
+                    title: <>Transportation <br /> (Road/Rail)</>,
+                    alt: "Transportation (Road/Rail)",
                     description:
                         "Structured customs processes ensure accurate handling, faster approvals, and reliable shipment progress.",
                     image: "/images/common/road-rail.png",
@@ -871,7 +873,8 @@ export const servicesPageData: ServicesPageData = {
                 },
                 {
                     id: 4,
-                    title: "Full Container Load (FCL)",
+                    title: <>Full Container Load <br /> (FCL)</>,
+                    alt: "Full Container Load (FCL)",
                     description:
                         "Shared container shipping coordinated with accuracy, visibility, and dependable handling across international routes. ",
                     image: "/images/common/fcl-service.png",
