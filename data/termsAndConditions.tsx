@@ -8,11 +8,19 @@ export const termsAndConditionsData: LegalPageData = {
             "Read the terms that govern your use of the Fairwinds Shipping website, including enquiries, acceptable use, intellectual property, and governing law.",
     },
     banner: {
-        title: "Terms & Conditions",
+        title: "Terms That Govern Our Services",
         description:
-            "Welcome to the official website of Fairwinds Shipping (the “Website”). This Website is operated by Fairwinds Shipping Private Limited (“Fairwinds Shipping”, “we”, “us”, or “our”). Please read these Terms and Conditions (“Terms”) carefully before using the Website. By accessing or using any part of this Website, you agree to be bound by these Terms. If you do not agree, please discontinue use immediately.",
+            "These terms outline how our services operate and the responsibilities shared between Fairwinds and our customers.",
     },
     sections: [
+        {
+            title: "Introduction",
+            description: (
+                <p>
+                    Welcome to the official website of Fairwinds Shipping (the “Website”). This Website is operated by Fairwinds Shipping Private Limited (“Fairwinds Shipping”, “we”, “us”, or “our”). Please read these Terms and Conditions (“Terms”) carefully before using the Website. By accessing or using any part of this Website, you agree to be bound by these Terms. If you do not agree, please discontinue use immediately.
+                </p>
+            ),
+        },
         {
             title: "Purpose of the Website",
             description: (

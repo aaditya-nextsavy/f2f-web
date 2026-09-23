@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useId, useRef } from "react";
+import { useSweepHover } from "./useSweepHover";
 
-const paths = [
+const DEFAULT_PATHS = [
     "M38.4853 -401L0.000934776 -401L0.000915702 235.965C0.000914574 261.766 -0.462696 256.51 19.475 277.533C37.0943 295.689 34.7759 301.422 34.7759 335.823L34.7759 920H74.1876L74.1877 341.079C73.724 296.167 38.4852 321.489 38.4852 227.843L38.4853 -401Z",
     "M134.272 -401L95.7876 -401L95.7876 235.965C95.7876 261.766 95.324 256.51 115.262 277.533C132.881 295.689 130.563 301.422 130.563 335.823L130.563 920H169.974L169.974 341.079C169.511 296.167 134.272 321.489 134.272 227.843V-401Z",
     "M230.059 -401L191.574 -401L191.574 235.965C191.574 261.766 191.111 256.51 211.048 277.533C228.668 295.689 226.349 301.422 226.349 335.823L226.349 920H265.761L265.761 341.079C265.297 296.167 230.059 321.489 230.059 227.843L230.059 -401Z",
@@ -35,26 +36,84 @@ const paths = [
     "M2816.3 -401L2777.81 -401V235.965C2777.81 261.766 2777.35 256.51 2797.29 277.533C2814.91 295.689 2812.59 301.422 2812.59 335.823V920H2852V341.079C2851.54 296.167 2816.3 321.489 2816.3 227.843V-401Z",
 ];
 
+const DEFAULT_GRADIENT: RippleWaveGradient = {
+    x1: 1876,
+    y1: 183.5,
+    x2: -43.5,
+    y2: 187.5,
+    stops: [
+        { offset: 0, color: "white" },
+        { offset: 0.5, color: "#11227A" },
+        { offset: 1, color: "white" },
+    ],
+};
+
 const STAGGER_MS = 32;
 const PUSH_PER_LINE = 4;
-const BASE_OPACITY = 0.11;
-const MIN_OPACITY = 0.02;
-const TRANSITION = "1.6s cubic-bezier(0.16, 1, 0.3, 1)";
+// Every line moves at least this far, so the rightmost ones visibly shift too.
+const BASE_PUSH = 16;
+const TRANSITION_MS = 1600;
+const TRANSITION = `${TRANSITION_MS}ms cubic-bezier(0.16, 1, 0.3, 1)`;
 
-export default function RippleWave() {
-    const [isHovered, setIsHovered] = useState(false);
+export interface RippleWaveGradient {
+    x1: number;
+    y1: number;
+    x2: number;
+    y2: number;
+    stops: { offset: number; color: string }[];
+}
 
+interface RippleWaveProps {
+    /** Line shapes, ordered left to right. */
+    paths?: string[];
+    viewBox?: string;
+    preserveAspectRatio?: string;
+    gradient?: RippleWaveGradient;
+    /** Resting opacity ramps from the right edge (strongest) to the left edge. */
+    baseOpacityRight?: number;
+    baseOpacityLeft?: number;
+    /** Opacity the furthest-travelled line fades to while hovered. */
+    minOpacity?: number;
+}
+
+export default function RippleWave({
+    paths = DEFAULT_PATHS,
+    viewBox = "0 0 1908 539",
+    preserveAspectRatio = "none",
+    gradient = DEFAULT_GRADIENT,
+    baseOpacityRight = 0.13,
+    baseOpacityLeft = 0.07,
+    minOpacity = 0.03,
+}: RippleWaveProps) {
     const total = paths.length;
+    const { isHovered, onEnter, onLeave } = useSweepHover(
+        (total - 1) * STAGGER_MS + TRANSITION_MS,
+    );
+    const containerRef = useRef<HTMLDivElement>(null);
+    const gradientId = `wave-gradient-${useId().replace(/:/g, "")}`;
+
+    // The sweep follows hover over the whole enclosing <section>, not just
+    // the lines, since content usually sits on top of the waves.
+    useEffect(() => {
+        const target = containerRef.current?.closest("section") ?? containerRef.current;
+        if (!target) return;
+
+        target.addEventListener("mouseenter", onEnter);
+        target.addEventListener("mouseleave", onLeave);
+        return () => {
+            target.removeEventListener("mouseenter", onEnter);
+            target.removeEventListener("mouseleave", onLeave);
+        };
+    }, [onEnter, onLeave]);
 
     return (
         <div
+            ref={containerRef}
             className="h-full w-full overflow-hidden"
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
         >
             <svg
-                viewBox="0 0 1908 539"
-                preserveAspectRatio="none"
+                viewBox={viewBox}
+                preserveAspectRatio={preserveAspectRatio}
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-full w-full"
@@ -81,11 +140,14 @@ export default function RippleWave() {
                          */
                         const travelRatio = distanceFromRight / (total - 1);
                         const displacement = isHovered
-                            ? -distanceFromRight * PUSH_PER_LINE
+                            ? -(BASE_PUSH + distanceFromRight * PUSH_PER_LINE)
                             : 0;
+                        const restOpacity =
+                            baseOpacityRight -
+                            travelRatio * (baseOpacityRight - baseOpacityLeft);
                         const opacity = isHovered
-                            ? BASE_OPACITY - travelRatio * (BASE_OPACITY - MIN_OPACITY)
-                            : BASE_OPACITY;
+                            ? restOpacity - travelRatio * (restOpacity - minOpacity)
+                            : restOpacity;
                         const delay = isHovered
                             ? distanceFromRight * STAGGER_MS
                             : index * STAGGER_MS;
@@ -94,7 +156,7 @@ export default function RippleWave() {
                             <path
                                 key={index}
                                 d={d}
-                                fill="url(#wave-gradient)"
+                                fill={`url(#${gradientId})`}
                                 fillRule="evenodd"
                                 clipRule="evenodd"
                                 style={{
@@ -111,16 +173,16 @@ export default function RippleWave() {
 
                 <defs>
                     <linearGradient
-                        id="wave-gradient"
-                        x1="1876"
-                        y1="183.5"
-                        x2="-43.5"
-                        y2="187.5"
+                        id={gradientId}
+                        x1={gradient.x1}
+                        y1={gradient.y1}
+                        x2={gradient.x2}
+                        y2={gradient.y2}
                         gradientUnits="userSpaceOnUse"
                     >
-                        <stop stopColor="white" />
-                        <stop offset="0.5" stopColor="#11227A" />
-                        <stop offset="1" stopColor="white" />
+                        {gradient.stops.map((stop) => (
+                            <stop key={stop.offset} offset={stop.offset} stopColor={stop.color} />
+                        ))}
                     </linearGradient>
                 </defs>
             </svg>

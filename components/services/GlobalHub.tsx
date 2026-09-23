@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 import type { CountryFlagItem, GlobalHubData } from "@/types/services";
 import SectionTitle from "../common/SectionTitle/SectionTitle";
+import { useSweepHover } from "../common/RippleWave/useSweepHover";
 
 type GlobalHubProps = {
     data: GlobalHubData;
@@ -38,7 +38,8 @@ const STAGGER_MS = 32;
 const PUSH_PER_LINE = 4;
 const BASE_OPACITY = 0.09;
 const MIN_OPACITY = 0.02;
-const TRANSITION = "1.6s cubic-bezier(0.16, 1, 0.3, 1)";
+const TRANSITION_MS = 1600;
+const TRANSITION = `${TRANSITION_MS}ms cubic-bezier(0.16, 1, 0.3, 1)`;
 
 function FlagBadge({ country }: { country: CountryFlagItem }) {
     return (
@@ -86,14 +87,16 @@ function FlagColumn({
 
 export default function GlobalHub({ data }: GlobalHubProps) {
     const reversedCountries = [...data.countries].reverse();
-    const [isHovered, setIsHovered] = useState(false);
     const total = wavePaths.length;
+    const { isHovered, onEnter, onLeave } = useSweepHover(
+        (total - 1) * STAGGER_MS + TRANSITION_MS,
+    );
 
     return (
         <section
             className="relative overflow-hidden bg-(--color-primary) py-[42px] lg:py-0"
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
+            onMouseEnter={onEnter}
+            onMouseLeave={onLeave}
         >
 
 

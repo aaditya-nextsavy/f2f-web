@@ -12,20 +12,22 @@ export default function CoreValues({ data }: CoreValuesProps) {
             <div className="container mx-auto">
                 <div className="flex flex-col lg:flex-row  gap-10 lg:items-stretch lg:gap-[80px] xl:gap-[120px]">
                     <div className="flex flex-col justify-start lg:w-1/2 lg:max-w-[612px]">
-                        <SectionTitle
-                            label={data.sectiontitle.label}
-                            title={data.sectiontitle.title}
+                        <div className="lg:sticky lg:top-[120px]">
+                            <SectionTitle
+                                label={data.sectiontitle.label}
+                                title={data.sectiontitle.title}
 
-                        />
-
-                        <div className="hidden lg:block lg:sticky lg:top-[120px] relative mt-8 aspect-[612/514] w-full overflow-hidden rounded-[24px] bg-(--light-indigo-bg) lg:mt-10   ">
-                            <Image
-                                src={data.image}
-                                alt="Core values"
-                                fill
-                                className="object-contain"
-                                sizes="(max-width: 1023px) 100vw, 50vw"
                             />
+
+                            <div className="hidden lg:block relative mt-8 aspect-[612/514] w-full overflow-hidden rounded-[24px] bg-(--light-indigo-bg) lg:mt-10   ">
+                                <Image
+                                    src={data.image}
+                                    alt="Core values"
+                                    fill
+                                    className="object-contain"
+                                    sizes="(max-width: 1023px) 100vw, 50vw"
+                                />
+                            </div>
                         </div>
                     </div>
 

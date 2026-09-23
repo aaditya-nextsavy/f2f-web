@@ -61,7 +61,7 @@ const HowItWorks = ({ title, paragraphs, steps }: HowItWorksProps) => {
                             straight run doing the actual connecting.
                         */}
                         <Image
-                            src="/images/home/howitworks/how-it-works-left.svg"
+                            src="/images/home/howitworks/how-it-works-left2.svg"
                             alt=""
                             width={1045}
                             height={850}

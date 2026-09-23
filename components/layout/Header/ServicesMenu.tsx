@@ -106,9 +106,9 @@ export function ServicesMenu({ onNavigate }: { onNavigate?: () => void }) {
             <Link
               href="/other-services"
               onClick={onNavigate}
-              className="flex items-center gap-1.5 text-[14px] 2xl:text-[16px] font-medium leading-6 text-(--color-primary) hover:underline underline-offset-4"
+              className="flex items-center gap-1.5 text-[14px] 2xl:text-[14px] font-medium leading-6 text-(--color-primary) hover:underline underline-offset-4"
             >
-              View all service
+              View All Services
 
             </Link>
           </div>

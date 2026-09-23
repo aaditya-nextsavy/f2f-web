@@ -35,7 +35,7 @@ const BlogCard = ({ post, featured = false }: BlogCardProps) => {
                         {post.date}
                     </span>
 
-                    <h3 className="mt-2 text-[26px] font-medium leading-[28px] tracking-[-0.3px] text-(--color-primary) lg:text-[42px] lg:leading-[49px]">
+                    <h3 className="mt-2 text-[26px] font-medium leading-[28px] tracking-[-0.3px] text-(--color-primary) first-letter:uppercase lg:text-[42px] lg:leading-[49px]">
                         {post.title}
                     </h3>
 
@@ -72,7 +72,7 @@ const BlogCard = ({ post, featured = false }: BlogCardProps) => {
                 {post.date}
             </span>
 
-            <h3 className="mt-2 text-[24px] font-medium leading-[34px] tracking-[-0.4px] text-(--color-primary) capitalize">
+            <h3 className="mt-2 text-[24px] font-medium leading-[34px] tracking-[-0.4px] text-(--color-primary) first-letter:uppercase">
                 {post.title}
             </h3>
 

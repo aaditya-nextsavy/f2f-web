@@ -7,11 +7,19 @@ export const privacyPolicyData: LegalPageData = {
             "Learn what information Fairwinds Shipping collects, how we use it, and the choices you have when you work with us.",
     },
     banner: {
-        title: "Your Privacy, Our Priority",
+        title: "How We Protect Your Information",
         description:
-            "Fairwinds Shipping Pvt. Ltd. (“Fairwinds Shipping”, “we”, “us”, or “our”) respects your privacy and is committed to protecting your personal data. This Privacy Policy explains how we collect, process, share, and protect information gathered through our official corporate website (“Website”), benchmarked against standard data protection practices across the global logistics and shipping industry.",
+            "This policy explains how Fairwinds Shipping collects, uses, and protects your personal information when you interact with our website and services.",
     },
     sections: [
+        {
+            title: "Introduction",
+            description: (
+                <p>
+                    Fairwinds Shipping Pvt. Ltd. (“Fairwinds Shipping”, “we”, “us”, or “our”) respects your privacy and is committed to protecting your personal data. This Privacy Policy explains how we collect, process, share, and protect information gathered through our official corporate website (“Website”), benchmarked against standard data protection practices across the global logistics and shipping industry.
+                </p>
+            ),
+        },
         {
             title: "Information We Collect",
             description: (

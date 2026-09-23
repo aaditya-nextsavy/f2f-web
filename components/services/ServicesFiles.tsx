@@ -33,7 +33,7 @@ function ServiceFileCardView({
 
     return (
         <div
-            className={`h-max rounded-[42px] p-8 lg:p-14 ${isDark
+            className={`h-max min-[991px]:h-full rounded-[42px] p-8 lg:p-14 ${isDark
                 ? "bg-(--color-primary)"
                 : "bg-(--color-iceblue)"
                 }`}
@@ -166,7 +166,10 @@ function ServiceFileCardView({
 
                 {/* Images */}
                 <div
-                    className={`lg:w-1/2 rounded-[12px]! xl:rounded-[28px]! overflow-hidden ${isDark
+                    // Round the track, not this wrapper: the pagination
+                    // sits below the images inside it, so rounding the
+                    // wrapper only clipped the slides' top corners.
+                    className={`lg:w-1/2 [&_.splide__track]:rounded-[12px] xl:[&_.splide__track]:rounded-[24px] ${isDark
                         ? "services-files-dark "
                         : "services-files-light"
                         }`}
@@ -187,6 +190,11 @@ function ServiceFileCardView({
                             drag: true,
                             autoplay: true,
                             interval: 3000,
+                            // Keep autoplay running after the user drags or
+                            // clicks: by default Splide pauses on hover and
+                            // stays paused while the slider holds focus.
+                            pauseOnHover: false,
+                            pauseOnFocus: false,
                             speed: 600,
                             gap: "0",
                         }}
@@ -196,7 +204,7 @@ function ServiceFileCardView({
                                 key={index}
                                 className="w-full"
                             >
-                                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[12px] xl:rounded-[24px]">
+                                <div className="relative aspect-[5/3] w-full overflow-hidden rounded-[12px] xl:rounded-[24px]">
                                     <Image
                                         src={image.src}
                                         alt={image.alt}
@@ -259,6 +267,11 @@ export default function ServicesFiles({
         );
     };
 
+    const activeIndex = Math.max(
+        data.cards.findIndex((card) => card.id === activeId),
+        0
+    );
+
     return (
         <section className="container mx-auto">
             {/* Desktop tabs */}
@@ -275,12 +288,13 @@ export default function ServicesFiles({
                                 handleSelect(card.id)
                             }
                             aria-pressed={isActive}
-                            // Each tab sits behind the one before it and in
-                            // front of the one after it; the active tab wins.
+                            // The active tab is on top; the others stack by
+                            // distance from it, so on both sides each tab
+                            // sits in front of its neighbour further away.
                             style={{
                                 zIndex: isActive
                                     ? data.cards.length + 1
-                                    : data.cards.length - index,
+                                    : data.cards.length - Math.abs(index - activeIndex),
                             }}
                             className={`relative -ml-10 xl:-ml-7  cursor-pointer px-10 py-3 text-[12px]  lg:text-[14px] font-semibold capitalize tracking-wide first:ml-0 xl:text-[16px] ${isActive
                                 ? "font-bold!"
@@ -319,8 +333,10 @@ export default function ServicesFiles({
                 })}
             </div>
 
-            {/* Cards */}
-            <div className="relative flex flex-col gap-10 min-[991px]:block min-[991px]:gap-0 z-[2]">
+            {/* Cards — on desktop all cards share one grid cell, so the
+                container is as tall as the tallest card and every card
+                stretches to that height; switching tabs never resizes it. */}
+            <div className="relative flex flex-col gap-10 min-[991px]:grid min-[991px]:gap-0 z-[2]">
                 {data.cards.map((card, index) => {
                     const isDark = index % 2 === 1;
                     const isActive =
@@ -330,9 +346,9 @@ export default function ServicesFiles({
                         <div
                             key={card.id}
                             id={card.id}
-                            className={`scroll-mt-[110px] 2xl:scroll-mt-[200px] ${isActive
-                                ? "relative opacity-100 transition-opacity duration-500 ease-in-out "
-                                : "relative opacity-100 transition-opacity duration-500 ease-in-out min-[991px]:pointer-events-none min-[991px]:absolute min-[991px]:inset-0 min-[991px]:opacity-0"
+                            className={`scroll-mt-[110px] 2xl:scroll-mt-[180px] ${isActive
+                                ? "relative opacity-100 transition-opacity duration-500 ease-in-out min-[991px]:[grid-area:1/1]"
+                                : "relative opacity-100 transition-opacity duration-500 ease-in-out min-[991px]:[grid-area:1/1] min-[991px]:pointer-events-none min-[991px]:opacity-0"
                                 }`}
                         >
                             <ServiceFileCardView
