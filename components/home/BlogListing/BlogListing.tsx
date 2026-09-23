@@ -85,16 +85,16 @@ const BlogListing = ({ title, data, exploreLink }: BlogListingProps) => {
                     </Splide>
 
                     <div className="mt-6 flex items-center justify-between gap-5">
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-1.5">
                             {data.map((post, index) => (
                                 <button
                                     key={post.id}
                                     type="button"
                                     aria-label={`Go to slide ${index + 1}`}
                                     onClick={() => splideRef.current?.splide?.go(index)}
-                                    className={`h-2 rounded-full transition-all duration-300 ${index === activeIndex
-                                        ? "w-6 bg-(--color-primary)"
-                                        : "w-2 bg-(--color-light-indigo)"
+                                    className={`h-1.5 rounded-full transition-all duration-300 ${index === activeIndex
+                                        ? "w-9 bg-(--color-primary)"
+                                        : "w-4.5 bg-(--color-light-indigo)"
                                         }`}
                                 />
                             ))}

@@ -21,6 +21,8 @@ const CTA = ({ title, description, actions }: CTAProps) => {
                 className="absolute w-full h-full l-0 t-0 opacity-50"
             />
 
+            
+
             {/* <svg className="absolute w-full h-full l-0 t-0 opacity-50" viewBox="0 0 2812 539" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clip-path="url(#clip0_1018_5961)">
                     <path opacity="0.11" fill-rule="evenodd" clip-rule="evenodd" d="M38.3879 1.07288e-06L0.000932414 0L0.000913384 253.431C0.000912259 271.595 -0.461525 267.895 19.4257 282.695C37.0005 295.477 34.688 299.514 34.688 323.732L34.6879 539H74L74 327.432C73.5375 295.814 38.3879 313.641 38.3879 247.713L38.3879 1.07288e-06Z" fill="white" />
