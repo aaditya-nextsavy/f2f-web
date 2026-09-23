@@ -13,7 +13,6 @@ export const privacyPolicyData: LegalPageData = {
     },
     sections: [
         {
-            title: "Introduction",
             description: (
                 <p>
                     Fairwinds Shipping Pvt. Ltd. (“Fairwinds Shipping”, “we”, “us”, or “our”) respects your privacy and is committed to protecting your personal data. This Privacy Policy explains how we collect, process, share, and protect information gathered through our official corporate website (“Website”), benchmarked against standard data protection practices across the global logistics and shipping industry.

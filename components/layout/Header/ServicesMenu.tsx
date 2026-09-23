@@ -5,9 +5,9 @@ import Image from "next/image";
 
 export function ServicesMenu({ onNavigate }: { onNavigate?: () => void }) {
   return (
-    <div className="flex w-full max-w-[1000px] 2xl:max-w-[1228px] p-6 2xl:p-[52px] rounded-[10px] bg-(--color-white) p-8 shadow-[0px_4px_4px_0px_#00000040,0px_2px_3px_0px_#0000001A]">
+    <div className="flex w-full max-w-fit xl:max-w-[1000px] 2xl:max-w-[1228px] p-6 2xl:p-[52px] rounded-[10px] bg-(--color-white) p-8 shadow-[0px_4px_4px_0px_#00000040,0px_2px_3px_0px_#0000001A]">
       <div className="flex 2xl:grid 2xl:grid-cols-[1fr_1.2fr] gap-8 ">
-        <div className="w-max">
+        <div className="w-max lg: max-w-[350px] xl:max-w-[450px] 2xl:max-w-[unset] overflow-hidden">
           <p className="text-[14px] leading-[32px] tracking-[-0.2px] font-semibold text-(--color-primary)  pb-3"
           >
             CORE SERVICE
@@ -106,7 +106,7 @@ export function ServicesMenu({ onNavigate }: { onNavigate?: () => void }) {
             <Link
               href="/other-services"
               onClick={onNavigate}
-              className="flex items-center gap-1.5 text-[14px] 2xl:text-[14px] font-medium leading-6 text-(--color-primary) hover:underline underline-offset-4"
+              className="flex items-center gap-1.5 text-[14px] font-semibold 2xl:text-[14px] font-medium leading-6 text-(--color-primary) hover:underline underline-offset-4"
             >
               View All Services
 

@@ -14,7 +14,6 @@ export const termsAndConditionsData: LegalPageData = {
     },
     sections: [
         {
-            title: "Introduction",
             description: (
                 <p>
                     Welcome to the official website of Fairwinds Shipping (the “Website”). This Website is operated by Fairwinds Shipping Private Limited (“Fairwinds Shipping”, “we”, “us”, or “our”). Please read these Terms and Conditions (“Terms”) carefully before using the Website. By accessing or using any part of this Website, you agree to be bound by these Terms. If you do not agree, please discontinue use immediately.

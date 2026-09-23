@@ -161,7 +161,7 @@ export function Header() {
 
             </button>
             {servicesOpen && (
-              <div className="absolute left-1/2 top-full mt-3 -translate-x-1/2">
+              <div className="absolute  2xl:left-1/2 top-full mt-3 -translate-x-1/2">
                 <ServicesMenu onNavigate={() => setServicesOpen(false)} />
               </div>
             )}

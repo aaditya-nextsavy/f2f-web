@@ -204,7 +204,7 @@ function ServiceFileCardView({
                                 key={index}
                                 className="w-full"
                             >
-                                <div className="relative aspect-[5/3] w-full overflow-hidden rounded-[12px] xl:rounded-[24px]">
+                                <div className="relative aspect-[3/4] xl:aspect-[10/7] w-full overflow-hidden rounded-[12px] xl:rounded-[24px]">
                                     <Image
                                         src={image.src}
                                         alt={image.alt}
@@ -346,7 +346,7 @@ export default function ServicesFiles({
                         <div
                             key={card.id}
                             id={card.id}
-                            className={`scroll-mt-[110px] 2xl:scroll-mt-[180px] ${isActive
+                            className={`scroll-mt-[110px] min-[991px]:scroll-mt-[150px] 2xl:scroll-mt-[180px] ${isActive
                                 ? "relative opacity-100 transition-opacity duration-500 ease-in-out min-[991px]:[grid-area:1/1]"
                                 : "relative opacity-100 transition-opacity duration-500 ease-in-out min-[991px]:[grid-area:1/1] min-[991px]:pointer-events-none min-[991px]:opacity-0"
                                 }`}

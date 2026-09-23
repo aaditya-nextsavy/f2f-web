@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 
 export interface LegalSectionData {
-    title: string;
+    title?: string;
     description: ReactNode;
 }
 

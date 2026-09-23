@@ -520,7 +520,7 @@ export function Footer() {
                       <div
                         className={
                           isLargeGroup
-                            ? "mt-4 grid grid-cols-2 gap-x-8 gap-y-5 lg:gap-y-2"
+                            ? "mt-4 grid grid-cols-2  gap-x-3 2xl:gap-x-1 gap-y-5 lg:gap-y-2"
                             // grid-cols-2 on mobile so a 2-item group (Sea Freight
                             // Services, Company) sits side by side in one row instead
                             // of stacking; lg+ switches back to a single column of up
