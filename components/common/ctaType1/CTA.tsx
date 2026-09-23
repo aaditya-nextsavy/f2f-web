@@ -3,6 +3,7 @@ import Image from "next/image";
 import { FaArrowRight } from "react-icons/fa6";
 import { Button } from "@/components/ui/Button";
 import type { ActionButtonData } from "@/types/home";
+import RippleWave from "../RippleWave/RippleWave";
 
 interface CTAProps {
     title: ReactNode;
@@ -14,14 +15,17 @@ const CTA = ({ title, description, actions }: CTAProps) => {
     return (
         <section className="mb-5 xl:mt-[-92px] bg-(--color-primary) lg:px-6 py-[44px] lg:py-[110px] relative lg:mb-20">
 
-            <Image
+            {/* <Image
                 src="/images/common/cta-1-bg.png"
                 fill
                 alt="cta-bg"
                 className="absolute w-full h-full l-0 t-0 opacity-50"
-            />
+            /> */}
 
-            
+            <div className="absolute inset-0">
+                <RippleWave />
+            </div>
+
 
             {/* <svg className="absolute w-full h-full l-0 t-0 opacity-50" viewBox="0 0 2812 539" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clip-path="url(#clip0_1018_5961)">
