@@ -7,8 +7,8 @@ export type NavLink = {
 };
 
 export const coreServices: NavLink[] = [
-  { label: "Full Container Load (FCL)", href: "/fcl-sea-freight" },
-  { label: "Less than Container Load (LCL)", href: "/lcl-sea-freight" },
+  { label: "Full Container Load (FCL)", href: "/fcl-sea-freight", iconSrc: "/images/common/menu-fcl.png", alt: "Full Container Load (FCL)" },
+  { label: "Less than Container Load (LCL)", href: "/lcl-sea-freight", iconSrc: "/images/common/menu-lcl.png", alt: "Less than Container Load (LCL)" },
 ];
 
 export const additionalServices: NavLink[] = [
