@@ -104,6 +104,15 @@ const Industries = ({ title, data, tightBottom = true }: IndustriesProps) => {
                             1023: {
                                 fixedWidth: "33.3333%",
                             },
+                            // ~640-767px: 3-up at 33.3333% made each square card too
+                            // small at this width for the icon + title + description
+                            // to fit inside the fixed 42%-height content area without
+                            // overflowing. Showing 2 per view instead gives each card
+                            // enough room, matching how the 33.3333%/25%/20% tiers
+                            // above already scale comfortably at their own widths.
+                            767: {
+                                fixedWidth: "50%",
+                            },
                             639: {
                                 fixedWidth: "83.3333%",
                             },
@@ -139,12 +148,15 @@ const Industries = ({ title, data, tightBottom = true }: IndustriesProps) => {
                                     </div>
                                 </div>
 
-                                {/* Content area: justify-start (not -end) so every card's h3
-                                    begins at the same fixed offset from the top of this box,
-                                    regardless of whether the title wraps to one or two lines —
-                                    bottom-anchoring made the title's start position float based
-                                    on its own + the paragraph's combined height. */}
-                                <div className="absolute inset-x-0 bottom-0 z-10 flex h-[42%] flex-col justify-start p-3 pt-4 md:py-5 md:px-2 xl:py-8 xl:px-3">
+                                {/* Content area: justify-start only on mobile, so every card's
+                                    h3 begins at the same fixed offset from the top of this box
+                                    regardless of whether the title wraps to one or two lines
+                                    (bottom-anchoring made the title's start position float based
+                                    on its own + the paragraph's combined height). From md up the
+                                    card has more room, so it goes back to justify-end (the
+                                    original bottom-anchored layout) — justify-start there was
+                                    clipping longer descriptions past the fixed-height box. */}
+                                <div className="absolute inset-x-0 bottom-0 z-10 flex h-[42%] flex-col justify-start md:justify-end p-3 pt-4 md:py-5 md:px-2 xl:py-8 xl:px-3">
                                     <h3 className="text-[18px] xl:text-xl font-semibold leading-[20px] text-(--color-primary) md:text-[20px]">
                                         {typeof card.title === "string"
                                             ? card.title.charAt(0).toUpperCase() + card.title.slice(1)

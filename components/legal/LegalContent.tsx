@@ -6,7 +6,7 @@ interface LegalContentProps {
 
 export default function LegalContent({ sections }: LegalContentProps) {
     return (
-        <section className="space-y-12 lg:spacy-y-[64px]">
+        <section className="space-y-12 lg:spacy-y-[64px] pt-[42px] lg:pt-[64px]">
             <div className="container mx-auto">
                 <div className="flex flex-col">
                     {sections.map((section, index) => (

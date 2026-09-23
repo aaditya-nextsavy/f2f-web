@@ -51,10 +51,12 @@ export default async function Home() {
           title={homePageData.otherServices.sectionTitle}
           data={homePageData.otherServices.cards}
         />
-        <Industries
-          title={homePageData.industries.sectionTitle}
-          data={homePageData.industries.cards}
-        />
+        <div className="sm:mt-22.5!">
+          <Industries
+            title={homePageData.industries.sectionTitle}
+            data={homePageData.industries.cards}
+          />
+        </div>
         <Statistics
           title={homePageData.statistics.sectionTitle}
           data={homePageData.statistics.stats}
@@ -74,11 +76,13 @@ export default async function Home() {
           data={homePageData.ourPartners.partners}
         />
         {blogPosts.length > 0 && (
-          <BlogListing
-            title={homePageData.blogListing.sectionTitle}
-            data={blogPosts}
-            exploreLink={homePageData.blogListing.exploreLink}
-          />
+          <div className="sm:mt-22.5!">
+            <BlogListing
+              title={homePageData.blogListing.sectionTitle}
+              data={blogPosts}
+              exploreLink={homePageData.blogListing.exploreLink}
+            />
+          </div>
         )}
 
         <Faqs

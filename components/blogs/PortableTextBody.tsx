@@ -87,17 +87,27 @@ const PortableTextBody = ({ value }: PortableTextBodyProps) => {
                 </h6>
             ),
             normal: ({ children, value: block }) => (
+                // Top-margin only (no mb-*): mixing top/bottom margins here meant
+                // adjacent-sibling margin collapsing (which takes the larger of the
+                // two touching margins, not their sum) made the p-to-p gap bigger
+                // than the heading-to-p gap on mobile, then exactly equal at lg+ —
+                // an inconsistent ratio that read as random spacing. A single
+                // top-margin value per transition, kept at the same proportion
+                // across breakpoints, fixes that: every paragraph right after a
+                // heading (h2-h6) sits closer than one that follows plain body
+                // text, consistently, at every screen size.
                 <p
                     id={block._key === introKey ? INTRODUCTION_ANCHOR_ID : undefined}
-                    className={`scroll-mt-28 mt-3 mb-4 sm:mb-0 [:is(h3,h4,h5,h6)+&]:mt-2 lg:[:is(h3,h4,h5,h6)+&]:mt-3 ${paragraphClass}`}
+                    className={`scroll-mt-28 mt-4 lg:mt-5 [:is(h2,h3,h4,h5,h6)+&]:mt-3 lg:[:is(h2,h3,h4,h5,h6)+&]:mt-4 ${paragraphClass}`}
                 >
                     {children}
                 </p>
             ),
         },
         list: {
-            bullet: ({ children }) => <ul className="mt-5 space-y-3 [:is(h3,h4,h5,h6)+&]:mt-2 lg:[:is(h3,h4,h5,h6)+&]:mt-3">{children}</ul>,
-            number: ({ children }) => <ol className="mt-5 space-y-3 [:is(h3,h4,h5,h6)+&]:mt-2 lg:[:is(h3,h4,h5,h6)+&]:mt-3">{children}</ol>,
+            // Same rhythm as paragraphs above, for the same reason.
+            bullet: ({ children }) => <ul className="mt-4 space-y-3 lg:mt-5 [:is(h2,h3,h4,h5,h6)+&]:mt-3 lg:[:is(h2,h3,h4,h5,h6)+&]:mt-4">{children}</ul>,
+            number: ({ children }) => <ol className="mt-4 space-y-3 lg:mt-5 [:is(h2,h3,h4,h5,h6)+&]:mt-3 lg:[:is(h2,h3,h4,h5,h6)+&]:mt-4">{children}</ol>,
         },
         listItem: {
             bullet: ({ children }) => (

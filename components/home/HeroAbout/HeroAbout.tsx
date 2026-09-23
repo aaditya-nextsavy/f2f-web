@@ -21,7 +21,7 @@ const HeroAbout = ({ title, description }: HeroAboutProps) => {
                             {title}
                         </h2>
 
-                        <p className="ms-auto lg:pb-6 max-w-[450px] 2xl:max-w-[583px]  text-[16px] leading-[24px] text-(--color-primary) 2xl:text-[18px] 2xl:leading-[28px]">
+                        <p className="mt-5 lg:mt-0 lg:ms-auto lg:pb-6 sm:max-w-[450px] 2xl:max-w-[583px]  text-[16px] leading-[24px] text-(--color-primary) 2xl:text-[18px] 2xl:leading-[28px]">
                             {description}
                         </p>
                     </div>

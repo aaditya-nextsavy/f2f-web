@@ -55,8 +55,7 @@ export const homePageData: HomePageData = {
         cards: [
             {
                 id: 1,
-                title: <>Full Container Load <br /> (FCL)</>,
-                alt: "Full Container Load (FCL)",
+                title: "Full Container Load (FCL)",
                 description:
                     "Dedicated container shipping managed with precision, visibility, and reliable coordination across global routes. We ensure your cargo moves with defined timelines, careful handling, and consistent execution from origin to destination.",
                 image: "/images/common/fcl-service.png",

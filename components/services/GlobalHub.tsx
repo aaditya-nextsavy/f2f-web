@@ -232,11 +232,11 @@ export default function GlobalHub({ data }: GlobalHubProps) {
 
                         />
 
-                        <p className="mt-6 max-w-[650px] text-[16px] leading-[26px] text-(--color-iceblue) lg:text-[18px] lg:leading-[28px]  text-center lg:text-left">
+                        <p className="mt-6 w-full  xl:max-w-[650px] text-[16px] leading-[26px] text-(--color-iceblue) lg:text-[18px] lg:leading-[28px]  text-center lg:text-left">
                             {data.description}
                         </p>
 
-                        <div className="mt-10 flex flex-col lg:flex-row lg:ms-[50px] items-center gap-8 xl:gap-[80px]  max-w-[650px]">
+                        <div className="mt-10 flex flex-col lg:flex-row lg:ms-[50px] items-center gap-8 xl:gap-[80px]  w-full  xl:max-w-[650px]">
                             {data.stats.map((stat, index) => (
                                 <div key={stat.id} className={`relative w-full lg:w-fit ${index > 0 ? "pl-0 pt-5 lg:pt-0 xl:pl-[80px] border-t border-white/8 lg:border-none" : ""}`}>
                                     {index > 0 && (
@@ -262,7 +262,7 @@ export default function GlobalHub({ data }: GlobalHubProps) {
                 </div>
             </div>
 
-            <div className="hidden lg:block pointer-events-none absolute top-1/2 right-0 z-[1] aspect-square w-[300px] -translate-y-1/2 translate-x-[50%] sm:w-[420px] lg:w-[760px]">
+            <div className="hidden lg:block pointer-events-none absolute top-1/2 right-0 z-[1] aspect-square w-[300px] -translate-y-1/2 translate-x-[80%] lg:translate-x-[70%] xl:translate-x-[60%] 2xl:translate-x-[50%] sm:w-[420px] lg:w-[760px]">
                 <Image
                     src="/images/home/statastics/earth2.svg"
                     alt=""

@@ -150,6 +150,10 @@ export function MobileMenu({
 
           <Panel {...panelProps("other")} title="Other Services">
             {renderLinks(additionalServices)}
+            <Link href="/other-services" onClick={onNavigate} className={`${rowClass} font-medium`}>
+              View All
+              <ChevronRightIcon className="h-4 w-4 shrink-0" />
+            </Link>
           </Panel>
         </div>
 

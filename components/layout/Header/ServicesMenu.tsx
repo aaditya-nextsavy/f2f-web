@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { coreServices, additionalServices } from "@/lib/navigation";
-import { ContainerIcon } from "@/components/icons";
+import { ContainerIcon, ArrowRightIcon } from "@/components/icons";
 import Image from "next/image";
 
 export function ServicesMenu({ onNavigate }: { onNavigate?: () => void }) {
@@ -91,17 +91,26 @@ export function ServicesMenu({ onNavigate }: { onNavigate?: () => void }) {
               strokeDasharray="4 4"
             />
           </svg>
-          <div className="mt-4 grid grid-cols-2 gap-x-3 2xl:gap-x-6 gap-y-3">
+          <div className="mt-4 grid grid-cols-2 gap-x-3 2xl:gap-x-6 gap-y-3 items-start">
             {additionalServices.map((service) => (
               <Link
                 key={service.label}
                 href={service.href}
                 onClick={onNavigate}
-                className="text-[14px] 2xl:text-[16px] capitalize leading-[24px] font-regular text-(--color-primary) hover:underline underline-offset-4"
+                className="text-[14px] 2xl:text-[16px] capitalize leading-[20px] font-regular text-(--color-primary) hover:underline underline-offset-4"
               >
                 {service.label}
               </Link>
             ))}
+
+            <Link
+              href="/other-services"
+              onClick={onNavigate}
+              className="flex items-center gap-1.5 text-[14px] 2xl:text-[16px] font-medium leading-6 text-(--color-primary) hover:underline underline-offset-4"
+            >
+              View all service
+
+            </Link>
           </div>
         </div>
       </div>

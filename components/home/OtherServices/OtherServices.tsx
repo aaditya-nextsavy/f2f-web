@@ -29,11 +29,11 @@ const OtherServices = ({ title, data }: OtherServicesProps) => {
                 />
 
                 {/* Grid layout - tablet and up */}
-                <div className="mt-10 sm:mt-20 hidden flex-wrap justify-between 2xl:justify-center gap-4 sm:flex lg:mt-[100px] lg:gap-x-6 sm:gap-y-20 lg:gap-y-20">
+                <div className="mt-10 hidden flex-wrap justify-between gap-4 sm:mt-20 sm:flex sm:gap-y-20 lg:mt-[100px] lg:gap-x-6 lg:gap-y-20 2xl:justify-center">
                     {data.map((card) => (
                         <div
                             key={card.id}
-                            className="w-[calc(50%-0.5rem)] md:w-[calc(32%-0.667rem)] 2xl:w-[calc(25%-1.125rem)]"
+                            className="w-[calc(50%-0.5rem)] lg:w-[calc(32%-0.667rem)] 2xl:w-[calc(25%-1.125rem)]"
                         >
                             <ServiceCard
                                 title={card.title}

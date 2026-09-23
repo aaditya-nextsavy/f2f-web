@@ -174,6 +174,13 @@ function ServiceFileCardView({
                     <Splide
                         aria-label={card.title}
                         options={{
+                            // Splide has no `loop` boolean — it's the `type`
+                            // option that must be set to "loop" for infinite
+                            // looping; an unrecognized key like `loop: true`
+                            // is silently ignored (Options has a catch-all
+                            // index signature), so autoplay would otherwise
+                            // just stop dead at the last slide.
+                            type: "loop",
                             perPage: 1,
                             arrows: false,
                             pagination: true,
