@@ -3,7 +3,6 @@
 import type { ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Splide, SplideSlide } from "@splidejs/react-splide";
 import type { PartnerData } from "@/types/home";
 
 interface OurPartnersProps {
@@ -17,13 +16,13 @@ export default function OurPartners({ title, data }: OurPartnersProps) {
         const content = (
 
             <>
-                <div className=" h-[90px] xl:h-max flex justify-center">
+                <div className=" h-[90px] xl:h-[110px] min-[1440px]:h-max flex justify-center">
                     <Image
                         src={partner.image}
                         alt={partner.alt}
                         width={187}
                         height={82}
-                        className="h-full max-w-full xl:h-auto my-auto xl:max-h-[100px] w-auto xl:max-w-full object-contain"
+                        className="h-full max-w-full min-[1440px]:h-auto my-auto min-[1440px]:max-h-[100px] w-auto object-contain"
                     />
                 </div>
             </>
@@ -50,7 +49,7 @@ export default function OurPartners({ title, data }: OurPartnersProps) {
 
                 {/* Desktop */}
 
-                <div className="container mx-auto hidden xl:block">
+                <div className="container mx-auto hidden min-[1440px]:block">
                     <div className="flex w-full items-center justify-between gap-2">
                         {data.map((partner) => (
                             <div key={partner.id} className="flex min-w-0 flex-1 items-center justify-center ">
@@ -61,40 +60,24 @@ export default function OurPartners({ title, data }: OurPartnersProps) {
                 </div>
             </div>
 
-            {/* Below 1280px: full-width slider (outside the container), fewer logos per page as width shrinks */}
-            <div className="block w-full xl:hidden">
-                    <Splide
-                        aria-label="Our Partners"
-                        options={{
-                            type: "loop",
-                            perPage: 6,
-                            perMove: 1,
-                            gap: "8px",
-                            arrows: false,
-                            pagination: false,
-                            drag: true,
-                            autoplay: true,
-                            interval: 2200,
-                            pauseOnHover: false,
-                            pauseOnFocus: false,
-                            speed: 700,
-                            breakpoints: {
-                                1023: { perPage: 5 },
-                                767: { perPage: 4 },
-                                639: { perPage: 3 },
-                                479: { perPage: 2 },
-                            },
-                        }}
-                    >
-                        {data.map((partner) => (
-                            <SplideSlide key={partner.id}>
-                                <div className="aspect-[146/34] flex h-[90px] object-contain items-center justify-center">
-                                    {renderPartner(partner)}
-                                </div>
-                            </SplideSlide>
-                        ))}
-                    </Splide>
+            {/* Below 1440px: full-width continuous marquee (outside the container), fewer logos in view as
+                width shrinks. 1280-1439px shows 5 larger logos - a single row of all 8 is too small there.
+                The list is rendered twice and the track slides by -50%, so the loop is seamless. */}
+            <div className="block w-full overflow-hidden min-[1440px]:hidden" aria-label="Our Partners">
+                <div className="marquee-track-left flex w-max">
+                    {[0, 1].map((copy) =>
+                        data.map((partner) => (
+                            <div
+                                key={`${copy}-${partner.id}`}
+                                aria-hidden={copy === 1 || undefined}
+                                className="flex h-[90px] w-[50vw] shrink-0 items-center justify-center px-1 min-[480px]:w-[33.333vw] sm:w-[25vw] md:w-[20vw] lg:w-[16.666vw] xl:h-[110px] xl:w-[20vw]"
+                            >
+                                {renderPartner(partner)}
+                            </div>
+                        ))
+                    )}
                 </div>
+            </div>
         </section>
     );
 }

@@ -328,6 +328,26 @@ img {
   animation: marqueeUp 32s linear infinite;
 }
 
+@keyframes marqueeLeft {
+  from {
+    transform: translateX(0%);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track-left {
+  animation: marqueeLeft 40s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track-left {
+    animation: none;
+  }
+}
+
 @keyframes stats-twinkle-a {
 
   0%,

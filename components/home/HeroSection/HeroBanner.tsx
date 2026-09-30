@@ -16,14 +16,17 @@ interface HeroBannerProps {
 
 export default function HeroBanner({ title, description, actions, video, placeholder }: HeroBannerProps) {
     return (
-        <section style={{ background: "var(--mobile-hero-gradient)" }} className="relative isolate  max-h-[100vh] 2xl:min-h-[680px] pt-[70px] pb-[40px] h-max md:h-[70vh] lg:h-screen w-full overflow-hidden bg-(--mobile-hero-gradient)">
+        <section style={{ background: "var(--mobile-hero-gradient)" }} className="relative isolate md:max-h-[100vh] 2xl:min-h-[680px] pt-[70px] pb-[40px] h-max md:h-[70vh] lg:h-screen w-full overflow-hidden bg-(--mobile-hero-gradient)">
 
             <div className="hidden lg:block homeBannerBG ">
                 <HeroVideo video={video} placeholder={placeholder} />
             </div>
 
-            {/* Content */}
-            <div className=" flex flex-col h-[stretch] lg:justify-center lg:justify-start  relative z-10 mx-auto w-[calc(100%-48px)] max-w-[1200px] top-[25%] md:top-[20%] lg:top-[7%]  2xl:top-[9%] text-start lg:text-center text-white pt-8 2xl:pt-0 ">
+            {/* Content. No `top` offset below md: the section is content-height
+                there, so a % offset is undefined - newer iOS ignores it, but
+                older Safari (e.g. iPhone SE) applies it, pushing the content
+                down and clipping the buttons. */}
+            <div className=" flex flex-col h-[stretch] lg:justify-center lg:justify-start  relative z-10 mx-auto w-[calc(100%-48px)] max-w-[1200px] top-0 md:top-[20%] lg:top-[7%]  2xl:top-[9%] text-start lg:text-center text-white pt-8 2xl:pt-0 ">
                 <h1 className="text-balance lg:max-w-[70%] xl:max-w-[85%]  2xl:max-w-[90%] mx-auto text-[36px] lg:text-[52px] xl:text-[64px] 2xl:text-[84px] font-extrabold tracking-[-1.5px] lg:tracking-[-3.5px] leading-[44px]  lg:leading-[54px]  2xl:leading-[97px] ">
                     {title}
                 </h1>
