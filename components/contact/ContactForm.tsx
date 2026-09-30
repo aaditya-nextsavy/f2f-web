@@ -7,7 +7,12 @@ import { Button } from "@/components/ui/Button";
 import { serviceOptions } from "@/lib/navigation";
 import { ArrowRightIcon, CheckCircleIcon, AlertCircleIcon } from "@/components/icons";
 import { usePopup } from "@/components/providers/PopupProvider";
-import { validateContactForm, type ContactFormErrors } from "@/lib/validateContactForm";
+import {
+  validateContactForm,
+  sanitizeName,
+  sanitizeQuantity,
+  type ContactFormErrors,
+} from "@/lib/validateContactForm";
 import { getRecaptchaToken } from "@/lib/recaptcha";
 import type { ContactFormValues } from "@/types/contact";
 
@@ -53,7 +58,14 @@ export function ContactForm() {
   const update = (field: keyof ContactFormState) => (
     event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) => {
-    const { value } = event.target;
+    const raw = event.target.value;
+    // Filter as the user types: no digits in names, only numbers in quantity.
+    const value =
+      field === "firstName" || field === "lastName"
+        ? sanitizeName(raw)
+        : field === "cargoQuantity"
+          ? sanitizeQuantity(raw)
+          : raw;
     setForm((prev) => ({ ...prev, [field]: value }));
     setErrors((prev) => (prev[field] ? { ...prev, [field]: undefined } : prev));
   };
@@ -175,9 +187,10 @@ export function ContactForm() {
           />
         </FormField>
 
-        <FormField label="Cargo Quantity (In Tons)">
+        <FormField label="Cargo Quantity (In Tons)" error={errors.cargoQuantity}>
           <input
             type="text"
+            inputMode="decimal"
             placeholder="Enter Cargo Quantity"
             value={form.cargoQuantity}
             onChange={update("cargoQuantity")}

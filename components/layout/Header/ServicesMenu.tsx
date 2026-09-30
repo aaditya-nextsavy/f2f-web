@@ -37,7 +37,7 @@ export function ServicesMenu({ onNavigate }: { onNavigate?: () => void }) {
                 onClick={onNavigate}
                 className="group flex flex-col gap-3"
               >
-                <div className="flex h-auto w-full items-center max-w-[150px] 2xl:max-w-[240px]  aspect-(242/70) justify-center  text-(--color-primary) transition-colors">
+                <div className="flex h-auto w-full items-center max-w-[240px]  aspect-(242/70) justify-center  text-(--color-primary) transition-colors">
 
                   <Image
                     src={service?.iconSrc || "/images/common/menu-fcl.png"}

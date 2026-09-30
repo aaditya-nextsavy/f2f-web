@@ -66,7 +66,7 @@ const PortableTextBody = ({ value }: PortableTextBodyProps) => {
                     id={block._key}
                     className="scroll-mt-32 mt-7 lg:mt-8 [:is(h2,h3)+&]:mt-4 flex items-start gap-3 text-[17px] font-medium leading-[1.35] text-(--color-primary) lg:text-[20px]"
                 >
-                    <span className="mt-2.5 h-2 w-2 shrink-0 rounded-full bg-(--color-indigo)" />
+                    <span className="mt-2.5 h-2 w-2 shrink-0 rounded-full bg-(--color-primary)" />
                     {children}
                 </h4>
             ),
@@ -124,7 +124,7 @@ const PortableTextBody = ({ value }: PortableTextBodyProps) => {
             ),
             number: ({ children, index }) => (
                 <li className="flex items-start gap-3">
-                    <span className="mt-0.5 flex h-[22px] w-[22px] shrink-0 items-center justify-center rounded-full bg-(--color-indigo) text-[12px] font-semibold text-white">
+                    <span className="mt-0.5 flex h-[22px] w-[22px] shrink-0 items-center justify-center rounded-full bg-(--color-primary) text-[12px] font-semibold text-white">
                         {index + 1}
                     </span>
                     <span className={`${paragraphClass} ${listHeadingReset}`}>{children}</span>

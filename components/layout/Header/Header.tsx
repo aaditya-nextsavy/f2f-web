@@ -18,8 +18,50 @@ export function Header() {
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileMenuMounted, setMobileMenuMounted] = useState(false);
+  // Hovering opens the Services menu and moving away closes it; clicking the
+  // button "pins" it open until it's clicked again, the user clicks outside,
+  // presses Escape, or picks a link.
+  const [servicesPinned, setServicesPinned] = useState(false);
   const servicesRef = useRef<HTMLDivElement>(null);
   const servicesCloseTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const cancelServicesClose = () => {
+    if (servicesCloseTimeoutRef.current) {
+      clearTimeout(servicesCloseTimeoutRef.current);
+      servicesCloseTimeoutRef.current = null;
+    }
+  };
+
+  const closeServices = () => {
+    cancelServicesClose();
+    setServicesOpen(false);
+    setServicesPinned(false);
+  };
+
+  const handleServicesEnter = () => {
+    cancelServicesClose();
+    setServicesOpen(true);
+  };
+
+  const handleServicesLeave = () => {
+    if (servicesPinned) return;
+    cancelServicesClose();
+    // Short delay so crossing the gap between the button and the panel
+    // doesn't close it.
+    servicesCloseTimeoutRef.current = setTimeout(() => setServicesOpen(false), 150);
+  };
+
+  const handleServicesClick = () => {
+    cancelServicesClose();
+    if (servicesPinned) {
+      closeServices();
+    } else {
+      setServicesPinned(true);
+      setServicesOpen(true);
+    }
+  };
+
+  useEffect(() => cancelServicesClose, []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -30,39 +72,40 @@ export function Header() {
 
   useEffect(() => {
     if (!servicesOpen) return;
+    const closeServices = () => {
+      setServicesOpen(false);
+      setServicesPinned(false);
+    };
     const onClickOutside = (event: MouseEvent) => {
       if (servicesRef.current && !servicesRef.current.contains(event.target as Node)) {
-        setServicesOpen(false);
+        closeServices();
       }
     };
-    document.addEventListener("mousedown", onClickOutside);
-    return () => document.removeEventListener("mousedown", onClickOutside);
-  }, [servicesOpen]);
-
-  useEffect(() => {
-    return () => {
-      if (servicesCloseTimeoutRef.current) clearTimeout(servicesCloseTimeoutRef.current);
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") closeServices();
     };
-  }, []);
-
-  const openServicesMenu = () => {
-    if (servicesCloseTimeoutRef.current) {
-      clearTimeout(servicesCloseTimeoutRef.current);
-      servicesCloseTimeoutRef.current = null;
-    }
-    setServicesOpen(true);
-  };
-
-  const scheduleCloseServicesMenu = () => {
-    if (servicesCloseTimeoutRef.current) clearTimeout(servicesCloseTimeoutRef.current);
-    servicesCloseTimeoutRef.current = setTimeout(() => setServicesOpen(false), 150);
-  };
+    document.addEventListener("mousedown", onClickOutside);
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("mousedown", onClickOutside);
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [servicesOpen]);
 
   // Stays true until the menu has finished sliding back up, so the bar keeps
   // its "open" look while the content retracts behind it.
   const menuShown = mobileOpen || mobileMenuMounted;
   const isDark = scrolled || menuShown;
   const textColorClass = isDark ? "text-(--color-primary)" : "text-(--color-white)";
+  // Nav pill highlight (hover / active page / open Services menu) is the
+  // inverse of the bar: white pill + blue text on the blue (unscrolled) header,
+  // blue pill + white text on the white (scrolled) header.
+  const navHighlightClass = isDark
+    ? "bg-(--color-primary) text-(--color-white)"
+    : "bg-(--color-white) text-(--color-primary)";
+  const navHoverClass = isDark
+    ? "hover:bg-(--color-primary) hover:text-(--color-white)"
+    : "hover:bg-(--color-white) hover:text-(--color-primary)";
   const burgerLineClass =
     "absolute left-1/2 top-1/2 -mt-px h-[2px] w-[19px] -ml-[9.5px] rounded-full bg-current transition-all duration-300 ease-in-out";
 
@@ -141,25 +184,23 @@ export function Header() {
         </Link>
 
 
-        <nav className="hidden items-center gap-x-4 2xl:gap-x-8.5 lg:flex">
+        <nav className="hidden items-center gap-x-1 2xl:gap-x-1 lg:flex">
           <div
             ref={servicesRef}
             className="relative"
-            onMouseEnter={openServicesMenu}
-            onMouseLeave={scheduleCloseServicesMenu}
+            onMouseEnter={handleServicesEnter}
+            onMouseLeave={handleServicesLeave}
           >
             <button
               type="button"
-
+              onClick={handleServicesClick}
               aria-expanded={servicesOpen}
               className={`flex items-center gap-1.5 rounded-(--radius-full) px-5 py-4.5 text-[16px] 2xl:text-[18px]  max-h-[35px] 2xl:max-h-[49px]  font-normal transition-all ${servicesOpen
-                ? `bg-(--color-lavender-hover) ${isDark ? "text-(--color-primary)" : "text-(--color-white)"}`
-                : `${textColorClass} hover:opacity-80`
+                ? navHighlightClass
+                : `${textColorClass} ${navHoverClass}`
                 }`}
             >
-              <span
-                className="flex gap-3 cursor-pointer items-center"
-                onClick={() => setServicesOpen((open) => !open)}>
+              <span className="flex gap-1 cursor-pointer items-center">
                 Services
                 <ChevronDownIcon
                   className={`h-4 w-4 transition-transform ${servicesOpen ? "rotate-180" : ""}`}
@@ -169,8 +210,8 @@ export function Header() {
 
             </button>
             {servicesOpen && (
-              <div className="absolute  2xl:left-1/2 top-full mt-3 -translate-x-1/2">
-                <ServicesMenu onNavigate={() => setServicesOpen(false)} />
+              <div className="absolute xl:-left-1/2 2xl:-left-12.5  top-full mt-3 md:translate-x-[-45%] xl:-translate-x-[45%] 2xl:-translate-x-[50%]">
+                <ServicesMenu onNavigate={closeServices} />
               </div>
             )}
           </div>
@@ -183,9 +224,9 @@ export function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`inline-flex items-center rounded-(--radius-full) px-5 py-4.5 text-[16px] 2xl:text-[18px] max-h-[35px] 2xl:max-h-[49px] font-normal transition-all ${textColorClass} ${isActive
-                  ? "bg-(--color-lavender-hover) opacity-80"
-                  : "hover:bg-(--color-lavender-hover) hover:opacity-80"
+                className={`inline-flex items-center rounded-(--radius-full) px-5 py-4.5 text-[16px] 2xl:text-[18px] max-h-[35px] 2xl:max-h-[49px] font-normal transition-all ${isActive
+                  ? navHighlightClass
+                  : `${textColorClass} ${navHoverClass}`
                   }`}
               >
                 {link.label}
@@ -193,7 +234,7 @@ export function Header() {
             );
           })}
 
-          <Button className={` text-[14px] 2xl:text-[16px]  max-h-[35px] 2xl:max-h-[48px] ${isDark ? "border-(--color-primary)! text-(--color-primary)! hover:text-white! hover:border-white! " : ""}`} href="/contact">
+          <Button className={` text-[14px] 2xl:text-[16px] ms-4 max-h-[35px] 2xl:max-h-[48px] ${isDark ? "border-(--color-primary)! text-(--color-primary)! hover:text-white! hover:border-white! " : ""}`} href="/contact">
             Contact Us
             <FaArrowRight className="text-[12px] 2xl:text-[16px]" />
           </Button>

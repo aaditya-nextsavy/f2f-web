@@ -8,7 +8,7 @@ type MissionVisionProps = {
 
 export default function MissionVision({ data }: MissionVisionProps) {
     return (
-        <section className="py-16 sm:py-20 lg:pt-[80px] lg:pb-[104px] bg-(--light-indigo-bg) relative overflow-hidden">
+        <section className="max-xl:mb-0 py-16 sm:py-20 lg:pt-[80px] lg:pb-[104px] bg-(--light-indigo-bg) relative overflow-hidden">
             <div className="hidden lg:block pointer-events-none absolute inset-x-0 top-0 h-full w-auto overflow-hidden translate-y-[0px]">
                 <svg
                     className="mt-[30px] h-full w-[300%] lg:w-full "

@@ -76,7 +76,7 @@ export default async function Home() {
           data={homePageData.ourPartners.partners}
         />
         {blogPosts.length > 0 && (
-          <div className="mt-8! sm:mt-12! 2xl:mt-15!">
+          <div className="mt-8! sm:mt-16! ">
             <BlogListing
               title={homePageData.blogListing.sectionTitle}
               data={blogPosts}

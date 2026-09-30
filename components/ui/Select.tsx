@@ -99,7 +99,13 @@ export function Select({ value, onChange, options, placeholder = "Select", inval
             role="option"
             aria-selected={option === value}
             onMouseEnter={() => setHighlighted(index)}
-            onClick={() => selectOption(option)}
+            onClick={(event) => {
+              // This Select sits inside a <label> (FormField). Without this,
+              // the label forwards the click to the combobox button, which
+              // toggles the list straight back open after selecting.
+              event.preventDefault();
+              selectOption(option);
+            }}
             className={`cursor-pointer rounded-(--radius-sm) px-3 py-2 text-(length:--text-body) text-(--color-primary) transition-colors duration-150 capitalize ${option === value
                 ? "bg-(--color-iceblue) font-medium"
                 : highlighted === index

@@ -73,11 +73,11 @@ const TableOfContents = ({ items }: TableOfContentsProps) => {
                             <li key={item.id}>
                                 <a href={`#${item.id}`} title={item.label} className="group flex items-center gap-3">
                                     <span
-                                        className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full border-2 transition-colors duration-300 ${isActive ? "border-(--color-indigo)" : "border-(--color-indigo)/30"
+                                        className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full border-2 transition-colors duration-300 ${isActive ? "border-(--color-primary)" : "border-(--color-primary)/30"
                                             }`}
                                     >
                                         <span
-                                            className={`h-2 w-2 rounded-full transition-colors duration-300 ${isActive ? "bg-(--color-indigo)" : "bg-transparent"
+                                            className={`h-2 w-2 rounded-full transition-colors duration-300 ${isActive ? "bg-(--color-primary)" : "bg-transparent"
                                                 }`}
                                         />
                                     </span>
