@@ -26,9 +26,14 @@ const ImageCard = ({
     return (
         <Link
             href={link?.href || "#"}
+            // Stretches to the grid row (the taller card) so both cards in a
+            // row are the same height. The article grows with its content -
+            // no max-height, which let long descriptions spill past the card.
             className="
                 group
-                block
+                flex
+                flex-col
+                w-full
                 max-w-[828px]
                 mx-auto
             "
@@ -36,9 +41,9 @@ const ImageCard = ({
             <article
                 className="
                     relative
-                    h-max-content
-                    max-h-stretch
-                    2xl:max-h-[400px]
+                    flex
+                    flex-1
+                    flex-col
                     overflow-visible
                     rounded-[10px]
                     mt-[90px]
@@ -117,7 +122,7 @@ const ImageCard = ({
                 </div>
 
                 {/* Content */}
-                <div className="px-5 pb-5 pt-8 sm:px-6 sm:pb-6 lg:px-9.5 lg:pb-9.5">
+                <div className="flex flex-1 flex-col px-5 pb-5 pt-8 sm:px-6 sm:pb-6 lg:px-9.5 lg:pb-9.5">
                     <h3
                         className="
                             text-[28px]
@@ -152,9 +157,13 @@ const ImageCard = ({
 
                     {link?.label && (
                         <div
+                            // mt-auto pins "Learn more" to the card bottom so it
+                            // lines up across cards with different text lengths.
                             className="
-                                mt-5
+                                mt-auto
+                                pt-5
                                 inline-flex
+                                self-start
                                 items-center
                                 gap-1
                                 text-[16px]
