@@ -49,6 +49,21 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${montserrat.variable} h-full antialiased`}
     >
+      <head>
+        {/* Must run before first paint. SmoothScrollProvider always forces
+            the page to the top on load, but it can only switch off the
+            browser's own scroll restoration once React has hydrated - by
+            then the browser has already jumped a refreshed page back to the
+            old (mid-page, mostly white) position, and the provider then
+            snaps it to the top: a visible white blink on every refresh.
+            Turning restoration off here, synchronously in <head>, means the
+            browser never makes that jump. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `if("scrollRestoration" in history)history.scrollRestoration="manual";`,
+          }}
+        />
+      </head>
       <body className="min-h-full flex flex-col">
         <OrganizationJsonLd />
         <WebsiteJsonLd />
