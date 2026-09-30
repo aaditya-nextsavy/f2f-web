@@ -48,7 +48,7 @@ export function Footer() {
   };
 
   return (
-    <footer className={`relative overflow-hidden bg-(--color-primary)  ${isAboutPage ? " mt-[42px] xl:mt-0" : isServicesPage ? "" : " mt-[42px] xl:mt-[92px]"} `}>
+    <footer className={`relative overflow-hidden bg-(--color-primary)  ${isAboutPage ? " mt-0 xl:mt-0" : isServicesPage ? "" : " mt-[42px] xl:mt-[92px]"} `}>
       {/* Desktop background */}
       <Image
         src="/images/common/footer-bg.png"

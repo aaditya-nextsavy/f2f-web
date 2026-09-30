@@ -113,7 +113,7 @@ const HowWeWork = ({ data }: HowWeWorkProps) => {
                 </div>
             </div>
 
-            <div className="container mx-auto mt-8 flex flex-col gap-6 xl:hidden">
+            <div className="container mx-auto mt-8 flex flex-col gap-6 xl:hidden pb-10.5 sm:pb-15 xl:pb-0">
                 {data.points.map((point) => (
                     <div
                         key={point.id}

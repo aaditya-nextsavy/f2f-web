@@ -49,6 +49,7 @@ const ImageCard = ({
                     2xl:pt-[180px]
                     transition-colors
                     duration-300
+                    lg:h-[stretch]
                     ease-in-out
                     group-hover:bg-(--color-primary)
                 "
