@@ -50,13 +50,11 @@ const OtherServices = ({ title, data }: OtherServicesProps) => {
                     <Splide
                         ref={splideRef}
                         options={{
-                            type: "loop",
                             perPage: 1,
                             gap: "1rem",
                             padding: { right: "2.5rem" },
                             pagination: false,
                             arrows: false,
-                            center: true,
                             drag: true,
                             autoHeight: true,
                         }}

@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { flushSync } from "react-dom";
 import Image from "next/image";
 import { FaCheck, FaChevronDown } from "react-icons/fa6";
 import SectionTitle from "@/components/common/SectionTitle/SectionTitle";
@@ -14,6 +15,25 @@ interface HowItWorksProps {
 
 const HowItWorks = ({ title, paragraphs, steps }: HowItWorksProps) => {
     const [expanded, setExpanded] = useState(false);
+    const toggleRef = useRef<HTMLButtonElement>(null);
+
+    const handleToggle = () => {
+        if (!expanded) {
+            setExpanded(true);
+            return;
+        }
+
+        // Collapsing removes height above the button, so without correction
+        // the page shifts up under the reader and they land in a later
+        // section. Keep the button at the same spot on screen instead.
+        const button = toggleRef.current;
+        const before = button?.getBoundingClientRect().top ?? 0;
+        flushSync(() => setExpanded(false));
+        const after = button?.getBoundingClientRect().top ?? 0;
+        if (after !== before) {
+            window.scrollBy({ top: after - before, behavior: "instant" });
+        }
+    };
 
     return (
         <section className="how-it-works xl:mt-[-92px]">
@@ -131,8 +151,9 @@ const HowItWorks = ({ title, paragraphs, steps }: HowItWorksProps) => {
                         </p>
 
                         <button
+                            ref={toggleRef}
                             type="button"
-                            onClick={() => setExpanded((prev) => !prev)}
+                            onClick={handleToggle}
                             className="mt-3 inline-flex items-center gap-1.5 text-[14px] font-medium text-(--color-primary)"
                         >
                             {expanded ? "Read Less" : "Read More"}

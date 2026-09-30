@@ -30,6 +30,7 @@ const ImageCard = ({
                 group
                 block
                 max-w-[828px]
+                mx-auto
             "
         >
             <article

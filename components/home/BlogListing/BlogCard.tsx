@@ -20,7 +20,7 @@ const BlogCard = ({ post, featured = false }: BlogCardProps) => {
     if (featured) {
         return (
             <article className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:items-center lg:gap-[62px]">
-                <div className="relative w-full overflow-hidden rounded-[24px] xl:aspect-[880/495]">
+                <div className="relative w-full overflow-hidden rounded-[24px] aspect-[880/495]">
                     <Image
                         src={post.image}
                         alt={post.title}
@@ -79,8 +79,11 @@ const BlogCard = ({ post, featured = false }: BlogCardProps) => {
             {/* Fixed to exactly 3 lines (line-height 24px) regardless of the
                 actual description length, so cards with a short excerpt don't
                 collapse and cards with a long one don't grow — every row in
-                the grid ends up the same height. */}
-            <p className="mt-2 line-clamp-3 min-h-[72px] flex-1 text-[15px] leading-[24px] text-(--color-primary)">
+                the grid ends up the same height. The paragraph must not flex-grow:
+                if it's stretched taller than 3 lines (e.g. slides equalised to
+                the tallest card), a partially clipped 4th line shows. `mb-auto`
+                takes the spare height instead, keeping buttons aligned. */}
+            <p className="mt-2 mb-auto line-clamp-3 min-h-[72px] text-[15px] leading-[24px] text-(--color-primary)">
                 {post.description}
             </p>
 

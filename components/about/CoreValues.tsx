@@ -54,7 +54,7 @@ export default function CoreValues({ data }: CoreValuesProps) {
                                 </div>
 
                                 <div>
-                                    <p className="text-[16px] leading-[28px] text-(--color-primary)/65 lg:text-[18px] lg:ps-[18px] lg:pe-[15%]">
+                                    <p className="text-[16px] leading-[28px] text-(--color-primary)/65 lg:text-[18px] lg:pe-[15%]">
                                         {value.descp}
                                     </p>
                                 </div>

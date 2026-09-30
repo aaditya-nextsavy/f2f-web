@@ -251,9 +251,23 @@ export default function ServicesFiles({
         window.addEventListener("hashchange", applyHash);
         window.addEventListener("app:locationchange", applyHash);
 
+        // Backup for links on this same page (footer, header, mobile menu):
+        // open the card straight from the click, so it never depends on the
+        // history patch noticing the hash change.
+        const onLinkClick = (event: MouseEvent) => {
+            const anchor = (event.target as Element | null)?.closest?.("a[href*='#']");
+            if (!(anchor instanceof HTMLAnchorElement)) return;
+            const url = new URL(anchor.href);
+            if (url.pathname !== window.location.pathname) return;
+            const id = url.hash.replace("#", "");
+            if (data.cards.some((card) => card.id === id)) setActiveId(id);
+        };
+        document.addEventListener("click", onLinkClick);
+
         return () => {
             window.removeEventListener("hashchange", applyHash);
             window.removeEventListener("app:locationchange", applyHash);
+            document.removeEventListener("click", onLinkClick);
         };
     }, [data.cards]);
 

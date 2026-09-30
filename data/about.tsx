@@ -131,26 +131,22 @@ export const aboutPageData: AboutPageData = {
         missionTitle: "Our Mission",
         body: (
             <>
-                To deliver shipping solutions with{" "}
-                <strong>precision, transparency, and reliability</strong>. We
-                ensure every shipment is managed with{" "}
-                <strong>
-                    clear communication, predictable timelines, and full
-                    visibility
-                </strong>{" "}
+                To deliver shipping solutions with
+                precision, transparency, and reliability. We
+                ensure every shipment is managed with
+                clear communication, predictable timelines, and full
+                visibility
+
                 from origin to destination.
             </>
         ),
         visionTitle: "Our Vision",
         visionBody: (
             <>
-                To be a trusted <strong>
-                    <i>
-                        global shipping partner known for consistent execution, operational clarity,
-                    </i>
-                </strong>{" "} and <strong>
-                    <i> dependable delivery
-                    </i> </strong> {" "} across every route and every customer interaction.
+                To be a trusted
+                global shipping partner known for consistent execution, operational clarity,
+                and dependable delivery
+                across every route and every customer interaction.
             </>
         ),
         image: {

@@ -254,7 +254,7 @@ const BannerType2 = ({
             border-white/20
         `}
                         >
-                            <p className="max-w-[100%] 2xl:max-w-[70%]">
+                            <p className="max-w-[100%] lg:max-w-[70%]">
                                 {description}
                             </p>
                         </div>

@@ -121,6 +121,11 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
         // Without that guard, one of those unrelated internal calls would
         // periodically force Lenis's scroll back to the top mid-browse -
         // which is exactly what looked like a random "scroll block".
+        // Tracks the URL hash as of the last history change of *any* kind -
+        // including real page navigations. If it only updated on same-page
+        // changes, it would go stale across pages: open #air-freight on
+        // /other-services, leave, come back, click "Air freight" in the footer,
+        // and the hash would wrongly look unchanged, so the tab never opened.
         let lastHash = window.location.hash;
 
         const syncScroll = () => {
@@ -149,6 +154,7 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
             const before = window.location.pathname;
             const result = pushState.apply(this, args);
             if (window.location.pathname === before) maybeNotify();
+            else lastHash = window.location.hash;
             return result;
         }
 
@@ -156,6 +162,7 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
             const before = window.location.pathname;
             const result = replaceState.apply(this, args);
             if (window.location.pathname === before) maybeNotify();
+            else lastHash = window.location.hash;
             return result;
         }
 
