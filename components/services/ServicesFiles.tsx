@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 
 import Image from "next/image";
 
@@ -33,7 +33,7 @@ function ServiceFileCardView({
 
     return (
         <div
-            className={`h-max min-[991px]:h-full rounded-[42px] p-8 lg:p-14 ${isDark
+            className={`h-auto rounded-[42px] p-8 lg:p-14 ${isDark
                 ? "bg-(--color-primary)"
                 : "bg-(--color-iceblue)"
                 }`}
@@ -281,6 +281,33 @@ export default function ServicesFiles({
         );
     };
 
+    const containerRef = useRef<HTMLDivElement>(null);
+    const cardRefs = useRef<Record<string, HTMLDivElement | null>>({});
+
+    // Desktop: size the cards container to the active card (and follow it
+    // as its images load or the window resizes). Below 991px every card is
+    // stacked in flow, so the height is left to the layout.
+    useLayoutEffect(() => {
+        const container = containerRef.current;
+        const active = activeId ? cardRefs.current[activeId] : null;
+        if (!container || !active) return;
+
+        const desktop = window.matchMedia("(min-width: 991px)");
+        const update = () => {
+            container.style.height = desktop.matches ? `${active.offsetHeight}px` : "";
+        };
+
+        update();
+        const observer = new ResizeObserver(update);
+        observer.observe(active);
+        desktop.addEventListener("change", update);
+
+        return () => {
+            observer.disconnect();
+            desktop.removeEventListener("change", update);
+        };
+    }, [activeId]);
+
     const activeIndex = Math.max(
         data.cards.findIndex((card) => card.id === activeId),
         0
@@ -347,10 +374,14 @@ export default function ServicesFiles({
                 })}
             </div>
 
-            {/* Cards — on desktop all cards share one grid cell, so the
-                container is as tall as the tallest card and every card
-                stretches to that height; switching tabs never resizes it. */}
-            <div className="relative flex flex-col gap-10 min-[991px]:grid min-[991px]:gap-0 z-[2]">
+            {/* Cards — on desktop only the active card is in flow; the others
+                are stacked absolutely on top (faded out), so the container is
+                exactly as tall as the active card instead of the tallest one.
+                Its height is animated between cards (see the effect above). */}
+            <div
+                ref={containerRef}
+                className="relative flex flex-col gap-10 min-[991px]:block min-[991px]:overflow-hidden min-[991px]:transition-[height] min-[991px]:duration-500 min-[991px]:ease-in-out z-[2]"
+            >
                 {data.cards.map((card, index) => {
                     const isDark = index % 2 === 1;
                     const isActive =
@@ -360,9 +391,12 @@ export default function ServicesFiles({
                         <div
                             key={card.id}
                             id={card.id}
+                            ref={(el) => {
+                                cardRefs.current[card.id] = el;
+                            }}
                             className={`scroll-mt-[110px] min-[991px]:scroll-mt-[150px] 2xl:scroll-mt-[180px] ${isActive
-                                ? "relative opacity-100 transition-opacity duration-500 ease-in-out min-[991px]:[grid-area:1/1]"
-                                : "relative opacity-100 transition-opacity duration-500 ease-in-out min-[991px]:[grid-area:1/1] min-[991px]:pointer-events-none min-[991px]:opacity-0"
+                                ? "relative opacity-100 transition-opacity duration-500 ease-in-out"
+                                : "relative opacity-100 transition-opacity duration-500 ease-in-out min-[991px]:absolute min-[991px]:inset-x-0 min-[991px]:top-0 min-[991px]:pointer-events-none min-[991px]:opacity-0"
                                 }`}
                         >
                             <ServiceFileCardView

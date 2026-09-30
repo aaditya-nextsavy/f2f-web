@@ -49,8 +49,8 @@ export const footerLinkGroups: { title: string; links: NavLink[] }[] = [
   {
     title: "Company",
     links: [
-      { label: "Privacy policy", href: "/privacy-policy", newPage: true },
-      { label: "Terms & Condition", href: "/terms-and-conditions", newPage: true },
+      { label: "Privacy policy", href: "/privacy-policy" },
+      { label: "Terms & Condition", href: "/terms-and-conditions" },
     ],
   },
 ];

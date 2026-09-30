@@ -80,7 +80,7 @@ const HowWeWork = ({ data }: HowWeWorkProps) => {
                                         />
                                     )}
 
-                                    <h3 className={`text-[28px] leading-[28px] font-semibold tracking-[-0.5px] text-(--color-primary) capitalize ${point.highlight ? "bg-(--color-yellow) p-3 w-max" : ""}`}>
+                                    <h3 className={`text-[28px] leading-[28px] font-semibold tracking-[-0.5px] text-(--color-primary) capitalize pt-3 ${point.highlight ? "bg-(--color-yellow) p-3 w-max" : ""}`}>
                                         {point.title}
                                     </h3>
 
@@ -119,7 +119,7 @@ const HowWeWork = ({ data }: HowWeWorkProps) => {
                         key={point.id}
                         className="rounded-(--radius-lg)  p-6 border border-(--color-primary) bg-(--how-we-work-bg)"
                     >
-                        <h3 className={`text-[20px] leading-[24px] font-semibold tracking-[-0.4px] text-(--color-primary) capitalize ${point.highlight ? "bg-(--color-yellow) p-3 w-max" : ""}`}>
+                        <h3 className={`text-[20px] leading-[24px] font-semibold tracking-[-0.4px] text-(--color-primary) capitalize pt-3 ${point.highlight ? "bg-(--color-yellow) p-3 w-max" : ""}`}>
                             {point.title}
                         </h3>
 
