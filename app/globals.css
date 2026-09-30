@@ -386,7 +386,7 @@ img {
     opacity: 0.25;
   }
 
-  @media (min-height: 768px) {
+  @media (min-height: 670px) {
     opacity: 1;
   }
 }
