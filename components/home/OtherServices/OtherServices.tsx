@@ -12,9 +12,11 @@ import type { SectionTitleData, ServiceCardData } from "@/types/home";
 interface OtherServicesProps {
     title: SectionTitleData;
     data: ServiceCardData[];
+    /** Cards per row on large screens (2xl). Defaults to 4. */
+    maxPerRow?: 3 | 4;
 }
 
-const OtherServices = ({ title, data }: OtherServicesProps) => {
+const OtherServices = ({ title, data, maxPerRow = 4 }: OtherServicesProps) => {
     const splideRef = useRef<Splide>(null);
     const [activeIndex, setActiveIndex] = useState(0);
 
@@ -33,7 +35,7 @@ const OtherServices = ({ title, data }: OtherServicesProps) => {
                     {data.map((card) => (
                         <div
                             key={card.id}
-                            className="w-[calc(50%-0.5rem)] lg:w-[calc(32%-0.667rem)] 2xl:w-[calc(25%-1.125rem)]"
+                            className={`w-[calc(50%-0.5rem)] lg:w-[calc(32%-0.667rem)] ${maxPerRow === 3 ? "2xl:w-[calc(33.333%-1rem)]" : "2xl:w-[calc(25%-1.125rem)]"}`}
                         >
                             <ServiceCard
                                 title={card.title}

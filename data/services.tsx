@@ -178,17 +178,17 @@ export const servicesPageData: ServicesPageData = {
                         href: "/other-services",
                     },
                 },
-                {
-                    id: 4,
-                    title: "Multimodal Transport Operator (MTO)",
-                    description:
-                        "End to end multimodal transport handled with control, ensuring smooth transitions and consistent timelines.",
-                    image: "/images/common/multimodal.png",
-                    link: {
-                        label: "Learn more",
-                        href: "/other-services",
-                    },
-                },
+                // {
+                //     id: 4,
+                //     title: "Multimodal Transport Operator (MTO)",
+                //     description:
+                //         "End to end multimodal transport handled with control, ensuring smooth transitions and consistent timelines.",
+                //     image: "/images/common/multimodal.png",
+                //     link: {
+                //         label: "Learn more",
+                //         href: "/other-services",
+                //     },
+                // },
             ],
         },
 
@@ -493,17 +493,17 @@ export const servicesPageData: ServicesPageData = {
                         href: "/other-services",
                     },
                 },
-                {
-                    id: 4,
-                    title: "Warehousing & Distribution",
-                    description:
-                        "Secure storage and organized distribution ensure your cargo stays protected, visible, and ready for delivery.",
-                    image: "/images/common/warehousing.png",
-                    link: {
-                        label: "Learn more",
-                        href: "/other-services",
-                    },
-                },
+                // {
+                //     id: 4,
+                //     title: "Warehousing & Distribution",
+                //     description:
+                //         "Secure storage and organized distribution ensure your cargo stays protected, visible, and ready for delivery.",
+                //     image: "/images/common/warehousing.png",
+                //     link: {
+                //         label: "Learn more",
+                //         href: "/other-services",
+                //     },
+                // },
             ],
         },
 
@@ -871,18 +871,18 @@ export const servicesPageData: ServicesPageData = {
                         href: "/other-services",
                     },
                 },
-                {
-                    id: 4,
-                    title: <>Full Container Load <br /> (FCL)</>,
-                    alt: "Full Container Load (FCL)",
-                    description:
-                        "Shared container shipping coordinated with accuracy, visibility, and dependable handling across international routes. ",
-                    image: "/images/common/fcl-service.png",
-                    link: {
-                        label: "Learn more",
-                        href: "/other-services",
-                    },
-                },
+                // {
+                //     id: 4,
+                //     title: <>Full Container Load <br /> (FCL)</>,
+                //     alt: "Full Container Load (FCL)",
+                //     description:
+                //         "Shared container shipping coordinated with accuracy, visibility, and dependable handling across international routes. ",
+                //     image: "/images/common/fcl-service.png",
+                //     link: {
+                //         label: "Learn more",
+                //         href: "/other-services",
+                //     },
+                // },
             ],
         },
 

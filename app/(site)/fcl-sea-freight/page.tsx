@@ -52,6 +52,7 @@ export default function Page() {
                 <OtherServices
                     title={otherServicesSection.sectiontitle}
                     data={otherServicesSection.cards}
+                    maxPerRow={3}
                 />
             )}
 
