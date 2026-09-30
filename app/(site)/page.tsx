@@ -84,11 +84,13 @@ export default async function Home() {
             />
           </div>
         )}
+        <div className="md:mt-15! lg:mt-20! ">
+          <Faqs
+            title={homePageData.faqs.sectionTitle}
+            data={homePageData.faqs.faqs}
+          />
+        </div>
 
-        <Faqs
-          title={homePageData.faqs.sectionTitle}
-          data={homePageData.faqs.faqs}
-        />
       </main>
 
       <FaqJsonLd faqs={homePageData.faqs.faqs} />

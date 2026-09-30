@@ -129,7 +129,7 @@ const Industries = ({ title, data, tightBottom = true }: IndustriesProps) => {
 
                                 {/* Icon area */}
                                 <div className="absolute inset-x-0 top-0 flex h-[58%] items-center justify-center">
-                                    <div className="relative size-18 md:size-14 xl:size-[75px] 2xl:size-22 mt-[40px] md:mt-0 sm:opacity-20 md:opacity-100">
+                                    <div className="relative size-18 md:size-14 xl:size-[65px] 2xl:size-22 mt-[40px] md:mt-0 sm:opacity-20 md:opacity-100">
                                         <Image
                                             src={card.image}
                                             alt=""
@@ -156,7 +156,7 @@ const Industries = ({ title, data, tightBottom = true }: IndustriesProps) => {
                                     card has more room, so it goes back to justify-end (the
                                     original bottom-anchored layout) — justify-start there was
                                     clipping longer descriptions past the fixed-height box. */}
-                                <div className="absolute inset-x-0 bottom-0 z-10 flex h-[42%] flex-col justify-start md:justify-end p-3 pt-4 md:py-5 md:px-2 xl:py-8 xl:px-3">
+                                <div className="absolute inset-x-0 bottom-0 z-10 flex h-[42%] flex-col justify-start p-3 pt-4 md:justify-end md:px-2 md:py-5 xl:px-3 min-[1550px]:py-8">
                                     <h3 className="text-[18px] xl:text-xl font-semibold leading-[20px] text-(--color-primary) md:text-[20px]">
                                         {typeof card.title === "string"
                                             ? card.title.charAt(0).toUpperCase() + card.title.slice(1)
