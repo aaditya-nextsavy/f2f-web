@@ -500,7 +500,10 @@ export function Footer() {
                     aria-expanded={isOpen}
                     className="flex w-full items-center font-semibold justify-between gap-4 text-left lg:pointer-events-none lg:cursor-default"
                   >
-                    <span className="text-[18px] font-normal text-white">
+                    <span
+                      className={`text-[18px] font-normal text-white transition-opacity duration-300 ${hoveredLink !== null ? "opacity-50" : "opacity-100"
+                        }`}
+                    >
                       {group.title}
                     </span>
 

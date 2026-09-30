@@ -22,11 +22,13 @@ function Panel({
   active,
   covered,
   title,
+  footer,
   children,
 }: {
   active: boolean;
   covered: boolean;
   title?: string;
+  footer: ReactNode;
   children: ReactNode;
 }) {
   return (
@@ -36,13 +38,14 @@ function Panel({
       className={`absolute inset-0 overflow-y-auto overflow-x-hidden transition-transform duration-300 ease-in-out ${active ? "translate-x-0" : covered ? "-translate-x-full" : "translate-x-full"
         }`}
     >
-      <div className="container pt-4">
+      <div className="container pb-11 pt-4">
         {title && (
           <p className="pt-3 text-[12px] font-semibold uppercase tracking-[0.4px] text-white">
             {title}
           </p>
         )}
         {children}
+        <div className="mt-9">{footer}</div>
       </div>
     </div>
   );
@@ -75,9 +78,16 @@ export function MobileMenu({
     return false;
   };
 
+  const contactButton = (
+    <Button variant="yellow" href="/contact" onClick={onNavigate} className="w-full">
+      Contact Us
+    </Button>
+  );
+
   const panelProps = (panel: View) => ({
     active: view === panel,
     covered: isCovered(panel),
+    footer: contactButton,
   });
 
   const renderLinks = (links: NavLink[]) =>
@@ -93,7 +103,7 @@ export function MobileMenu({
       onTransitionEnd={(event) => {
         if (event.target === event.currentTarget && !open) onClosed?.();
       }}
-      className={`border-t border-(--indigo-border) bg-(--color-primary) lg:hidden transition-transform duration-300 ease-in-out ${visualOpen ? "translate-y-0" : "-translate-y-full"
+      className={`relative z-0 border-t border-(--indigo-border) bg-(--color-primary) lg:hidden transition-transform duration-300 ease-in-out ${visualOpen ? "translate-y-0" : "-translate-y-full"
         }`}
     >
       <div className="flex h-[calc(100vh-70px)] flex-col overflow-hidden">
@@ -155,12 +165,6 @@ export function MobileMenu({
               <ChevronRightIcon className="h-4 w-4 shrink-0" />
             </Link>
           </Panel>
-        </div>
-
-        <div className="container pb-11 pt-4">
-          <Button variant="yellow" href="/contact" onClick={onNavigate} className="w-full">
-            Contact Us
-          </Button>
         </div>
       </div>
     </div>

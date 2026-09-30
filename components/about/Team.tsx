@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 
 import Image from "next/image";
 
@@ -33,6 +33,48 @@ const TeamCard = ({
     toggleBio: (id: string | number) => void;
 }) => {
     const isExpanded = expandedId === member.id;
+    const wrapRef = useRef<HTMLDivElement>(null);
+    const bioRef = useRef<HTMLParagraphElement>(null);
+    const isFirstRun = useRef(true);
+    // The 3-line clamp (with its ellipsis) is only re-applied once the
+    // collapse animation has finished, so the text isn't cut off mid-slide.
+    const [clamped, setClamped] = useState(!isExpanded);
+    const [prevExpanded, setPrevExpanded] = useState(isExpanded);
+    if (prevExpanded !== isExpanded) {
+        setPrevExpanded(isExpanded);
+        if (isExpanded) setClamped(false);
+    }
+
+    // Animate the bio wrapper between its clamped and full height. The
+    // wrapper is pinned to explicit pixel heights only during the transition
+    // and handed back to `auto` afterwards so it still reflows on resize.
+    useLayoutEffect(() => {
+        if (isFirstRun.current) {
+            isFirstRun.current = false;
+            return;
+        }
+        const wrap = wrapRef.current;
+        const bio = bioRef.current;
+        if (!wrap || !bio) return;
+
+        // The clamp is already off by the time this runs, so the collapsed
+        // height is computed rather than read from the DOM.
+        const collapsedHeight = Math.min(
+            bio.scrollHeight,
+            parseFloat(getComputedStyle(bio).lineHeight) * 3,
+        );
+        const start = isExpanded ? collapsedHeight : wrap.offsetHeight;
+        const end = isExpanded ? bio.scrollHeight : collapsedHeight;
+        if (start === end) return;
+
+        wrap.style.height = `${start}px`;
+        void wrap.offsetHeight; // commit the start height before animating
+        wrap.style.height = `${end}px`;
+    }, [isExpanded]);
+
+    useLayoutEffect(() => {
+        if (clamped && wrapRef.current) wrapRef.current.style.height = "";
+    }, [clamped]);
 
     return (
         <article className="flex h-full flex-col text-(--color-primary)">
@@ -69,22 +111,31 @@ const TeamCard = ({
             />
 
             {/* Bio */}
-            <div className="relative">
+            <div
+                ref={wrapRef}
+                onTransitionEnd={(event) => {
+                    if (event.target !== event.currentTarget || event.propertyName !== "height") return;
+                    if (isExpanded) event.currentTarget.style.height = "";
+                    else setClamped(true);
+                }}
+                className="relative overflow-hidden transition-[height] duration-300 ease-in-out"
+            >
                 <p
-                    className={`text-[16px] leading-[24px] text-(--color-primary) lg:text-[18px] lg:leading-[24px] ${isExpanded ? "" : "lg:line-clamp-3"
+                    ref={bioRef}
+                    className={`whitespace-pre-line text-[16px] leading-[24px] text-(--color-primary) lg:text-[18px] lg:leading-[24px] ${clamped ? "line-clamp-3" : ""
                         }`}
                 >
                     {member.bio}
                 </p>
             </div>
 
-            {/* Read More (desktop only; full bio is shown below 1024px) */}
+            {/* Read More */}
             {member.link?.label && (
                 <button
                     type="button"
                     onClick={() => toggleBio(member.id)}
                     aria-expanded={isExpanded}
-                    className="mt-1 hidden w-fit cursor-pointer lg:flex items-center gap-2 text-[14px] leading-[32px] font-semibold uppercase tracking-[0.5px] text-(--color-primary) transition-opacity duration-300 hover:opacity-70 hover:underline"
+                    className="mt-1 flex w-fit cursor-pointer items-center gap-2 text-[14px] leading-[32px] font-semibold uppercase tracking-[0.5px] text-(--color-primary) transition-opacity duration-300 hover:opacity-70 hover:underline"
                 >
                     <span>
                         {isExpanded

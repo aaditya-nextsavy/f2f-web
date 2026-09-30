@@ -375,10 +375,12 @@ const StatisticsVisual = () => {
             {/* Glowing accent stars - inlined so mix-blend-mode reacts to the
                 real navy background; kept outside any opacity/transform
                 ancestor so the blend never gets isolated away (see comment
-                on GLOW_STARS_SVG above). */}
+                on GLOW_STARS_SVG above). Hidden below md: mobile browsers
+                (iOS Safari) don't blend these paths and paint them as dark
+                blobs instead. */}
             <div
                 aria-hidden="true"
-                className="pointer-events-none absolute inset-0 [&>svg]:h-full [&>svg]:w-full"
+                className="pointer-events-none absolute inset-0 hidden md:block [&>svg]:h-full [&>svg]:w-full"
                 dangerouslySetInnerHTML={{ __html: GLOW_STARS_SVG }}
             />
 

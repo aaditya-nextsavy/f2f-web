@@ -39,9 +39,9 @@ export const aboutPageData: AboutPageData = {
                 id: "puja-bhatt",
                 name: "Ms. Puja Bhatt",
                 role: "Director",
-                bio: "Puja Bhatt is a Director and licensed customs broker with a Bachelor's degree in Law and strong experience in international trade and logistics compliance.",
+                bio: "Puja Bhatt is a Director and Licensed Customs Broker with a Bachelor's degree in Law and strong experience in international trade and logistics. She has sound knowledge of international shipping documentation, customs procedures, and trade compliances, ensuring smooth and timely handling of shipments.\n\nHer strong rapport with overseas agents and international partners enables effective coordination for seamless cargo movement, while her expertise contributes to providing efficient and reliable service to customers.",
                 image: {
-                    src: "/images/about/team1.png",
+                    src: "/images/about/puja-bhatt.jpeg",
                     alt: "Ms. Puja Bhatt, Director",
                 },
                 link: { label: "Read More", href: "#" },
@@ -50,7 +50,7 @@ export const aboutPageData: AboutPageData = {
                 id: "umang-desai",
                 name: "Mr. Umang Desai",
                 role: "Director",
-                bio: "Umang Desai is a Director with a Master's degree in International Business from Australia and strong expertise in international marketing and business development.",
+                bio: "Umang Desai is a Director with a Master's degree in International Business from Australia and strong expertise in international marketing and business development. He brings a global perspective to the organization, with a keen understanding of international markets, customer relationships, and business opportunities.\n\nHis strong communication and relationship-building skills help develop and strengthen international partnerships and client networks, contributing to the company's growth and global presence.",
                 image: {
                     src: "/images/about/team-2.png",
                     alt: "Mr. Umang Desai, Director",
@@ -58,13 +58,13 @@ export const aboutPageData: AboutPageData = {
                 link: { label: "Read More", href: "#" },
             },
             {
-                id: "purivn-jariwala",
-                name: "Mr. Purivn Jariwala",
+                id: "purvin-jariwala",
+                name: "Mr. Purvin Jariwala",
                 role: "Director",
-                bio: "Purivn Jariwala holds a Bachelor's degree in Commerce and brings extensive experience in customs clearance and related procedures, ensuring smooth documentation.",
+                bio: "Purvin Jariwala holds a Bachelor's degree in Commerce and brings extensive experience in customs clearance and related procedures. He has in-depth knowledge of customs requirements and efficiently manages the complete customs clearance process, ensuring timely documentation, coordination, and compliance.\n\nHis hands-on experience and strong understanding of customs operations give the organization an added edge in delivering efficient, responsive, and reliable service to customers, ensuring smooth and timely cargo clearance.",
                 image: {
                     src: "/images/about/team3.png",
-                    alt: "Mr. Purivn Jariwala, Director",
+                    alt: "Mr. Purvin Jariwala, Director",
                 },
                 link: { label: "Read More", href: "#" },
             },
@@ -72,7 +72,7 @@ export const aboutPageData: AboutPageData = {
                 id: "jeni-desai",
                 name: "Ms. Jeni Desai",
                 role: "Director",
-                bio: "Jeni Desai holds a Bachelor's degree in Computer Science and oversees the organization's customer service and human resources functions.",
+                bio: "Jeni Desai holds a Bachelor's degree in Computer Science and oversees the organization's customer service and human resources functions. She plays a key role in ensuring strong customer relationships, responsive service, and effective coordination across teams.\n\nHer focus on customer satisfaction and people management helps foster a service-oriented work culture, while ensuring that both clients and employees receive the attention and support required for smooth and efficient operations.",
                 image: {
                     src: "/images/about/team4.png",
                     alt: "Ms. Jeni Desai, Director",

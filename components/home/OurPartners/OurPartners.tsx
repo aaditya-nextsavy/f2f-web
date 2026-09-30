@@ -17,13 +17,13 @@ export default function OurPartners({ title, data }: OurPartnersProps) {
         const content = (
 
             <>
-                <div className=" h-[70px] xl:h-max flex justify-center">
+                <div className=" h-[90px] xl:h-max flex justify-center">
                     <Image
                         src={partner.image}
                         alt={partner.alt}
                         width={187}
                         height={82}
-                        className="h-full max-w-full xl:h-auto my-auto xl:max-h-[72px] w-auto xl:max-w-[170px] object-contain"
+                        className="h-full max-w-full xl:h-auto my-auto xl:max-h-[100px] w-auto xl:max-w-full object-contain"
                     />
                 </div>
             </>
@@ -51,9 +51,9 @@ export default function OurPartners({ title, data }: OurPartnersProps) {
                 {/* Desktop */}
 
                 <div className="container mx-auto hidden xl:block">
-                    <div className="flex w-full items-center justify-between">
+                    <div className="flex w-full items-center justify-between gap-2">
                         {data.map((partner) => (
-                            <div key={partner.id} className="flex flex-1 items-center justify-center ">
+                            <div key={partner.id} className="flex min-w-0 flex-1 items-center justify-center ">
                                 {renderPartner(partner)}
                             </div>
                         ))}
@@ -69,7 +69,7 @@ export default function OurPartners({ title, data }: OurPartnersProps) {
                             type: "loop",
                             perPage: 6,
                             perMove: 1,
-                            gap: "12px",
+                            gap: "8px",
                             arrows: false,
                             pagination: false,
                             drag: true,
@@ -88,7 +88,7 @@ export default function OurPartners({ title, data }: OurPartnersProps) {
                     >
                         {data.map((partner) => (
                             <SplideSlide key={partner.id}>
-                                <div className="aspect-[146/34] flex h-[70px] object-contain items-center justify-center">
+                                <div className="aspect-[146/34] flex h-[90px] object-contain items-center justify-center">
                                     {renderPartner(partner)}
                                 </div>
                             </SplideSlide>

@@ -129,7 +129,7 @@ const Industries = ({ title, data, tightBottom = true }: IndustriesProps) => {
 
                                 {/* Icon area */}
                                 <div className="absolute inset-x-0 top-0 flex h-[58%] items-center justify-center">
-                                    <div className="relative size-18 md:size-14 2xl:size-22 mt-[40px] md:mt-0 sm:opacity-20 md:opacity-100">
+                                    <div className="relative size-18 md:size-14 xl:size-[75px] 2xl:size-22 mt-[40px] md:mt-0 sm:opacity-20 md:opacity-100">
                                         <Image
                                             src={card.image}
                                             alt=""

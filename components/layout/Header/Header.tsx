@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { Logo } from "@/components/ui/Logo";
 import { Button } from "@/components/ui/Button";
 import { mainNav } from "@/lib/navigation";
-import { ChevronDownIcon, MenuIcon, CloseIcon, ArrowRightIcon } from "@/components/icons";
+import { ChevronDownIcon, ArrowRightIcon } from "@/components/icons";
 import { ServicesMenu } from "./ServicesMenu";
 import { MobileMenu } from "./MobileMenu";
 import { FaArrowRight } from "react-icons/fa6";
@@ -58,19 +58,27 @@ export function Header() {
     servicesCloseTimeoutRef.current = setTimeout(() => setServicesOpen(false), 150);
   };
 
-  const isDark = scrolled || mobileOpen;
+  // Stays true until the menu has finished sliding back up, so the bar keeps
+  // its "open" look while the content retracts behind it.
+  const menuShown = mobileOpen || mobileMenuMounted;
+  const isDark = scrolled || menuShown;
   const textColorClass = isDark ? "text-(--color-primary)" : "text-(--color-white)";
+  const burgerLineClass =
+    "absolute left-1/2 top-1/2 -mt-px h-[2px] w-[19px] -ml-[9.5px] rounded-full bg-current transition-all duration-300 ease-in-out";
 
   return (
     <header
-      className={`fixed border-b border-(--light-border) inset-x-0 top-0 z-(--z-header) transition-colors duration-300 ${isDark ? "bg-(--color-white) shadow-sm" : "bg-transparent"
+      className={`fixed border-b border-(--light-border) inset-x-0 top-0 z-(--z-header) transition-colors duration-300 ${scrolled ? "bg-(--color-white) shadow-sm" : "bg-transparent"
         }`}
     >
-      <div className={` ${mobileOpen ? "bg-(--color-primary) text-white" : ""} container flex h-[72px] items-center justify-between 2xl:h-[92px] `}>
+      {/* The header's own background follows scroll only (not the menu), so
+          closing the menu just fades this bar's blue out instead of flashing
+          the white header background on and off. */}
+      <div className={` ${menuShown ? "bg-(--color-primary) text-white" : "bg-transparent"} relative z-10 container flex transition-colors duration-300 h-[72px] items-center justify-between 2xl:h-[92px] `}>
 
 
-        <Link href="/">
-          {!scrolled || mobileOpen ? (
+        <Link href="/" onClick={() => setMobileOpen(false)}>
+          {!scrolled || menuShown ? (
             <> <svg className="h-[26px] w-[142px] 2xl:h-[47px] 2xl:w-[205px]" viewBox="0 0 255 47" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path fillRule="evenodd" clipRule="evenodd" d="M0.134766 17.6223V28.7014H17.5756C24.9914 28.7014 23.4807 28.8349 29.5232 23.0951C34.7418 18.0227 36.3897 18.6901 46.2774 18.6901H60.285V7.34399H47.788C34.8791 7.47748 42.1575 17.6223 15.241 17.6223H0.134766Z" fill="white" />
               <path fillRule="evenodd" clipRule="evenodd" d="M0 35.5044V46.5836C5.76783 46.5836 11.673 46.5836 17.5781 46.5836C21.5607 46.5836 21.6981 45.5157 23.6207 43.6469C32.4097 35.1039 28.9765 36.4388 42.4348 36.4388H60.2876V25.3596C54.3824 25.3596 48.6146 25.3596 42.7094 25.3596C38.1776 25.3596 36.5296 28.2962 32.2724 32.4342C30.8991 33.7691 29.9378 35.3709 26.7792 35.3709L0 35.5044Z" fill="white" />
@@ -199,9 +207,13 @@ export function Header() {
           }}
           aria-expanded={mobileOpen}
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
-          className={`inline-flex items-center justify-center lg:hidden ${textColorClass}`}
+          className={`inline-flex items-center justify-center lg:hidden ${menuShown ? "text-white" : textColorClass}`}
         >
-          {mobileOpen ? <CloseIcon className="h-7 w-7 text-white" /> : <MenuIcon className="h-7 w-7" />}
+          <span aria-hidden="true" className="relative block h-7 w-7">
+            <span className={`${burgerLineClass} ${mobileOpen ? "translate-y-0 rotate-45" : "-translate-y-[6px]"}`} />
+            <span className={`${burgerLineClass} ${mobileOpen ? "scale-x-0 opacity-0" : "opacity-100"}`} />
+            <span className={`${burgerLineClass} ${mobileOpen ? "translate-y-0 -rotate-45" : "translate-y-[6px]"}`} />
+          </span>
         </button>
       </div>
 

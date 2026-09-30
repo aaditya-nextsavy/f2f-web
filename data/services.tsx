@@ -9,7 +9,7 @@ export const servicesPageData: ServicesPageData = {
                 "Dedicated full container load shipping with clear updates and structured execution — direct container space for cargo that requires consistency and control.",
         },
         bannerData: {
-            label: "Sea Freight",
+            label: "Full Container Load (FCL)",
             title: "Dedicated Shipping with Full Control",
             description:
                 "Direct container shipping for cargo that requires consistency, space, and streamlined movement. Clear updates and structured execution keep every shipment moving forward.",
@@ -39,7 +39,7 @@ export const servicesPageData: ServicesPageData = {
 
         servicesList: {
             sectiontitle: {
-                label: "Our Services",
+                label: "FCL Service",
                 title: "What You Get With FCL Shipping",
             },
             image: "/images/services/fcl-services.png",
