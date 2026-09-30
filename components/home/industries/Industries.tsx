@@ -120,15 +120,27 @@ const Industries = ({ title, data, tightBottom = true }: IndustriesProps) => {
                     }}
                 >
                     {data.map((card) => (
-                        <SplideSlide key={card.id}>
-                            <article className="group relative aspect-square overflow-hidden border-r border-t border-b border-(--color-primary) bg-(--cards-bg) transition-colors duration-300 ease-in-out hover:bg-(--color-iceblue)">
+                        <SplideSlide key={card.id} className="flex flex-col">
+                            {/* The ratio is the *minimum* size, not a fixed box. The slide
+                                is a flex *column*: width comes from the slide (so the card
+                                can never be wider than it), height starts at the ratio,
+                                grows to fit longer copy (no overflow-hidden), and `grow`
+                                fills the slide - Splide stretches every slide to the
+                                tallest one, so the row stays even. (A flex *row* here let
+                                the ratio turn the stretched height into extra width, which
+                                pushed text into the next card.) 1440-1799px shows 5 narrow
+                                cards per view (each 20vw wide), so they get a taller
+                                minimum there: 1.25x the card width minus 50px. */}
+                            <article className="group relative flex min-w-0 grow aspect-square min-[1440px]:max-[1799px]:aspect-auto min-[1440px]:max-[1799px]:min-h-[calc(25vw-50px)] flex-col border-r border-t border-b border-(--color-primary) bg-(--cards-bg) transition-colors duration-300 ease-in-out hover:bg-(--color-iceblue)">
                                 {/* Number */}
                                 <span className="absolute left-3 top-5 z-20 text-[14px] font-bold leading-[32px] text-(--color-primary)">
                                     {String(card.id).padStart(2, "0")}
                                 </span>
 
-                                {/* Icon area */}
-                                <div className="absolute inset-x-0 top-0 flex h-[58%] items-center justify-center">
+                                {/* Icon area - in flow, and sized from the card's width
+                                    (100:58) so it's the same 58% of a square card as
+                                    before, and identical across all cards in the row. */}
+                                <div className="relative flex aspect-[100/58] w-full shrink-0 items-center justify-center overflow-hidden">
                                     <div className="relative size-18 md:size-14 xl:size-[65px] 2xl:size-22 mt-[40px] md:mt-0 sm:opacity-20 md:opacity-100">
                                         <Image
                                             src={card.image}
@@ -148,15 +160,12 @@ const Industries = ({ title, data, tightBottom = true }: IndustriesProps) => {
                                     </div>
                                 </div>
 
-                                {/* Content area: justify-start only on mobile, so every card's
-                                    h3 begins at the same fixed offset from the top of this box
-                                    regardless of whether the title wraps to one or two lines
-                                    (bottom-anchoring made the title's start position float based
-                                    on its own + the paragraph's combined height). From md up the
-                                    card has more room, so it goes back to justify-end (the
-                                    original bottom-anchored layout) — justify-start there was
-                                    clipping longer descriptions past the fixed-height box. */}
-                                <div className="absolute inset-x-0 bottom-0 z-10 flex h-[42%] flex-col justify-start p-3 pt-4 md:justify-end md:px-2 md:py-5 xl:px-3 min-[1550px]:py-8">
+                                {/* Content area: top-anchored at every size, directly under
+                                    the fixed-ratio icon area, so every card's title starts at
+                                    the same height whether it wraps to one or two lines. Extra
+                                    height (from a taller neighbour) collects below the text,
+                                    and longer copy grows the card instead of being clipped. */}
+                                <div className="relative z-10 flex flex-1 flex-col justify-start px-3 pb-5 pt-4 md:px-2 md:pt-2 xl:px-3 min-[1550px]:pb-8">
                                     <h3 className="text-[18px] xl:text-xl font-semibold leading-[20px] text-(--color-primary) md:text-[20px]">
                                         {typeof card.title === "string"
                                             ? card.title.charAt(0).toUpperCase() + card.title.slice(1)
