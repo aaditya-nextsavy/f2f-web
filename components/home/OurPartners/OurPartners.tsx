@@ -17,13 +17,13 @@ export default function OurPartners({ title, data }: OurPartnersProps) {
         const content = (
 
             <>
-                <div className=" h-[55px] lg:h-max flex justify-center">
+                <div className=" h-[70px] xl:h-max flex justify-center">
                     <Image
                         src={partner.image}
                         alt={partner.alt}
-                        width={200}
-                        height={60}
-                        className="h-auto my-auto opacity-50  lg:max-h-[52px] w-auto lg:max-w-[180px] object-cover my-0"
+                        width={187}
+                        height={82}
+                        className="h-full max-w-full xl:h-auto my-auto xl:max-h-[72px] w-auto xl:max-w-[170px] object-contain"
                     />
                 </div>
             </>
@@ -43,29 +43,33 @@ export default function OurPartners({ title, data }: OurPartnersProps) {
 
     return (
         <section className=" w-full overflow-hidden mt-[50px] lg:mt-[0px]">
-            <div className="mx-auto flex h-full max-w-[1440px] flex-col items-center justify-center px-5">
+            <div className="mx-auto flex h-full  flex-col items-center justify-center px-5">
                 <h3 className="mb-8 text-center text-[24px] leading-[34px] font-medium text-(--color-primary)">
                     {title}
                 </h3>
 
                 {/* Desktop */}
-                <div className="hidden w-full items-center justify-between lg:flex">
-                    {data.map((partner) => (
-                        <div key={partner.id} className="flex flex-1 items-center justify-center ">
-                            {renderPartner(partner)}
-                        </div>
-                    ))}
-                </div>
 
-                {/* Mobile */}
-                <div className="block w-full lg:hidden">
+                <div className="container mx-auto hidden xl:block">
+                    <div className="flex w-full items-center justify-between">
+                        {data.map((partner) => (
+                            <div key={partner.id} className="flex flex-1 items-center justify-center ">
+                                {renderPartner(partner)}
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+
+            {/* Below 1280px: full-width slider (outside the container), fewer logos per page as width shrinks */}
+            <div className="block w-full xl:hidden">
                     <Splide
                         aria-label="Our Partners"
                         options={{
                             type: "loop",
-                            perPage: 2,
+                            perPage: 6,
                             perMove: 1,
-                            gap: "24px",
+                            gap: "12px",
                             arrows: false,
                             pagination: false,
                             drag: true,
@@ -74,18 +78,23 @@ export default function OurPartners({ title, data }: OurPartnersProps) {
                             pauseOnHover: false,
                             pauseOnFocus: false,
                             speed: 700,
+                            breakpoints: {
+                                1023: { perPage: 5 },
+                                767: { perPage: 4 },
+                                639: { perPage: 3 },
+                                479: { perPage: 2 },
+                            },
                         }}
                     >
                         {data.map((partner) => (
                             <SplideSlide key={partner.id}>
-                                <div className="aspect-[146/34] flex h-[55px] object-contain items-center justify-center">
+                                <div className="aspect-[146/34] flex h-[70px] object-contain items-center justify-center">
                                     {renderPartner(partner)}
                                 </div>
                             </SplideSlide>
                         ))}
                     </Splide>
                 </div>
-            </div>
         </section>
     );
 }

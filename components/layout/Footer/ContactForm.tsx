@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { usePathname } from "next/navigation";
 import { FormField, fieldControlClass } from "@/components/ui/FormField";
 import { Select } from "@/components/ui/Select";
 import { Button } from "@/components/ui/Button";
@@ -49,6 +50,14 @@ export function ContactForm() {
   const [errors, setErrors] = useState<ContactFormErrors>({});
   const [submitting, setSubmitting] = useState(false);
   const { openPopup } = usePopup();
+
+  // The footer persists across navigations, so clear stale validation errors on route change.
+  const pathname = usePathname();
+  const [prevPathname, setPrevPathname] = useState(pathname);
+  if (pathname !== prevPathname) {
+    setPrevPathname(pathname);
+    setErrors({});
+  }
 
   const update = (field: keyof ContactFormState) => (
     event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
